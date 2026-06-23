@@ -54,3 +54,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.priceCard,.galleryItem,.timeline article,.servicePanel,.inquiryPanel,.faqGrid details').forEach(el => observer.observe(el));
+
+const mobileMenuButton = document.querySelector('.mobileMenuButton');
+const mainNav = document.querySelector('.topbar nav');
+if (mobileMenuButton && mainNav) {
+  mobileMenuButton.addEventListener('click', () => mainNav.classList.toggle('is-open'));
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('is-open')));
+}
