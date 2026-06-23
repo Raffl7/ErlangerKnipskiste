@@ -61,3 +61,140 @@ if (mobileMenuButton && mainNav) {
   mobileMenuButton.addEventListener('click', () => mainNav.classList.toggle('is-open'));
   mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('is-open')));
 }
+
+// v23: Galerie-Klick ohne Layout-Sprung
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  function fallbackSvg(label){
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675"><rect width="1200" height="675" fill="#17110f"/><rect x="55" y="55" width="1090" height="565" fill="none" stroke="#f7ead2" stroke-width="14"/><text x="600" y="320" text-anchor="middle" fill="#f7ead2" font-family="Arial" font-size="68" font-weight="700">Platzhalter</text><text x="600" y="385" text-anchor="middle" fill="#d7c2a3" font-family="Arial" font-size="32">${label||''}</text></svg>`)}`;
+  }
+  document.querySelectorAll('.galleryItem').forEach(item=>{
+    item.addEventListener('click', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      const caption = item.dataset.caption || '';
+      const src = item.dataset.large || item.querySelector('img')?.getAttribute('src') || fallbackSvg(caption);
+      if(lightbox && lightboxImage && lightboxCaption){
+        lightboxImage.src = src;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden','false');
+        document.body.classList.add('lightbox-open');
+      }
+    });
+  });
+  document.querySelector('.lightboxClose')?.addEventListener('click',()=>{
+    lightbox?.classList.remove('is-open');
+    document.body.classList.remove('lightbox-open');
+  });
+})();
+
+
+// v24: Lightbox robust schließen + Anfrage markieren
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  const close = document.querySelector('.lightboxClose');
+  function unlockScroll(){
+    document.body.classList.remove('lightbox-open');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+  }
+  function closeLightboxFully(){
+    if(lightbox){
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden','true');
+    }
+    unlockScroll();
+  }
+  close?.addEventListener('click', closeLightboxFully);
+  lightbox?.addEventListener('click', (e)=>{
+    if(e.target === lightbox) closeLightboxFully();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeLightboxFully();
+  });
+
+  function highlightAnfrage(){
+    const box = document.querySelector('#anfrage');
+    if(!box) return;
+    setTimeout(()=>{
+      box.classList.remove('pulseHighlight');
+      void box.offsetWidth;
+      box.classList.add('pulseHighlight');
+    }, 380);
+  }
+
+  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
+    el.addEventListener('click', highlightAnfrage);
+  });
+})();
+
+
+// v25: FAQ ganze Box klickbar + Anfrage erst nach Scroll markieren
+(function(){
+  document.querySelectorAll('.faqGrid details').forEach((details)=>{
+    details.addEventListener('click', (e)=>{
+      if(e.target.tagName.toLowerCase() === 'summary') return;
+      e.preventDefault();
+      details.open = !details.open;
+    });
+  });
+
+  function highlightAnfrageDelayed(){
+    const box = document.querySelector('#anfrage');
+    if(!box) return;
+    setTimeout(()=>{
+      box.classList.remove('pulseHighlight');
+      void box.offsetWidth;
+      box.classList.add('pulseHighlight');
+    }, 850);
+  }
+
+  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
+    el.addEventListener('click', highlightAnfrageDelayed);
+  });
+})();
+
+
+// v26: Anfrage-Markierung kontrolliert, langsam, nur ein Durchlauf
+(function(){
+  function pulseInquiryOnce(){
+    const box = document.querySelector('#anfrage');
+    if(!box) return;
+    setTimeout(()=>{
+      box.classList.remove('pulseHighlight');
+      void box.offsetWidth;
+      box.classList.add('pulseHighlight');
+      setTimeout(()=>box.classList.remove('pulseHighlight'), 2600);
+    }, 950);
+  }
+
+  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
+    el.addEventListener('click', pulseInquiryOnce, {capture:true});
+  });
+})();
+
+
+// v30: Anfrage-Puls bereinigt - nur einmal, keine alte doppelte Animation
+(function(){
+  function pulseOnceClean(event){
+    const link = event.target.closest && event.target.closest('a[href="#anfrage"], [data-highlight-anfrage]');
+    if(!link) return;
+
+    event.stopImmediatePropagation();
+
+    const box = document.querySelector('#anfrage');
+    if(!box) return;
+
+    setTimeout(()=>{
+      box.classList.remove('pulseHighlight', 'pulseHighlightOnce');
+      void box.offsetWidth;
+      box.classList.add('pulseHighlightOnce');
+      setTimeout(()=>box.classList.remove('pulseHighlightOnce'), 1800);
+    }, 950);
+  }
+
+  document.addEventListener('click', pulseOnceClean, true);
+})();
