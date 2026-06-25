@@ -198,3 +198,100 @@ if (mobileMenuButton && mainNav) {
 
   document.addEventListener('click', pulseOnceClean, true);
 })();
+
+
+// v31: Anfrage-Animation nur einmal und ohne doppeltes altes Blinken
+(function(){
+  function cleanRequestGlow(e){
+    const trigger = e.target.closest && e.target.closest('a[href="#anfrage"], [data-highlight-anfrage]');
+    if(!trigger) return;
+    e.stopImmediatePropagation();
+
+    const box = document.querySelector('#anfrage');
+    if(!box) return;
+
+    setTimeout(()=>{
+      box.classList.remove('pulseHighlight','pulseHighlightOnce','requestGlow');
+      void box.offsetWidth;
+      box.classList.add('requestGlow');
+      setTimeout(()=>box.classList.remove('requestGlow'), 1450);
+    }, 720);
+  }
+
+  document.addEventListener('click', cleanRequestGlow, true);
+
+  document.querySelectorAll('.inlineImageTag[data-large]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      if(lightbox && lightboxImage && lightboxCaption){
+        lightboxImage.src = el.dataset.large;
+        lightboxCaption.textContent = 'Requisiten Auswahl';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden','false');
+      }
+    });
+  });
+})();
+
+
+// Formspree AJAX Fix: kein mailto, kein E-Mail-Programm
+(function(){
+  const form = document.getElementById('bookingForm') || document.querySelector('form[action*="formspree"]');
+  if (!form) return;
+
+  form.setAttribute('action', 'https://formspree.io/f/mnjkpbgq');
+  form.setAttribute('method', 'POST');
+
+  const status = document.getElementById('formStatus');
+  const button = form.querySelector('button[type="submit"], button:not([type]), input[type="submit"]');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    if (status) {
+      status.className = 'formStatus is-loading';
+      status.textContent = 'Anfrage wird gesendet...';
+    }
+    if (button) {
+      button.disabled = true;
+      button.dataset.originalText = button.textContent;
+      button.textContent = 'Wird gesendet...';
+    }
+
+    try {
+      const response = await fetch('https://formspree.io/f/mnjkpbgq', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        if (status) {
+          status.className = 'formStatus is-success';
+          status.textContent = '✓ Vielen Dank! Deine Anfrage wurde versendet. Ich melde mich schnellstmöglich.';
+        }
+        form.reset();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const msg = data?.errors?.[0]?.message || 'Das hat leider nicht geklappt. Bitte versuche es erneut oder schreib direkt per E-Mail.';
+        if (status) {
+          status.className = 'formStatus is-error';
+          status.textContent = msg;
+        }
+      }
+    } catch (err) {
+      if (status) {
+        status.className = 'formStatus is-error';
+        status.textContent = 'Keine Verbindung möglich. Bitte versuche es erneut.';
+      }
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = button.dataset.originalText || 'Anfrage senden';
+      }
+    }
+  }, true);
+})();

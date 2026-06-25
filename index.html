@@ -61,6 +61,10 @@
         <h2>Unsere Fotobox zum leihen und Feiern</h2>
         <p>Wir bieten eine Fotobox zum Verleih an. Unsere Fotobox ist selbstgebaut und besteht aus einem Stativ, einem 20 Zoll Bildschirm, einer Spiegelreflexkamera (Canon EOS 1200D) und einem Studioblitz. Zusätzlich kümmern wir uns um lustige Requisiten, einen sauberen Hintergrund und einen reibungslosen Ablauf. Für deine Feier können Gäste die Box einfach über einen Touchscreen bedienen. Nach dem Drücken auf das Display startet ein Timer und 1-4 Bilder werden geschossen. Die Bilder können dann entweder einzeln, oder als Collage heruntergeladen werden. Der Download funktioniert ganz einfach per QR-Code. Auf vielen Feiern hat unsere Fotobox bereits für viel Spaß gesorgt. Vielleicht wird die Knipskiste auch eine Attraktion bei deiner nächsten Feier!</p>
         <div class="placeholderList">
+          <span class="inlineImageTag" data-large="assets/gallery_group.jpg">Eventbilder</span>
+          <span class="inlineImageTag" data-large="assets/design_hockey.jpg">Designbeispiel Hockey</span>
+          <span class="inlineImageTag" data-large="assets/design_xmas.jpg">Designbeispiel Weihnachten</span>
+          <span class="inlineImageTag" data-large="assets/requisiten.jpg">Requisiten-Bild</span>
           <span>Canon EOS 1200D</span>
           <span>Studioblitz</span>
           <span>Hintergrundsystem</span>
@@ -125,6 +129,8 @@
     <section id="galerie" class="gallery dark reveal">
       <h2>▧ Galerie</h2>
       <div class="galleryGrid">
+        <button class="galleryItem tilt-left realGalleryImage" type="button" data-large="assets/gallery_group.jpg" data-caption="Gäste mit Requisiten"><img src="assets/gallery_group.jpg" alt="Gäste mit Requisiten"></button>
+        <button class="galleryItem tilt-right realGalleryImage" type="button" data-large="assets/photobox_setup_real.jpg" data-caption="Fotobox im Einsatz"><img src="assets/photobox_setup_real.jpg" alt="Fotobox im Einsatz"></button>
         <button class="galleryItem tilt-left" type="button" data-large="assets/fotobox_setup.jpg" data-caption="Fotobox Setup"><img src="assets/fotobox_setup.jpg" alt="Fotobox Setup"></button>
         <button class="galleryItem tilt-right" type="button" data-large="assets/background_system.jpg" data-caption="Hintergrundsystem & Aufbau"><img src="assets/background_system.jpg" alt="Hintergrundsystem & Aufbau"></button>
         <button class="galleryItem tilt-left" type="button" data-large="assets/inside_box.jpg" data-caption="Technik in der Fotobox"><img src="assets/inside_box.jpg" alt="Technik in der Fotobox"></button>
@@ -132,7 +138,7 @@
         <button class="galleryItem placeholderCard" type="button" data-placeholder="true" data-caption="Platzhalter: Beispielbild Hochzeit"><span>Platzhalter</span><small>Beispielbild Hochzeit</small></button>
         <button class="galleryItem placeholderCard" type="button" data-placeholder="true" data-caption="Platzhalter: Beispielbild Firmenfeier"><span>Platzhalter</span><small>Beispielbild Firmenfeier</small></button>
         <button class="galleryItem placeholderCard" type="button" data-placeholder="true" data-caption="Platzhalter: Ausdruck / Printlayout"><span>Platzhalter</span><small>Ausdruck / Printlayout</small></button>
-        <button class="galleryItem placeholderCard" type="button" data-placeholder="true" data-caption="Platzhalter: Requisiten Detail"><span>Platzhalter</span><small>Requisiten Detail</small></button>
+        <button class="galleryItem tilt-right" type="button" data-large="assets/requisiten.jpg" data-caption="Requisiten Auswahl"><img src="assets/requisiten.jpg" alt="Requisiten Auswahl"></button>
         <button class="galleryItem placeholderCard" type="button" data-placeholder="true" data-caption="Platzhalter: Fotostreifen Design"><span>Platzhalter</span><small>Fotostreifen Design</small></button>
       </div>
       
@@ -169,7 +175,9 @@
 
           <section id="anfrage" class="inquiryPanel">
             <h2><span>✦</span> Anfrage stellen <span>✦</span></h2>
-            <form action="mailto:hallo@erlanger-knipskiste.de" method="post" enctype="text/plain">
+            <form id="bookingForm" action="https://formspree.io/f/mnjkpbgq" method="POST">
+<input type="hidden" name="_subject" value="Neue Anfrage Erlanger Knipskiste">
+<input type="hidden" name="_captcha" value="false">
               <input name="Name" placeholder="Dein Name *" required>
               <input name="Email" type="email" placeholder="E-Mail-Adresse *" required>
               <input name="Telefon" placeholder="Telefonnummer optional">
@@ -181,6 +189,7 @@
               </select>
               <textarea name="Nachricht" placeholder="Weitere Infos: Anlass, Uhrzeit, Gästezahl, Wunschdesign, Druckwunsch ..."></textarea>
               <button type="submit">Anfrage senden</button>
+              <div id="formStatus" class="formStatus" aria-live="polite"></div>
             </form>
           </section>
         </aside>
@@ -213,8 +222,8 @@
         <div class="designPreview panelBlock">
           <h3>Design-Beispiele</h3>
           <div class="designCards">
-            <div class="designCard galleryItem" data-placeholder="true" data-caption="Custom Design Hochzeit"><small>Hochzeit</small><strong>Anna & Max</strong><em>12.08.2026</em></div>
-            <div class="designCard galleryItem" data-placeholder="true" data-caption="Custom Design Geburtstag"><small>Geburtstag</small><strong>80s Party</strong><em>Retro Layout</em></div>
+            <div class="designCard galleryItem realImageCard" data-large="assets/design_hockey.jpg" data-caption="Hockeyturnier Design"><img src="assets/design_hockey.jpg" alt="Hockeyturnier Design"></div>
+            <div class="designCard galleryItem realImageCard" data-large="assets/design_xmas.jpg" data-caption="Weihnachtsfeier Design"><img src="assets/design_xmas.jpg" alt="Weihnachtsfeier Design"></div>
             <div class="designCard galleryItem" data-placeholder="true" data-caption="Custom Design Firma"><small>Firma</small><strong>[Logo]</strong><em>Corporate Design</em></div>
             <div class="designCard galleryItem" data-placeholder="true" data-caption="Custom Design Platzhalter"><small>Platzhalter</small><strong>Foto-Overlay</strong><em>Beispielbild</em></div>
           </div>
@@ -225,7 +234,7 @@
     <section id="ueber-uns" class="aboutSection dark">
       <div class="aboutGrid">
         <div class="aboutImages">
-          <div class="aboutPhoto real"><img src="assets/fotobox_setup.jpg" alt="Erlanger Knipskiste Fotobox Aufbau"></div>
+          <div class="aboutPhoto real"><img src="assets/photobox_setup_real.jpg" alt="Erlanger Knipskiste Fotobox aufgebaut"></div>
           <div class="aboutPhoto placeholder">Bild<br><small>Person / Team</small></div>
           <div class="aboutPhoto placeholder">Bild<br><small>Requisiten</small></div>
         </div>
