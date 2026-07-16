@@ -3513,3 +3513,735 @@ button[disabled]{
   opacity:.7;
   cursor:wait !important;
 }
+
+/* --- v39: Bildmarke in Navigation + echte Custom-Design-Beispiele --- */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:0 0 auto;
+  text-decoration:none;
+}
+.brandMark{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 52px;
+}
+.brand .logo{
+  min-width:190px!important;
+}
+.designCard.realImageCard img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.designCard.realImageCard{
+  overflow:hidden;
+  cursor:zoom-in;
+}
+@media(max-width:1100px){
+  .brandMark{width:44px;height:44px;flex-basis:44px}
+  .brand{gap:8px}
+  .brand .logo{min-width:175px!important}
+}
+@media(max-width:900px){
+  .brandMark{width:40px;height:40px;flex-basis:40px}
+  .brand .logo{min-width:162px!important}
+}
+
+
+/* v40: gerades Navbar-Logo, Stern entfernt, Footer-Links und Impressum-Popup */
+.brand .logo span,
+.brand .logo strong,
+.footer .logo span,
+.footer .logo strong{
+  transform:none !important;
+  rotate:0deg !important;
+}
+.brand .logo i,
+.footer .logo i{display:none !important;}
+.footerLinks a,
+.footerTextButton{
+  color:var(--cream);
+  text-decoration:none;
+  font:inherit;
+  line-height:1.7;
+}
+.footerLinks a:hover,
+.footerTextButton:hover{text-decoration:underline;}
+.footerTextButton{
+  display:inline;
+  width:auto;
+  margin:0;
+  padding:0;
+  border:0;
+  background:none;
+  cursor:pointer;
+  text-align:left;
+}
+.legalModal{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(4px);
+}
+.legalModal.is-open{display:flex;}
+.legalModalPanel{
+  position:relative;
+  width:min(680px,100%);
+  max-height:min(82vh,760px);
+  overflow:auto;
+  padding:34px 38px;
+  color:#17110f;
+  background:#f5ead6;
+  border:2px solid #c65f3e;
+  box-shadow:14px 14px 0 rgba(198,95,62,.32),0 24px 70px rgba(0,0,0,.45);
+}
+.legalModalPanel h2{margin:0 50px 18px 0;font-size:44px;}
+.legalModalPanel p{line-height:1.6;}
+.legalModalPanel a{color:#7f3522;}
+.legalModalClose{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:44px;
+  height:44px;
+  margin:0;
+  padding:0;
+  background:#c65f3e;
+  color:#111;
+  font-size:30px;
+  line-height:1;
+}
+.legalNotice{
+  margin-top:22px;
+  padding:14px;
+  border-left:4px solid #c65f3e;
+  background:rgba(198,95,62,.1);
+}
+body.modal-open{overflow:hidden;}
+@media(max-width:600px){
+  .legalModal{padding:12px;}
+  .legalModalPanel{padding:28px 22px;}
+  .legalModalPanel h2{font-size:36px;}
+}
+
+/* Mehrseitige Website */
+.topbar nav a.active{color:var(--terracotta);position:relative}.topbar nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;background:currentColor;border-radius:2px}
+.subpageHero{min-height:390px;display:grid;place-items:center;text-align:center;padding:150px 7vw 80px;background:radial-gradient(circle at 50% 10%,rgba(197,112,80,.18),transparent 35%),#f4ead9}.subpageHero>div{max-width:880px}.subpageHero h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(3.2rem,8vw,6.8rem);line-height:.93;margin:.2em 0;color:#231713;letter-spacing:.02em}.subpageHero .lead{max-width:760px;margin:0 auto 28px}.subpageSection{padding-top:80px}
+.pageTeasers{padding:100px 6vw}.teaserGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1400px;margin:45px auto 0}.teaserCard{display:flex;flex-direction:column;min-height:290px;padding:32px;background:#fffaf1;border:1px solid rgba(59,35,27,.14);box-shadow:0 15px 35px rgba(43,27,21,.08);text-decoration:none;color:inherit;transition:.25s transform,.25s box-shadow}.teaserCard:hover{transform:translateY(-7px);box-shadow:0 22px 45px rgba(43,27,21,.15)}.teaserCard span{font-family:"Bebas Neue";font-size:3rem;color:var(--terracotta)}.teaserCard h3{font-size:1.45rem;margin:8px 0}.teaserCard p{line-height:1.7;flex:1}.teaserCard b{color:var(--terracotta)}.pageCta{text-align:center;padding:100px 7vw}.pageCta h2{font-size:clamp(2.2rem,5vw,4.5rem);margin:.15em 0}.pageCta p:not(.script){max-width:640px;margin:0 auto 30px;font-size:1.08rem}
+@media(max-width:1050px){.teaserGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.subpageHero{padding-top:125px;min-height:340px}.teaserGrid{grid-template-columns:1fr}.teaserCard{min-height:230px}.topbar nav a.active::after{display:none}}
+
+
+/* v42: kompaktere Mehrseiten-Navigation und klar erkennbare aktive Seite */
+.topbar{
+  height:72px !important;
+  gap:20px !important;
+  padding:0 4vw !important;
+}
+.brand{gap:8px !important;}
+.brandMark{width:42px !important;height:42px !important;flex-basis:42px !important;}
+.brand .logo{min-width:154px !important;}
+.brand .logo span{font-size:15px !important;letter-spacing:3px !important;}
+.brand .logo strong{font-size:32px !important;}
+.topbar nav{gap:8px !important;align-items:center !important;}
+.topbar nav a{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:8px 13px;
+  border:1px solid transparent;
+  border-radius:4px;
+  font-size:16px !important;
+  line-height:1;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.topbar nav a:hover{
+  color:#fff6e4;
+  background:rgba(198,95,62,.16);
+  border-color:rgba(198,95,62,.38);
+}
+.topbar nav a.active,
+.topbar nav a[aria-current="page"]{
+  color:#111 !important;
+  background:var(--rust) !important;
+  border-color:var(--rust) !important;
+  box-shadow:4px 4px 0 rgba(0,0,0,.28);
+  transform:translateY(-1px);
+}
+.topbar nav a.active::after,
+.topbar nav a[aria-current="page"]::after{display:none !important;}
+.topbar .navbtn{
+  padding:10px 16px !important;
+  font-size:16px !important;
+  box-shadow:5px 5px 0 rgba(0,0,0,.22) !important;
+  white-space:nowrap;
+}
+
+.subpageHero{
+  min-height:275px !important;
+  padding:92px 6vw 44px !important;
+}
+.subpageHero>div{max-width:760px !important;}
+.subpageHero h1{
+  font-size:clamp(2.9rem,6vw,5.3rem) !important;
+  margin:.12em 0 !important;
+}
+.subpageHero .lead{
+  max-width:680px !important;
+  margin:0 auto 18px !important;
+  font-size:17px !important;
+  line-height:1.5 !important;
+}
+.subpageSection{padding-top:44px !important;}
+.pageTeasers{padding:62px 6vw !important;}
+.teaserGrid{gap:16px !important;margin-top:28px !important;max-width:1220px !important;}
+.teaserCard{min-height:220px !important;padding:24px !important;}
+.teaserCard span{font-size:2.45rem !important;}
+.teaserCard h3{font-size:1.25rem !important;}
+.teaserCard p{line-height:1.55 !important;font-size:15px !important;}
+.pageCta{padding:62px 7vw !important;}
+.pageCta h2{font-size:clamp(2rem,4vw,3.7rem) !important;}
+.pageCta p:not(.script){margin-bottom:22px !important;}
+
+/* Inhalte auf den Unterseiten etwas dichter, ohne sie zu quetschen */
+.pricing,.gallery,.serviceProcess,.faqWide,.customDesignSection,.aboutSection,.photoFeature{
+  padding-top:34px !important;
+  padding-bottom:38px !important;
+}
+.priceGrid{gap:20px !important;}
+.priceCard{padding:20px 22px !important;}
+.galleryGrid{gap:16px !important;}
+.serviceProcessGrid{gap:18px !important;}
+.rightStack{gap:18px !important;}
+.processPanel,.servicePanel,.inquiryPanel{padding:18px !important;}
+.footer{padding-top:30px !important;padding-bottom:38px !important;}
+
+@media(max-width:1180px){
+  .topbar{padding:0 22px !important;gap:12px !important;}
+  .brand .logo{min-width:140px !important;}
+  .topbar nav a{padding:8px 9px;font-size:15px !important;}
+  .topbar .navbtn{padding:9px 12px !important;font-size:15px !important;}
+}
+@media(max-width:900px){
+  .topbar{height:70px !important;}
+  .mobileMenuButton{margin-left:auto !important;}
+  .topbar nav{
+    gap:6px !important;
+    padding:12px !important;
+  }
+  .topbar nav a{
+    width:100%;
+    justify-content:center;
+    padding:11px 12px !important;
+  }
+  .topbar nav a.active,
+  .topbar nav a[aria-current="page"]{
+    box-shadow:3px 3px 0 rgba(0,0,0,.25) !important;
+  }
+  .subpageHero{min-height:245px !important;padding:92px 24px 34px !important;}
+}
+@media(max-width:700px){
+  .pageTeasers{padding:46px 24px !important;}
+  .teaserCard{min-height:0 !important;}
+  .pageCta{padding:48px 24px !important;}
+}
+
+/* v43: ruhiger Seitenwechsel und kompakte Unterseiten-Köpfe */
+.subpageHero{
+  min-height:190px !important;
+  padding:38px 6vw 28px !important;
+  place-items:center !important;
+  border-bottom:1px solid rgba(67,50,41,.18);
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.18),rgba(0,0,0,.035)),
+    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    radial-gradient(circle at 50% 0,rgba(198,95,62,.15),transparent 42%),
+    var(--paper) !important;
+  background-size:auto,10px 10px,auto,auto !important;
+}
+.subpageHero>div{max-width:820px !important;}
+.subpageHero .eyebrow{
+  margin:0 0 5px !important;
+  font-size:17px !important;
+  letter-spacing:1.7px !important;
+}
+.subpageHero h1{
+  margin:0 !important;
+  font-size:clamp(2.45rem,4.8vw,4.15rem) !important;
+  line-height:.96 !important;
+}
+.subpageHero .lead{
+  max-width:650px !important;
+  margin:9px auto 0 !important;
+  font-size:15.5px !important;
+  line-height:1.48 !important;
+}
+.subpageHero .btn{display:none !important;}
+
+/* Papierstruktur ohne sichtbaren Bruch unter den kompakten Kopfbereichen */
+.subpageHero + .paper,
+.subpageHero + .unifiedPaper{
+  border-top:0 !important;
+}
+
+@media(max-width:900px){
+  .subpageHero{
+    min-height:170px !important;
+    padding:30px 22px 24px !important;
+  }
+  .subpageHero h1{font-size:clamp(2.25rem,9vw,3.4rem) !important;}
+  .subpageHero .lead{font-size:14.5px !important;}
+}
+@media(max-width:560px){
+  .subpageHero{min-height:150px !important;padding:24px 18px 20px !important;}
+  .subpageHero .eyebrow{font-size:15px !important;}
+  .subpageHero .lead{margin-top:7px !important;}
+}
+
+
+/* v44: Abstand unter Navigation + bereinigter Footer */
+.subpageHero{
+  padding-top:78px !important;
+}
+.footerTextButton{
+  text-transform:none !important;
+  letter-spacing:0 !important;
+  font-family:Inter,system-ui,sans-serif !important;
+  font-size:inherit !important;
+}
+@media(max-width:900px){
+  .subpageHero{padding-top:68px !important;}
+}
+@media(max-width:560px){
+  .subpageHero{padding-top:58px !important;}
+}
+
+/* v5.1 – Feinschliff: Unterseiten-Köpfe und Startseiten-Übersicht */
+/* Nur der Inhalt der Unterseiten rutscht etwas tiefer; die Navigation bleibt unverändert. */
+.subpageHero{
+  padding-top:98px !important;
+}
+@media(max-width:900px){
+  .subpageHero{padding-top:88px !important;}
+}
+@media(max-width:560px){
+  .subpageHero{padding-top:76px !important;}
+}
+
+/* Überschriften im Überblick sauber untereinander und mittig ausrichten */
+.pageTeasers .sectionHead.center{
+  display:block !important;
+  text-align:center !important;
+  margin:0 auto 18px !important;
+}
+.pageTeasers .sectionHead.center .script{
+  display:block;
+  width:100%;
+  margin:0 0 7px !important;
+  line-height:1.15;
+}
+.pageTeasers .sectionHead.center h2{
+  margin:0 !important;
+  line-height:.98;
+}
+
+/* Hochwertigere, klarer strukturierte Übersichtskarten */
+.pageTeasers .teaserGrid{
+  gap:20px !important;
+}
+.pageTeasers .teaserCard{
+  position:relative;
+  overflow:hidden;
+  min-height:230px !important;
+  padding:27px 26px 25px !important;
+  border:1px solid rgba(74,43,31,.18) !important;
+  border-top:5px solid var(--rust) !important;
+  border-radius:10px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(198,95,62,.14),transparent 38%),
+    linear-gradient(145deg,#fffaf1 0%,#f4e7d3 100%) !important;
+  box-shadow:8px 9px 0 rgba(83,48,34,.10),0 16px 34px rgba(43,27,21,.08) !important;
+}
+.pageTeasers .teaserCard::after{
+  content:'→';
+  position:absolute;
+  right:22px;
+  bottom:18px;
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--rust);
+  color:#1d1511;
+  font-size:20px;
+  font-weight:700;
+  transition:transform .2s ease,background .2s ease;
+}
+.pageTeasers .teaserCard:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:10px 12px 0 rgba(83,48,34,.13),0 22px 42px rgba(43,27,21,.13) !important;
+}
+.pageTeasers .teaserCard:hover::after{
+  transform:translateX(3px);
+  background:var(--rust-dark);
+}
+.pageTeasers .teaserCard span{
+  display:inline-grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  margin-bottom:10px;
+  border:1px solid rgba(198,95,62,.35);
+  border-radius:50%;
+  background:rgba(255,250,241,.8);
+  font-size:2rem !important;
+  line-height:1;
+}
+.pageTeasers .teaserCard h3{
+  margin:2px 0 9px !important;
+  font-size:1.35rem !important;
+}
+.pageTeasers .teaserCard p{
+  margin:0 0 20px;
+  padding-right:8px;
+  line-height:1.55 !important;
+}
+.pageTeasers .teaserCard b{
+  padding-right:42px;
+  font-size:14px;
+  letter-spacing:.02em;
+}
+@media(max-width:700px){
+  .pageTeasers .teaserCard{min-height:210px !important;}
+}
+
+
+/* v5.2 – reduzierte Anfragefläche, eckige Übersichtskarten, etwas mehr Luft oben */
+.subpageHero{
+  padding-top:108px !important;
+}
+@media(max-width:900px){
+  .subpageHero{padding-top:98px !important;}
+}
+@media(max-width:560px){
+  .subpageHero{padding-top:86px !important;}
+}
+
+/* Nur noch der Anfrage-Button auf dem durchgehenden Papierhintergrund */
+.pageCta.compactCta{
+  min-height:0 !important;
+  padding:38px 24px 52px !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    var(--paper) !important;
+  background-size:10px 10px,auto !important;
+  color:var(--ink) !important;
+  border-top:0 !important;
+}
+.pageCta.compactCta .btn{
+  margin:0 !important;
+}
+@media(max-width:700px){
+  .pageCta.compactCta{padding:28px 20px 42px !important;}
+}
+
+/* Übersichtskarten wieder klar, eckig und passend zu den übrigen Boxen */
+.pageTeasers .teaserCard{
+  min-height:218px !important;
+  padding:25px 24px 24px !important;
+  border:2px solid var(--ink) !important;
+  border-top:6px solid var(--rust) !important;
+  border-radius:0 !important;
+  background:
+    radial-gradient(rgba(120,65,30,.10) 1px,transparent 1px),
+    linear-gradient(145deg,#fffaf1 0%,#f2e4cf 100%) !important;
+  background-size:12px 12px,auto !important;
+  box-shadow:7px 7px 0 var(--ink) !important;
+}
+.pageTeasers .teaserCard:hover{
+  transform:translate(-2px,-2px) !important;
+  box-shadow:10px 10px 0 var(--ink) !important;
+}
+.pageTeasers .teaserCard span{
+  display:inline-block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 0 14px !important;
+  padding:4px 9px 3px !important;
+  border:2px solid var(--ink) !important;
+  border-radius:0 !important;
+  background:var(--rust) !important;
+  color:var(--ink) !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:1.5rem !important;
+  line-height:1 !important;
+  letter-spacing:.06em;
+}
+.pageTeasers .teaserCard::after{
+  right:18px !important;
+  bottom:16px !important;
+  width:36px !important;
+  height:36px !important;
+  border:2px solid var(--ink) !important;
+  border-radius:0 !important;
+  background:var(--rust) !important;
+  color:var(--ink) !important;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.pageTeasers .teaserCard:hover::after{
+  transform:translate(2px,-2px) !important;
+  background:var(--rust-dark) !important;
+}
+
+/* v5.3 – Übersichtskarten nach finalem Entwurf */
+.pageTeasers{
+  padding-top:74px !important;
+  padding-bottom:28px !important;
+}
+.pageTeasers .sectionHead.center{
+  max-width:920px;
+  margin-bottom:0 !important;
+}
+.pageTeasers .sectionHead.center .script{
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:28px !important;
+  letter-spacing:1.5px !important;
+  text-transform:uppercase !important;
+  color:var(--rust) !important;
+}
+.pageTeasers .sectionHead.center h2{
+  font-size:clamp(44px,5vw,72px) !important;
+}
+.pageTeasers .sectionHead.center h2::after{
+  content:"";
+  display:block;
+  width:64px;
+  height:4px;
+  margin:22px auto 0;
+  background:var(--rust);
+}
+.pageTeasers .teaserGrid{
+  gap:26px !important;
+  max-width:1420px !important;
+  margin-top:54px !important;
+  align-items:stretch;
+}
+.pageTeasers .teaserCard{
+  position:relative;
+  display:flex !important;
+  flex-direction:column;
+  align-items:center;
+  min-height:390px !important;
+  padding:48px 28px 70px !important;
+  border:3px solid #171717 !important;
+  border-top:3px solid #171717 !important;
+  border-radius:0 !important;
+  background:
+    radial-gradient(rgba(120,65,30,.10) 1px,transparent 1px),
+    rgba(255,250,241,.56) !important;
+  background-size:12px 12px,auto !important;
+  box-shadow:8px 8px 0 rgba(23,23,23,.18) !important;
+  text-align:center;
+  transition:transform .18s ease,box-shadow .18s ease !important;
+}
+.pageTeasers .teaserCard:hover{
+  transform:translate(-3px,-3px) !important;
+  box-shadow:11px 11px 0 rgba(23,23,23,.23) !important;
+}
+.pageTeasers .teaserCard .teaserNumber{
+  position:absolute;
+  top:18px;
+  left:18px;
+  display:grid !important;
+  place-items:center;
+  width:52px !important;
+  height:52px !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:var(--rust) !important;
+  color:var(--cream) !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:30px !important;
+  line-height:1 !important;
+  letter-spacing:1px !important;
+}
+.pageTeasers .teaserIcon{
+  width:76px;
+  height:76px;
+  margin:2px 0 22px;
+  fill:none;
+  stroke:#171717;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.pageTeasers .teaserCard h3{
+  margin:0 !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:30px !important;
+  line-height:1.05 !important;
+  letter-spacing:1px !important;
+  text-transform:uppercase;
+}
+.pageTeasers .teaserCard > i{
+  display:block;
+  width:58px;
+  height:3px;
+  margin:17px auto 18px;
+  background:var(--rust);
+}
+.pageTeasers .teaserCard p{
+  flex:0 1 auto !important;
+  max-width:270px;
+  margin:0 auto !important;
+  padding:0 !important;
+  font-size:16px !important;
+  line-height:1.58 !important;
+}
+.pageTeasers .teaserCard::after{
+  content:'→' !important;
+  position:absolute;
+  right:18px !important;
+  bottom:16px !important;
+  display:grid;
+  place-items:center;
+  width:48px !important;
+  height:48px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:var(--rust) !important;
+  color:var(--cream) !important;
+  box-shadow:none !important;
+  font-size:34px !important;
+  font-weight:400 !important;
+  line-height:1;
+}
+.pageTeasers .teaserCard:hover::after{
+  transform:translateX(3px) !important;
+  background:var(--rust-dark) !important;
+}
+.srOnly{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
+@media(max-width:1050px){
+  .pageTeasers .teaserGrid{gap:20px !important;}
+  .pageTeasers .teaserCard{min-height:350px !important;}
+}
+@media(max-width:700px){
+  .pageTeasers{padding-top:52px !important;}
+  .pageTeasers .teaserGrid{margin-top:38px !important;}
+  .pageTeasers .teaserCard{min-height:330px !important;padding-top:42px !important;}
+}
+
+/* v5.4 – Übersichtskarten ruhiger, passend zu Anfrage- und Inhaltsboxen */
+.pageTeasers .teaserGrid{
+  gap:22px !important;
+  max-width:1280px !important;
+  margin-top:42px !important;
+}
+.pageTeasers .teaserCard{
+  position:relative;
+  display:block !important;
+  min-height:230px !important;
+  padding:25px 24px 54px !important;
+  border:1.5px solid var(--line) !important;
+  border-radius:0 !important;
+  background:rgba(255,246,228,.24) !important;
+  box-shadow:10px 10px 0 rgba(198,95,62,.12) !important;
+  text-align:left !important;
+  transform:none !important;
+}
+.pageTeasers .teaserCard:hover{
+  transform:translateY(-3px) !important;
+  box-shadow:10px 13px 0 rgba(198,95,62,.15) !important;
+}
+.pageTeasers .teaserCard .teaserNumber{
+  position:static !important;
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 0 10px !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  color:var(--rust) !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:28px !important;
+  line-height:1 !important;
+  letter-spacing:.08em !important;
+}
+.pageTeasers .teaserIcon{
+  display:none !important;
+}
+.pageTeasers .teaserCard h3{
+  margin:0 0 11px !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:29px !important;
+  line-height:1.05 !important;
+  letter-spacing:.5px !important;
+  text-transform:none !important;
+}
+.pageTeasers .teaserCard > i{
+  display:none !important;
+}
+.pageTeasers .teaserCard p{
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 12px 0 0 !important;
+  font-size:15px !important;
+  line-height:1.55 !important;
+}
+.pageTeasers .teaserCard::after{
+  content:'Mehr erfahren →' !important;
+  position:absolute !important;
+  right:22px !important;
+  bottom:19px !important;
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  border:0 !important;
+  background:transparent !important;
+  color:var(--rust) !important;
+  box-shadow:none !important;
+  font-family:"Bebas Neue",sans-serif !important;
+  font-size:17px !important;
+  letter-spacing:.04em !important;
+  line-height:1 !important;
+}
+.pageTeasers .teaserCard:hover::after{
+  transform:translateX(3px) !important;
+  background:transparent !important;
+  color:var(--rust-dark) !important;
+}
+@media(max-width:1050px){
+  .pageTeasers .teaserCard{min-height:210px !important;}
+}
+@media(max-width:700px){
+  .pageTeasers .teaserGrid{margin-top:34px !important;}
+  .pageTeasers .teaserCard{min-height:190px !important;padding:22px 20px 50px !important;}
+}

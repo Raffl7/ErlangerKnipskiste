@@ -295,3 +295,34 @@ if (mobileMenuButton && mainNav) {
     }
   }, true);
 })();
+
+
+// Impressum-Popup
+(function(){
+  const modal = document.getElementById('impressumModal');
+  if (!modal) return;
+  const openers = document.querySelectorAll('[data-open-impressum]');
+  const closeButton = modal.querySelector('.legalModalClose');
+  let lastFocused = null;
+
+  function openModal(){
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    closeButton?.focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    lastFocused?.focus?.();
+  }
+
+  openers.forEach(button => button.addEventListener('click', openModal));
+  closeButton?.addEventListener('click', closeModal);
+  modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
