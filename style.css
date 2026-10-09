@@ -1,6 +1,6 @@
 :root{--black:#101112;--paper:#ead9bd;--paper2:#f1e4cc;--cream:#f7ead2;--rust:#c65f3e;--rust-dark:#9e462d;--line:#433229;--muted:#5a4a40}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#151515;background:var(--black);font-family:Inter,system-ui,sans-serif}body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(#000 1px,transparent 1px);background-size:5px 5px}img{max-width:100%;display:block}a,button,input,select,textarea{font:inherit}
-.paper{background:linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06));background-color:var(--paper);background-size:auto,10px 10px,auto}.dark{background:linear-gradient(90deg,#111214,#0e0f10 45%,#121315);color:var(--cream)}
+.paper{background:linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),linear-gradient(transparent,transparent),linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06));background-color:var(--paper);background-size:auto,10px 10px,auto}.dark{background:linear-gradient(90deg,#111214,#0e0f10 45%,#121315);color:var(--cream)}
 .topbar{height:82px;position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:38px;padding:0 6vw;background:#0d0f10;border-bottom:1px solid #2b211d}.logo{min-width:185px;color:var(--cream);text-decoration:none;line-height:.82;display:inline-block;position:relative;transform:none}.logo span{display:block;font:18px "Bebas Neue",sans-serif;letter-spacing:4px}.logo strong{font:40px Pacifico,cursive;font-weight:400;letter-spacing:0;text-transform:none}.logo i{color:var(--rust);position:absolute;right:-8px;top:9px;font-style:normal;font-size:24px}
 nav{display:flex;gap:30px;flex:1;justify-content:center}nav a,.navbtn,.btn,.priceCard a,button,.priceCard h3,.timeline h3,.servicePanel h3,.faqGrid summary,.inquiryPanel h2,.faqWide h2,.photoFeature h2,.gallery h2,.pricing h2,.sectionHead h2{font-family:"Bebas Neue",sans-serif;letter-spacing:1px;text-transform:uppercase}nav a{color:var(--cream);text-decoration:none;font-size:18px}.navbtn,.btn{padding:15px 28px;text-decoration:none;border:2px solid var(--rust);color:#111;background:var(--rust);font-size:18px;box-shadow:8px 8px 0 rgba(0,0,0,.2);transition:.18s ease}.navbtn:hover,.btn.primary:hover,.priceCard a:hover{background:var(--rust-dark);transform:translate(-2px,-2px);box-shadow:12px 12px 0 rgba(0,0,0,.22)}.btn.ghost{background:rgba(255,246,228,.2);border-color:#111;color:#111}
 
@@ -2016,7 +2016,7 @@ main{
 .customDesignSection{
   background:
     linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),
-    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06)) !important;
   background-color:var(--paper) !important;
   background-size:auto,10px 10px,auto !important;
@@ -2128,7 +2128,7 @@ main{
 .faqWide{
   background:
     linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),
-    radial-gradient(rgba(120,65,30,.12) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06)) !important;
   background-color:var(--paper) !important;
   color:#151515 !important;
@@ -2269,7 +2269,7 @@ main{
   inset:0;
   pointer-events:none;
   background-image:
-    radial-gradient(rgba(66,48,39,.10) 1px, transparent 1px);
+    linear-gradient(transparent,transparent);
   background-size:10px 10px;
   opacity:.65;
 }
@@ -2303,7 +2303,7 @@ main{
 #custom-design{
   background:
     linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),
-    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06)) !important;
   background-color:var(--paper) !important;
   background-size:auto,10px 10px,auto !important;
@@ -2361,7 +2361,7 @@ main{
   background-color:var(--paper) !important;
   background-image:
     linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),
-    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06)) !important;
   background-size:auto,10px 10px,auto !important;
   background-position:0 0,0 0,0 0 !important;
@@ -2598,7 +2598,7 @@ main{
 /* v23 finale Anpassungen */
 main{padding-top:0!important}
 body{
-  background:linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06))!important;
+  background:linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),linear-gradient(transparent,transparent),linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06))!important;
   background-color:var(--paper)!important;
   background-size:auto,10px 10px,auto!important;
   background-position:0 0,0 0,0 0!important;
@@ -3765,7 +3765,7 @@ body.modal-open{overflow:hidden;}
   border-bottom:1px solid rgba(67,50,41,.18);
   background:
     linear-gradient(90deg,rgba(255,255,255,.18),rgba(0,0,0,.035)),
-    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     radial-gradient(circle at 50% 0,rgba(198,95,62,.15),transparent 42%),
     var(--paper) !important;
   background-size:auto,10px 10px,auto,auto !important;
@@ -3948,7 +3948,7 @@ body.modal-open{overflow:hidden;}
   justify-content:center;
   text-align:center;
   background:
-    radial-gradient(rgba(120,65,30,.14) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     var(--paper) !important;
   background-size:10px 10px,auto !important;
   color:var(--ink) !important;
@@ -3969,7 +3969,7 @@ body.modal-open{overflow:hidden;}
   border-top:6px solid var(--rust) !important;
   border-radius:0 !important;
   background:
-    radial-gradient(rgba(120,65,30,.10) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     linear-gradient(145deg,#fffaf1 0%,#f2e4cf 100%) !important;
   background-size:12px 12px,auto !important;
   box-shadow:7px 7px 0 var(--ink) !important;
@@ -4053,7 +4053,7 @@ body.modal-open{overflow:hidden;}
   border-top:3px solid #171717 !important;
   border-radius:0 !important;
   background:
-    radial-gradient(rgba(120,65,30,.10) 1px,transparent 1px),
+    linear-gradient(transparent,transparent),
     rgba(255,250,241,.56) !important;
   background-size:12px 12px,auto !important;
   box-shadow:8px 8px 0 rgba(23,23,23,.18) !important;
@@ -4244,4 +4244,438 @@ body.modal-open{overflow:hidden;}
 @media(max-width:700px){
   .pageTeasers .teaserGrid{margin-top:34px !important;}
   .pageTeasers .teaserCard{min-height:190px !important;padding:22px 20px 50px !important;}
+}
+
+
+/* Vorlagen-Seite */
+.formHoneypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+.templatesHero{padding-bottom:58px!important}
+.templatesSection{padding:58px 6vw 30px}
+.templatesIntro{max-width:850px;margin:0 auto 38px;text-align:center}
+.templatesIntro h2{font:clamp(38px,5vw,68px) "Bebas Neue",sans-serif;letter-spacing:1px;text-transform:uppercase;margin:5px 0 14px;color:#211814}
+.templatesIntro p{font-size:18px;line-height:1.7}
+.templateList{display:grid;gap:34px;max-width:1380px;margin:0 auto}
+.templateCard{background:rgba(255,247,232,.78);border:3px solid #1b1714;box-shadow:10px 10px 0 rgba(197,99,67,.38);padding:28px}
+.templateCardHead{display:grid;grid-template-columns:100px 1fr;gap:24px;align-items:start;margin-bottom:24px}
+.templateCardHead>span{font:30px "Bebas Neue",sans-serif;letter-spacing:2px;color:#fff;background:var(--rust);padding:14px 12px;text-align:center;border:2px solid #1b1714}
+.templateCard h3{font:46px "Bebas Neue",sans-serif;letter-spacing:1px;text-transform:uppercase;margin:0;color:#211814}
+.templateCardHead p{margin:4px 0 0;font-size:17px;line-height:1.55;max-width:760px}
+.templatePreviewGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.templatePreview{padding:0;background:#efe2ca;border:2px solid #1b1714;cursor:zoom-in;text-align:left;box-shadow:5px 5px 0 rgba(0,0,0,.12);transition:transform .18s ease,box-shadow .18s ease}
+.templatePreview:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(197,99,67,.34)}
+.templatePreview img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-bottom:2px solid #1b1714}
+.templatePreview span{display:block;padding:11px 13px;font:22px "Bebas Neue",sans-serif;letter-spacing:1px;color:#211814;text-transform:uppercase}
+.templateChoose{display:inline-block;margin-top:22px;color:#211814;font:22px "Bebas Neue",sans-serif;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-bottom:3px solid var(--rust)}
+.templateCta{text-align:center;padding:36px 20px 78px}
+@media(max-width:920px){.templatePreviewGrid{grid-template-columns:1fr}.templateCardHead{grid-template-columns:76px 1fr}.templateCard h3{font-size:38px}.templateCard{padding:20px}}
+@media(max-width:560px){.templateCardHead{grid-template-columns:1fr}.templateCardHead>span{width:max-content}.templatesSection{padding-left:18px;padding-right:18px}.templateCard{padding:15px;box-shadow:6px 6px 0 rgba(197,99,67,.38)}}
+
+
+/* v5.6 – Vorlagen kompakter und im Stil der Preispakete */
+.templatesHero{padding-bottom:38px!important}
+.templatesSection{padding:38px 7vw 26px!important}
+.templatesIntro{max-width:980px;margin:0 auto 26px;text-align:center!important}
+.templatesIntro .eyebrow{margin-bottom:4px!important}
+.templatesIntro h2{
+  font-size:clamp(34px,4.2vw,52px)!important;
+  line-height:.98!important;
+  margin:4px 0 0!important;
+  letter-spacing:1px!important;
+}
+.templateList{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:26px!important;
+  max-width:1380px!important;
+}
+.templateCard{
+  background:rgba(255,246,228,.25)!important;
+  border:1.5px solid var(--line)!important;
+  box-shadow:10px 10px 0 rgba(198,95,62,.12)!important;
+  padding:22px 24px 24px!important;
+  transition:transform .2s ease,box-shadow .2s ease!important;
+}
+.templateCard:hover{
+  transform:translateY(-4px)!important;
+  box-shadow:13px 13px 0 rgba(198,95,62,.18)!important;
+}
+.templateCardHead{
+  display:block!important;
+  margin-bottom:18px!important;
+}
+.templateCardHead>span{
+  display:inline-block!important;
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+  margin:0 0 4px!important;
+  color:var(--rust)!important;
+  font:20px "Bebas Neue",sans-serif!important;
+  letter-spacing:1.5px!important;
+  text-align:left!important;
+}
+.templateCard h3{
+  font-size:34px!important;
+  line-height:1!important;
+  margin:0 0 6px!important;
+}
+.templateCardHead p{
+  font-size:15px!important;
+  line-height:1.5!important;
+  margin:0!important;
+  max-width:none!important;
+}
+.templatePreviewGrid{gap:12px!important}
+.templatePreview{
+  border:1.5px solid var(--line)!important;
+  box-shadow:none!important;
+  background:rgba(255,250,241,.65)!important;
+}
+.templatePreview:hover{
+  transform:translateY(-2px)!important;
+  box-shadow:5px 5px 0 rgba(198,95,62,.13)!important;
+}
+.templatePreview img{border-bottom:1.5px solid var(--line)!important}
+.templatePreview span{
+  padding:9px 10px!important;
+  font-size:17px!important;
+  letter-spacing:.7px!important;
+}
+.templateChoose{
+  margin-top:16px!important;
+  font-size:18px!important;
+  border-bottom:2px solid var(--rust)!important;
+}
+.templateCta{padding:28px 20px 62px!important}
+@media(max-width:1050px){
+  .templateList{grid-template-columns:1fr!important}
+}
+@media(max-width:700px){
+  .templatesSection{padding:30px 20px 22px!important}
+  .templateCard{padding:18px!important}
+  .templatePreviewGrid{grid-template-columns:1fr!important}
+  .templateCard h3{font-size:30px!important}
+}
+
+
+/* v5.7 – konsistente Kartenrahmen wie bei den Preispaketen */
+.pageTeasers .teaserCard,
+.templateCard {
+  border: 1.5px solid var(--line) !important;
+  border-color: var(--line) !important;
+}
+
+/* Vorlagen ohne doppelte Zwischenüberschrift */
+.templatesSection { padding-top: 34px !important; }
+
+/* Lightbox vollständig im sichtbaren Bereich unterhalb der Navigation */
+.lightbox {
+  box-sizing: border-box !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 100px 22px 20px !important;
+  overflow: auto !important;
+}
+.lightboxFigure {
+  width: min(1100px, 94vw) !important;
+  max-width: 100% !important;
+  max-height: calc(100dvh - 120px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.lightboxFigure img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: calc(100dvh - 170px) !important;
+  object-fit: contain !important;
+}
+.lightboxFigure figcaption { flex: 0 0 auto; }
+.lightboxClose {
+  position: fixed !important;
+  top: 94px !important;
+  right: 18px !important;
+  z-index: 2 !important;
+}
+@media (max-width: 700px) {
+  .lightbox { padding: 94px 12px 14px !important; }
+  .lightboxFigure { max-height: calc(100dvh - 108px) !important; }
+  .lightboxFigure img {
+    border-width: 7px !important;
+    max-height: calc(100dvh - 158px) !important;
+  }
+  .lightboxClose {
+    top: 88px !important;
+    right: 10px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+/* Eigenständige Impressumsseite */
+.legalPageHero { padding-bottom: 28px !important; }
+.legalPageSection { padding: 24px 7vw 72px; }
+.legalPageCard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 34px;
+  border: 1.5px solid var(--line);
+  background: rgba(255,246,228,.25);
+  box-shadow: 10px 10px 0 rgba(198,95,62,.12);
+}
+.legalPageCard h2 { margin-top: 0; font: 44px "Bebas Neue",sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+.legalPageCard p { line-height: 1.65; }
+.legalPageCard a { color: inherit; }
+@media (max-width: 700px) {
+  .legalPageSection { padding: 18px 18px 52px; }
+  .legalPageCard { padding: 22px 20px; box-shadow: 7px 7px 0 rgba(198,95,62,.12); }
+}
+
+/* v5.8 – Karten exakt an die Preispakete angleichen */
+.pageTeasers .teaserCard,
+.templateCard {
+  border: 1.5px solid var(--line) !important;
+  background: rgba(255,246,228,.25) !important;
+  box-shadow: 10px 10px 0 rgba(198,95,62,.12) !important;
+  border-radius: 0 !important;
+  color: #151515 !important;
+  transition: transform .2s ease, box-shadow .2s ease !important;
+}
+.pageTeasers .teaserCard:hover,
+.templateCard:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 13px 13px 0 rgba(198,95,62,.18) !important;
+}
+
+/* Typografie der Karten auf das Maß der Preisboxen bringen */
+.pageTeasers .teaserCard h3,
+.templateCard h3 {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 29px !important;
+  line-height: 1 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+.pageTeasers .teaserCard p,
+.templateCardHead p {
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+}
+.pageTeasers .teaserCard .teaserNumber,
+.templateCardHead > span {
+  color: var(--rust) !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Die kleinen Vorschaukarten ebenfalls in derselben hellen Kartenfarbe */
+.templatePreview {
+  border: 1.5px solid var(--line) !important;
+  background: rgba(255,246,228,.25) !important;
+  border-radius: 0 !important;
+}
+.templatePreview img {
+  border-bottom: 1.5px solid var(--line) !important;
+}
+
+/* Papierstruktur zwischen Infokarten und Anfragebutton ohne Farbsprung fortführen */
+.pageTeasers.unifiedPaper,
+.pageCta.compactCta {
+  background-color: var(--paper) !important;
+  background-image:
+    linear-gradient(90deg,rgba(255,255,255,.20),rgba(0,0,0,.04)),
+    linear-gradient(transparent,transparent),
+    linear-gradient(0deg,rgba(255,255,255,.06),rgba(255,255,255,.06)) !important;
+  background-size: auto,10px 10px,auto !important;
+  background-attachment: fixed,fixed,fixed !important;
+}
+.pageTeasers.unifiedPaper { padding-bottom: 34px !important; }
+.pageCta.compactCta {
+  margin-top: 0 !important;
+  padding-top: 16px !important;
+  border-top: 0 !important;
+}
+
+/* v5.9 – echtes Redesign: Start- und Vorlagenkarten im Stil der Preisboxen */
+.pageTeasers .teaserGrid {
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+.pageTeasers .teaserCard {
+  min-height: 0 !important;
+  padding: 20px 22px !important;
+  border: 1.5px solid var(--line) !important;
+  background: rgba(255,246,228,.25) !important;
+  box-shadow: 10px 10px 0 rgba(198,95,62,.12) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  text-align: left !important;
+  border-radius: 0 !important;
+}
+.pageTeasers .teaserCard:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 13px 13px 0 rgba(198,95,62,.18) !important;
+}
+.pageTeasers .teaserCard .teaserIcon,
+.pageTeasers .teaserCard > i {
+  display: none !important;
+}
+.pageTeasers .teaserCard .teaserNumber {
+  display: block !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+  color: var(--rust) !important;
+  background: none !important;
+  border: 0 !important;
+  font: 18px/1 "Bebas Neue",sans-serif !important;
+  letter-spacing: 1.5px !important;
+}
+.pageTeasers .teaserCard h3 {
+  margin: 0 0 12px !important;
+  font: 29px/1 "Bebas Neue",sans-serif !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+}
+.pageTeasers .teaserCard p {
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+  color: #29221e !important;
+}
+.pageTeasers .teaserCard::after {
+  content: "Mehr erfahren →";
+  display: block;
+  width: max-content;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--rust);
+  font: 17px/1 "Bebas Neue",sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
+}
+
+.templatesSection .templateList {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 20px !important;
+  max-width: 1220px !important;
+}
+.templatesSection .templateCard {
+  padding: 20px 22px 22px !important;
+  border: 1.5px solid var(--line) !important;
+  background: rgba(255,246,228,.25) !important;
+  box-shadow: 10px 10px 0 rgba(198,95,62,.12) !important;
+  border-radius: 0 !important;
+}
+.templatesSection .templateCard:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 13px 13px 0 rgba(198,95,62,.18) !important;
+}
+.templatesSection .templateCardHead {
+  display: block !important;
+  margin: 0 0 16px !important;
+}
+.templatesSection .templateCardHead > span {
+  display: block !important;
+  width: auto !important;
+  margin: 0 0 7px !important;
+  padding: 0 !important;
+  color: var(--rust) !important;
+  background: none !important;
+  border: 0 !important;
+  text-align: left !important;
+  font: 18px/1 "Bebas Neue",sans-serif !important;
+  letter-spacing: 1.5px !important;
+}
+.templatesSection .templateCard h3 {
+  margin: 0 0 8px !important;
+  color: #151515 !important;
+  font: 29px/1 "Bebas Neue",sans-serif !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+}
+.templatesSection .templateCardHead p {
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.48 !important;
+  color: #29221e !important;
+}
+.templatesSection .templatePreviewGrid {
+  gap: 10px !important;
+}
+.templatesSection .templatePreview {
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 1.5px solid var(--line) !important;
+  background: rgba(255,246,228,.25) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.templatesSection .templatePreview:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 5px 5px 0 rgba(198,95,62,.12) !important;
+}
+.templatesSection .templatePreview img {
+  border-bottom: 1.5px solid var(--line) !important;
+}
+.templatesSection .templatePreview span {
+  padding: 9px 10px !important;
+  color: #151515 !important;
+  font: 16px/1.05 "Bebas Neue",sans-serif !important;
+  letter-spacing: .7px !important;
+  text-transform: uppercase !important;
+}
+.templatesSection .templateChoose {
+  margin-top: 16px !important;
+  color: var(--rust) !important;
+  font: 17px/1 "Bebas Neue",sans-serif !important;
+  letter-spacing: 1px !important;
+  border-bottom: 2px solid currentColor !important;
+}
+
+/* Durchgängige Papierfläche ohne sichtbaren Ansatz zwischen Karten und CTA */
+.pageTeasers.unifiedPaper,
+.pageCta.compactCta {
+  background-color: var(--paper) !important;
+  background-image: linear-gradient(transparent,transparent) !important;
+  background-size: 10px 10px !important;
+  background-position: 0 0 !important;
+  background-attachment: scroll !important;
+}
+.pageTeasers.unifiedPaper { padding-bottom: 28px !important; }
+.pageCta.compactCta {
+  padding-top: 20px !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .templatesSection .templateList { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 700px) {
+  .pageTeasers .teaserCard,
+  .templatesSection .templateCard { padding: 18px 19px !important; }
+  .templatesSection .templatePreviewGrid { grid-template-columns: 1fr !important; }
+}
+
+/* v5.10 – Rahmen der Start- und Vorlagenkarten bewusst hell wie bei den Preisboxen */
+.pageTeasers .teaserCard,
+.templatesSection .templateCard {
+  border: 1px solid rgba(67, 50, 41, .24) !important;
+}
+.templatesSection .templatePreview {
+  border: 1px solid rgba(67, 50, 41, .24) !important;
+}
+.templatesSection .templatePreview img {
+  border-bottom: 1px solid rgba(67, 50, 41, .24) !important;
 }

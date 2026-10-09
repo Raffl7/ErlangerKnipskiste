@@ -1,328 +1,38 @@
-const select = document.querySelector('select[name="Paket"]');
-
-document.querySelectorAll('[data-paket]').forEach(link => {
-  link.addEventListener('click', () => {
-    if (select) {
-      setTimeout(() => { select.value = link.dataset.paket; }, 20);
-    }
-  });
-});
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightboxImage');
-const lightboxCaption = document.getElementById('lightboxCaption');
-const closeButton = document.querySelector('.lightboxClose');
-
-function placeholderSvg(label) {
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-      <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#38241c"/><stop offset="100%" stop-color="#181112"/></linearGradient></defs>
-      <rect width="1200" height="900" fill="url(#g)"/>
-      <rect x="70" y="70" width="1060" height="760" fill="none" stroke="#f7ead2" stroke-width="16"/>
-      <text x="600" y="420" text-anchor="middle" fill="#f7ead2" font-family="Arial, sans-serif" font-size="72" font-weight="700">Platzhalter</text>
-      <text x="600" y="500" text-anchor="middle" fill="#d9c7ad" font-family="Arial, sans-serif" font-size="34">${label || 'Bild'}</text>
-    </svg>
-  `)}`;
+// Navigation, Paket-/Designauswahl und Bildansicht für die ursprünglichen Seiten.
+const menu=document.querySelector('.mobileMenuButton'),nav=document.querySelector('.topbar nav');
+if(menu&&nav){nav.id='main-nav';menu.setAttribute('aria-controls','main-nav');menu.setAttribute('aria-expanded','false');menu.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');}));}
+const form=document.querySelector('#bookingForm');
+if(form){const params=new URLSearchParams(location.search);if(params.get('paket')==='standard')form.elements.Paket.value='Standard – 175€';if(params.get('paket')==='custom')form.elements.Paket.value='Custom Design – 200€';const design=Number(params.get('design'));if(Number.isInteger(design)&&design>=1&&design<=5){form.elements.Designvorlage.selectedIndex=design;form.elements.Paket.value='Standard – 175€';}form.addEventListener('submit',()=>{const button=form.querySelector('[type="submit"]');button.disabled=true;button.textContent='Wird gesendet …';});window.addEventListener('pageshow',()=>{const button=form.querySelector('[type="submit"]');button.disabled=false;button.textContent='Unverbindlich anfragen';});}
+const box=document.querySelector('#lightbox'),image=document.querySelector('#lightboxImage'),caption=document.querySelector('#lightboxCaption'),close=document.querySelector('.lightboxClose');let previousFocus;let savedOverflow="",savedPadding="";
+function lockPageScroll(){const body=document.body; savedOverflow=body.style.overflow;savedPadding=body.style.paddingRight;const gap=window.innerWidth-document.documentElement.clientWidth;if(!CSS.supports("scrollbar-gutter: stable")&&gap>0){body.style.paddingRight=(parseFloat(getComputedStyle(body).paddingRight)+gap)+"px";}body.style.overflow="hidden";}
+function unlockPageScroll(){document.body.style.overflow=savedOverflow;document.body.style.paddingRight=savedPadding;}
+function placeholder(label){return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="#221b17"/><text x="600" y="350" text-anchor="middle" fill="#f7ead2" font-family="Arial" font-size="48">Bildplatzhalter</text><text x="600" y="440" text-anchor="middle" fill="#d7c2a3" font-family="Arial" font-size="28">'+label.replace(/[<>&]/g,'')+'</text></svg>');}
+function openBox(src,label,trigger){if(!box)return;previousFocus=trigger;image.src=src;image.alt=label;caption.textContent=label;box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Bild vergrößern');box.setAttribute('aria-hidden','false');box.classList.add('is-open');lockPageScroll();document.querySelector('main')?.setAttribute('inert','');document.querySelector('header')?.setAttribute('inert','');document.querySelector('footer')?.setAttribute('inert','');close?.focus();}
+function closeBox(){if(!box?.classList.contains('is-open'))return;box.classList.remove('is-open');box.setAttribute('aria-hidden','true');unlockPageScroll();document.querySelector('main')?.removeAttribute('inert');document.querySelector('header')?.removeAttribute('inert');document.querySelector('footer')?.removeAttribute('inert');previousFocus?.focus({preventScroll:true});}
+document.querySelectorAll('.galleryItem,.inlineImageTag[data-large],.lightboxTrigger').forEach(t=>{const label=t.dataset.caption||t.querySelector('img')?.alt||t.textContent.trim();const src=t.dataset.large||t.dataset.src||t.querySelector('img')?.getAttribute('src')||placeholder(label);if(t.tagName!=='BUTTON'){t.tabIndex=0;t.setAttribute('role','button');t.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openBox(src,label,t);}});}t.addEventListener('click',()=>openBox(src,label,t));});
+close?.addEventListener('click',closeBox);box?.addEventListener('click',e=>{if(e.target===box)closeBox();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeBox();nav?.classList.remove('is-open');menu?.setAttribute('aria-expanded','false');}if(e.key==='Tab'&&box?.classList.contains('is-open')){e.preventDefault();close?.focus();}});
+// FAQ: native Details bleiben bedienbar, die Ansicht bleibt beim Umschalten stehen.
+const faqGrid=document.querySelector('#faq .faqGrid');
+if(faqGrid){
+ const reserveHeight=()=>{faqGrid.style.minHeight='';faqGrid.style.minHeight=Math.ceil(faqGrid.getBoundingClientRect().height)+'px';};
+ document.fonts.ready.then(reserveHeight);
+ let faqResize;
+ window.addEventListener('resize',()=>{clearTimeout(faqResize);faqResize=setTimeout(reserveHeight,150);});
+ faqGrid.querySelectorAll('summary').forEach(summary=>summary.addEventListener('click',event=>{
+  event.preventDefault();
+  const y=window.scrollY,details=summary.closest('details');
+  const previousHeight=faqGrid.getBoundingClientRect().height;
+  details.open=!details.open;
+  faqGrid.style.minHeight=Math.ceil(Math.max(previousHeight,faqGrid.getBoundingClientRect().height))+'px';
+  window.scrollTo({top:y,behavior:'instant'});
+ }));
 }
+// Kurze Hinweise folgen dem Mauszeiger, ohne den Seiteninhalt zu verschieben.
+const hint=document.createElement('div');hint.className='hoverHint';hint.setAttribute('role','tooltip');hint.id='hover-hint';hint.hidden=true;document.body.append(hint);
+function placeHint(x,y){const width=hint.offsetWidth,height=hint.offsetHeight;hint.style.left=Math.max(8,Math.min(x+14,innerWidth-width-8))+'px';hint.style.top=Math.max(8,Math.min(y+16,innerHeight-height-8))+'px';}
+document.querySelectorAll('[data-hint]').forEach(trigger=>{function show(e){hint.textContent=trigger.dataset.hint;hint.hidden=false;trigger.setAttribute('aria-describedby','hover-hint');const r=trigger.getBoundingClientRect();placeHint(r.left,r.bottom);}function hide(){hint.hidden=true;trigger.removeAttribute('aria-describedby');}trigger.addEventListener('mouseenter',show);trigger.addEventListener('mouseleave',hide);trigger.addEventListener('focus',show);trigger.addEventListener('blur',hide);trigger.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});if(trigger.tagName==='BUTTON')trigger.addEventListener('click',e=>{e.preventDefault();show(e);});});
+const templateCarousel=document.querySelector('[data-carousel]');
+if(templateCarousel){const slides=[...templateCarousel.children],controls=document.querySelector('.boothControls');let current=0;const showSlide=()=>{slides.forEach((slide,index)=>slide.hidden=index!==current);controls.querySelectorAll('[data-slide-index]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.slideIndex)===current)));};controls.hidden=false;showSlide();controls.querySelectorAll('[data-slide]').forEach(button=>button.addEventListener('click',()=>{current=(current+(button.dataset.slide==='next'?1:-1)+slides.length)%slides.length;showSlide();}));controls.querySelectorAll('[data-slide-index]').forEach(button=>button.addEventListener('click',()=>{current=Number(button.dataset.slideIndex);showSlide();}));}
 
-function openLightbox(src, caption) {
-  lightboxImage.src = src;
-  lightboxCaption.textContent = caption || '';
-  lightbox.classList.add('is-open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  lightbox.classList.remove('is-open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-document.querySelectorAll('.galleryItem').forEach(item => {
-  item.addEventListener('click', () => {
-    const caption = item.dataset.caption || '';
-    const src = item.dataset.large || placeholderSvg(caption);
-    openLightbox(src, caption);
-  });
-});
-if (closeButton) closeButton.addEventListener('click', closeLightbox);
-if (lightbox) lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox(); });
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.priceCard,.galleryItem,.timeline article,.servicePanel,.inquiryPanel,.faqGrid details').forEach(el => observer.observe(el));
-
-const mobileMenuButton = document.querySelector('.mobileMenuButton');
-const mainNav = document.querySelector('.topbar nav');
-if (mobileMenuButton && mainNav) {
-  mobileMenuButton.addEventListener('click', () => mainNav.classList.toggle('is-open'));
-  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('is-open')));
-}
-
-// v23: Galerie-Klick ohne Layout-Sprung
-(function(){
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  function fallbackSvg(label){
-    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675"><rect width="1200" height="675" fill="#17110f"/><rect x="55" y="55" width="1090" height="565" fill="none" stroke="#f7ead2" stroke-width="14"/><text x="600" y="320" text-anchor="middle" fill="#f7ead2" font-family="Arial" font-size="68" font-weight="700">Platzhalter</text><text x="600" y="385" text-anchor="middle" fill="#d7c2a3" font-family="Arial" font-size="32">${label||''}</text></svg>`)}`;
-  }
-  document.querySelectorAll('.galleryItem').forEach(item=>{
-    item.addEventListener('click', e=>{
-      e.preventDefault();
-      e.stopPropagation();
-      const caption = item.dataset.caption || '';
-      const src = item.dataset.large || item.querySelector('img')?.getAttribute('src') || fallbackSvg(caption);
-      if(lightbox && lightboxImage && lightboxCaption){
-        lightboxImage.src = src;
-        lightboxCaption.textContent = caption;
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden','false');
-        document.body.classList.add('lightbox-open');
-      }
-    });
-  });
-  document.querySelector('.lightboxClose')?.addEventListener('click',()=>{
-    lightbox?.classList.remove('is-open');
-    document.body.classList.remove('lightbox-open');
-  });
-})();
-
-
-// v24: Lightbox robust schließen + Anfrage markieren
-(function(){
-  const lightbox = document.getElementById('lightbox');
-  const close = document.querySelector('.lightboxClose');
-  function unlockScroll(){
-    document.body.classList.remove('lightbox-open');
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-  }
-  function closeLightboxFully(){
-    if(lightbox){
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden','true');
-    }
-    unlockScroll();
-  }
-  close?.addEventListener('click', closeLightboxFully);
-  lightbox?.addEventListener('click', (e)=>{
-    if(e.target === lightbox) closeLightboxFully();
-  });
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape') closeLightboxFully();
-  });
-
-  function highlightAnfrage(){
-    const box = document.querySelector('#anfrage');
-    if(!box) return;
-    setTimeout(()=>{
-      box.classList.remove('pulseHighlight');
-      void box.offsetWidth;
-      box.classList.add('pulseHighlight');
-    }, 380);
-  }
-
-  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
-    el.addEventListener('click', highlightAnfrage);
-  });
-})();
-
-
-// v25: FAQ ganze Box klickbar + Anfrage erst nach Scroll markieren
-(function(){
-  document.querySelectorAll('.faqGrid details').forEach((details)=>{
-    details.addEventListener('click', (e)=>{
-      if(e.target.tagName.toLowerCase() === 'summary') return;
-      e.preventDefault();
-      details.open = !details.open;
-    });
-  });
-
-  function highlightAnfrageDelayed(){
-    const box = document.querySelector('#anfrage');
-    if(!box) return;
-    setTimeout(()=>{
-      box.classList.remove('pulseHighlight');
-      void box.offsetWidth;
-      box.classList.add('pulseHighlight');
-    }, 850);
-  }
-
-  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
-    el.addEventListener('click', highlightAnfrageDelayed);
-  });
-})();
-
-
-// v26: Anfrage-Markierung kontrolliert, langsam, nur ein Durchlauf
-(function(){
-  function pulseInquiryOnce(){
-    const box = document.querySelector('#anfrage');
-    if(!box) return;
-    setTimeout(()=>{
-      box.classList.remove('pulseHighlight');
-      void box.offsetWidth;
-      box.classList.add('pulseHighlight');
-      setTimeout(()=>box.classList.remove('pulseHighlight'), 2600);
-    }, 950);
-  }
-
-  document.querySelectorAll('a[href="#anfrage"], [data-highlight-anfrage]').forEach(el=>{
-    el.addEventListener('click', pulseInquiryOnce, {capture:true});
-  });
-})();
-
-
-// v30: Anfrage-Puls bereinigt - nur einmal, keine alte doppelte Animation
-(function(){
-  function pulseOnceClean(event){
-    const link = event.target.closest && event.target.closest('a[href="#anfrage"], [data-highlight-anfrage]');
-    if(!link) return;
-
-    event.stopImmediatePropagation();
-
-    const box = document.querySelector('#anfrage');
-    if(!box) return;
-
-    setTimeout(()=>{
-      box.classList.remove('pulseHighlight', 'pulseHighlightOnce');
-      void box.offsetWidth;
-      box.classList.add('pulseHighlightOnce');
-      setTimeout(()=>box.classList.remove('pulseHighlightOnce'), 1800);
-    }, 950);
-  }
-
-  document.addEventListener('click', pulseOnceClean, true);
-})();
-
-
-// v31: Anfrage-Animation nur einmal und ohne doppeltes altes Blinken
-(function(){
-  function cleanRequestGlow(e){
-    const trigger = e.target.closest && e.target.closest('a[href="#anfrage"], [data-highlight-anfrage]');
-    if(!trigger) return;
-    e.stopImmediatePropagation();
-
-    const box = document.querySelector('#anfrage');
-    if(!box) return;
-
-    setTimeout(()=>{
-      box.classList.remove('pulseHighlight','pulseHighlightOnce','requestGlow');
-      void box.offsetWidth;
-      box.classList.add('requestGlow');
-      setTimeout(()=>box.classList.remove('requestGlow'), 1450);
-    }, 720);
-  }
-
-  document.addEventListener('click', cleanRequestGlow, true);
-
-  document.querySelectorAll('.inlineImageTag[data-large]').forEach(el=>{
-    el.addEventListener('click',()=>{
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightboxImage');
-      const lightboxCaption = document.getElementById('lightboxCaption');
-      if(lightbox && lightboxImage && lightboxCaption){
-        lightboxImage.src = el.dataset.large;
-        lightboxCaption.textContent = 'Requisiten Auswahl';
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden','false');
-      }
-    });
-  });
-})();
-
-
-// Formspree AJAX Fix: kein mailto, kein E-Mail-Programm
-(function(){
-  const form = document.getElementById('bookingForm') || document.querySelector('form[action*="formspree"]');
-  if (!form) return;
-
-  form.setAttribute('action', 'https://formspree.io/f/mnjkpbgq');
-  form.setAttribute('method', 'POST');
-
-  const status = document.getElementById('formStatus');
-  const button = form.querySelector('button[type="submit"], button:not([type]), input[type="submit"]');
-
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    if (status) {
-      status.className = 'formStatus is-loading';
-      status.textContent = 'Anfrage wird gesendet...';
-    }
-    if (button) {
-      button.disabled = true;
-      button.dataset.originalText = button.textContent;
-      button.textContent = 'Wird gesendet...';
-    }
-
-    try {
-      const response = await fetch('https://formspree.io/f/mnjkpbgq', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        if (status) {
-          status.className = 'formStatus is-success';
-          status.textContent = '✓ Vielen Dank! Deine Anfrage wurde versendet. Ich melde mich schnellstmöglich.';
-        }
-        form.reset();
-      } else {
-        const data = await response.json().catch(() => ({}));
-        const msg = data?.errors?.[0]?.message || 'Das hat leider nicht geklappt. Bitte versuche es erneut oder schreib direkt per E-Mail.';
-        if (status) {
-          status.className = 'formStatus is-error';
-          status.textContent = msg;
-        }
-      }
-    } catch (err) {
-      if (status) {
-        status.className = 'formStatus is-error';
-        status.textContent = 'Keine Verbindung möglich. Bitte versuche es erneut.';
-      }
-    } finally {
-      if (button) {
-        button.disabled = false;
-        button.textContent = button.dataset.originalText || 'Anfrage senden';
-      }
-    }
-  }, true);
-})();
-
-
-// Impressum-Popup
-(function(){
-  const modal = document.getElementById('impressumModal');
-  if (!modal) return;
-  const openers = document.querySelectorAll('[data-open-impressum]');
-  const closeButton = modal.querySelector('.legalModalClose');
-  let lastFocused = null;
-
-  function openModal(){
-    lastFocused = document.activeElement;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.classList.add('modal-open');
-    closeButton?.focus();
-  }
-  function closeModal(){
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-    lastFocused?.focus?.();
-  }
-
-  openers.forEach(button => button.addEventListener('click', openModal));
-  closeButton?.addEventListener('click', closeModal);
-  modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-  });
-})();
+// Paket und Designauswahl bleiben konsistent.
+if(form){const packageInput=form.elements.Paket,designInput=form.elements.Designvorlage;const customValue='Custom – individuelles Design';const syncPackage=()=>{if(packageInput.value==='Custom Design – 200€'){designInput.value=customValue;}else if(designInput.value===customValue){designInput.selectedIndex=0;}};packageInput.addEventListener('change',syncPackage);designInput.addEventListener('change',()=>{if(designInput.value===customValue){packageInput.value='Custom Design – 200€';}else if(designInput.selectedIndex>0){packageInput.value='Standard – 175€';}});syncPackage();}

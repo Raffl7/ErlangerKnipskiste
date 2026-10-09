@@ -4,5 +4,11 @@
   <url><loc>https://erlangerknipskiste.de/preise.html</loc></url>
   <url><loc>https://erlangerknipskiste.de/galerie.html</loc></url>
   <url><loc>https://erlangerknipskiste.de/ablauf.html</loc></url>
-  <url><loc>https://erlangerknipskiste.de/ueber-uns.html</loc></url>
-</urlset>
+  <url><loc>https://erlangerknipskiste.de/kontakt.html</loc></url>
+
+  <url>
+    <loc>https://erlangerknipskiste.de/design.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url><loc>https://erlangerknipskiste.de/funktionierts.html</loc></url></urlset>

@@ -1,0 +1,571 @@
+@font-face{font-family:"Bebas Neue";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Pacifico";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/pacifico-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/inter-latin-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/inter-latin-600-normal.woff2") format("woff2");}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");}
+/* Gezielte Ergänzungen zur unveränderten Gestaltung der ersten ZIP. */
+/* Ruhige Papierflächen für Informationen; die Einstiegsfläche behält leichte Textur. */
+body::before{display:none!important}.paper:not(.hero),.pageTeasers.unifiedPaper,.pageCta.compactCta,.templatesSection,.templateCta,.designExplanation{background-image:none!important;background-color:var(--paper)!important;background-attachment:scroll!important}.paper:not(.hero)::before,.paper:not(.hero)::after{background-image:none!important}.hero.paper{background-image:linear-gradient(transparent,transparent)!important;background-size:12px 12px!important}.hero.paper::before,.hero.paper::after{background-image:none!important}
+.templatesSection .templateList{grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:1280px!important;gap:30px!important}.templatesSection .templateCard{padding:26px 30px!important}.templatesSection .templateCardHead{display:grid!important;grid-template-columns:110px minmax(0,1fr)!important;gap:20px!important;align-items:start!important}.templatesSection .templateCardHead>span{font-size:22px!important;padding-top:5px!important}.templatesSection .templateCard h3{font-size:38px!important}.templatesSection .templatePreviewGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important}.templatesSection .templatePreview img{width:100%!important;aspect-ratio:16/10!important;object-fit:contain!important}.templatesSection .templatePreview span{font-size:19px!important;padding:12px 14px!important}.templatesSection .templateChoose{display:inline-block!important;width:auto!important}
+.designExplanation,.functionSection{padding:42px 7vw}.explanationGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:22px 0}.designExplanation h2,.functionSection h2{font:46px/1.1 'Bebas Neue',sans-serif;letter-spacing:1px;margin:0 0 20px}.designExplanation h3,.functionSection h3{font:28px/1.15 'Bebas Neue',sans-serif;letter-spacing:.5px;margin:20px 0 10px}.designExplanation p,.functionSection p,.functionSection li{font:16px/1.7 Inter,system-ui,sans-serif}.explanationGrid p{margin:0}.functionGrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:46px;align-items:start}.functionVisual img{width:100%;height:auto;border:8px solid var(--cream)}.functionVisual>p{font-size:12px;margin-top:8px}.functionSteps{margin:0;padding-left:22px}.functionSteps li{padding:0 0 14px 8px}.functionSteps h3{margin-top:0}.functionSteps p{margin:0}.functionPlaceholder{border:1px dashed #b69b76;background:#ddc8a8;min-height:180px;display:flex;align-items:center;justify-content:center;padding:28px;color:#634c37;font:16px/1.5 Inter,system-ui,sans-serif;text-align:center}.dark .functionPlaceholder{background:#221b17;border-color:#75604a;color:var(--cream);min-height:300px}.functionLinks>p{margin-top:24px;max-width:900px}.functionLinks .actions{margin-top:15px}.bookingNote{margin:28px auto 0;max-width:1000px;font:14px/1.7 Inter,system-ui,sans-serif}.notBookable{display:block;margin-top:20px;padding:14px 18px;text-align:center;border:1px solid #bca688;color:#786550;background:#e4d4b8;font:20px/1.2 'Bebas Neue',sans-serif}.fieldLabel{font:13px/1.4 Inter,system-ui,sans-serif;display:block;margin-top:5px}.topbar nav{gap:20px!important}.topbar nav a{white-space:nowrap}.lightboxFigure{max-width:92vw}.inlineImageTag{cursor:zoom-in}.inquiryPanel .formStatus{font:12px/1.6 Inter,system-ui,sans-serif}.inquiryPanel form label{color:#382c23}
+@media(max-width:1150px){.topbar{gap:18px!important}.topbar nav{display:none!important}.topbar nav.is-open{display:flex!important;flex-direction:column!important;position:absolute!important;top:100%!important;left:0!important;right:0!important;width:100%!important;padding:20px 6vw!important;gap:14px!important;background:#101112!important;z-index:50!important}.mobileMenuButton{display:block!important;width:42px!important;margin:0 0 0 auto!important;padding:6px!important;background:transparent!important;color:var(--cream)!important;border:1px solid #695447!important;font-size:23px!important}.topbar .navbtn{margin:0!important}}
+@media(min-width:1151px){.mobileMenuButton{display:none!important}}
+@media(max-width:800px){.explanationGrid,.functionGrid{grid-template-columns:1fr;gap:25px}.designExplanation,.functionSection{padding:30px 6vw}.functionGrid .functionVisual{max-width:650px}.designExplanation h2,.functionSection h2{font-size:36px}.templatesSection .templateCard{padding:22px!important}.templatesSection .templateCardHead{grid-template-columns:85px minmax(0,1fr)!important}.templatesSection .templateCard h3{font-size:32px!important}.templatesSection .templatePreviewGrid{gap:12px!important}}
+@media(max-width:600px){.templatesSection .templatePreviewGrid{grid-template-columns:1fr!important}.templatesSection .templateCardHead{grid-template-columns:1fr!important;gap:5px!important}.templatesSection .templateCardHead>span{margin-bottom:0!important}.templatesSection .templateCard{padding:18px!important}.templatesSection .templateCard h3{font-size:32px!important}.templatesSection .templatePreview img{aspect-ratio:16/9!important}.templatesSection .templatePreview span{font-size:18px!important}.topbar{gap:10px!important;padding-left:16px!important;padding-right:16px!important}.topbar .navbtn{padding:10px 12px!important;font-size:16px!important}.functionLinks .btn{max-width:100%}.functionPlaceholder{min-height:160px}.dark .functionPlaceholder{min-height:180px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation:none!important;transition:none!important}}
+.featureCopy>.btn{display:inline-block!important;margin-top:20px!important}
+/* Karostruktur und schwarze Inhaltsboxen, abgestimmt auf das Original. */
+:root{--page-width:min(1440px,calc(100% - 80px))}
+body{background-color:#e4d0ad!important;background-image:url('assets/karo-textur.svg')!important;background-size:96px 96px!important}
+main,.footer{width:var(--page-width)!important;max-width:1440px!important;margin-left:auto!important;margin-right:auto!important}
+main{box-shadow:0 8px 28px rgba(52,35,20,.10)}
+.topbar{width:var(--page-width)!important;max-width:1440px!important;left:50%!important;transform:translateX(-50%)!important}
+.paper,.paper:not(.hero),.hero.paper,.pageTeasers.unifiedPaper,.pageCta.compactCta,.templatesSection,.templateCta,.designExplanation{background-image:url('assets/karo-textur.svg')!important;background-size:96px 96px!important;background-attachment:scroll!important;background-position:0 0!important}
+main>section{padding-left:clamp(24px,4vw,64px)!important;padding-right:clamp(24px,4vw,64px)!important}
+.footer{padding-left:clamp(24px,4vw,64px)!important;padding-right:clamp(24px,4vw,64px)!important}
+/* Breite Vorlagenboxen mit dunkler Kopfzeile. */
+.templatesSection .templateCard{border:1.5px solid #181818!important;background:#f4e6cd!important;padding:24px!important;box-shadow:8px 8px 0 rgba(52,35,20,.13)!important;overflow:hidden!important}
+.templatesSection .templateCard:hover{transform:none!important;box-shadow:8px 8px 0 rgba(52,35,20,.13)!important}
+.templatesSection .templateCardHead{margin:-24px -24px 24px!important;padding:20px 24px!important;grid-template-columns:100px minmax(0,1fr)!important;background:#161718!important;gap:20px!important}
+.templatesSection .templateCardHead>span{color:var(--rust)!important;margin:0!important;padding-top:6px!important}
+.templatesSection .templateCard h3{color:var(--cream)!important;font-size:36px!important}
+.templatesSection .templateCardHead p{color:#e4d4bd!important;line-height:1.6!important}
+.templatesSection .templatePreview{border:1px solid #3d3329!important;background:#ead9bd!important}
+.templatesSection .templatePreview img{border-bottom:1px solid #3d3329!important}
+.templatesSection .templatePreview span{color:#171717!important}
+/* Erklärtexte als klar abgegrenzte Boxen. */
+.designExplanation>.sectionHead{background:#161718!important;padding:18px 24px!important;margin:0!important}
+.designExplanation>.sectionHead h2{color:var(--cream)!important;margin:0!important;font-size:36px!important}
+.explanationGrid{gap:18px!important;margin:22px 0!important;align-items:stretch}
+.explanationGrid article{background:#f4e6cd;border:1px solid #33281f;box-shadow:6px 6px 0 rgba(52,35,20,.10);padding:0 20px 20px;min-width:0}
+.explanationGrid article h3{background:#161718;color:var(--cream);padding:14px 20px;margin:0 -20px 18px;font-size:25px}
+.designExplanation>p{background:#f4e6cd;border:1px solid #33281f;padding:20px 24px;margin:0}
+.functionGrid{gap:24px!important}
+.functionGrid>div{border:1px solid #32281f;background:#f4e6cd;padding:24px;box-shadow:6px 6px 0 rgba(52,35,20,.10);min-width:0}
+.functionSection h2{background:#161718;color:var(--cream);padding:16px 20px;font-size:36px;margin:0 0 24px}
+.functionGrid>div>h2{margin-left:-24px;margin-right:-24px}
+.functionGrid>div>.script{font-size:26px!important;margin:0 0 14px!important}
+.functionVisual img{border:1px solid #2c241d!important;max-height:460px;object-fit:contain;background:#ead9bd}
+.functionVisual>p{color:#655344}
+.functionPlaceholder{margin-top:16px;background:#e9d7b7!important;border-color:#907457!important}
+.dark.functionSection{background:#161718!important;border-top:1px solid #4e3c2c;border-bottom:1px solid #4e3c2c}
+.dark.functionSection .functionGrid>div{background:#202122;border-color:#594637;color:var(--cream)}
+.dark.functionSection h2{background:#0d0f10;border-bottom:2px solid var(--rust)}
+.dark.functionSection .functionPlaceholder{margin-top:0;background:#202122!important;color:var(--cream)!important}
+.functionLinks{padding-top:32px!important}.functionLinks>h2{font-size:32px}.functionLinks .actions{gap:14px}
+@media(max-width:1100px){:root{--page-width:calc(100% - 40px)}.functionGrid{grid-template-columns:1fr!important}.explanationGrid{grid-template-columns:1fr!important}.functionVisual img{max-height:360px}}
+@media(max-width:700px){:root{--page-width:calc(100% - 24px)}main>section,.footer{padding-left:18px!important;padding-right:18px!important}.topbar{padding-left:12px!important;padding-right:12px!important}.templatesSection .templateCard{padding:18px!important}.templatesSection .templateCardHead{margin:-18px -18px 18px!important;padding:17px 18px!important;grid-template-columns:1fr!important;gap:7px!important}.templatesSection .templateCard h3{font-size:30px!important}.templatesSection .templatePreviewGrid{grid-template-columns:1fr!important}.templatesSection .templateCardHead>span{padding-top:0!important;font-size:18px!important}.functionGrid>div{padding:18px!important}.functionGrid>div>h2{margin-left:-18px;margin-right:-18px;padding:14px 18px;font-size:30px}.designExplanation>.sectionHead{padding:16px 18px!important}.designExplanation>.sectionHead h2{font-size:30px!important}.designExplanation>p{padding:18px}.functionLinks>h2{font-size:29px}.topbar .navbtn{font-size:14px!important;padding:10px!important}.functionSteps{padding-left:18px}.functionSteps li{padding-left:3px}.functionVisual img{max-height:320px}}
+/* Durchgehende Flächen: Rand und Mitte teilen genau einen Karohintergrund. */
+body{background-color:var(--paper)!important;background-image:url('assets/karo-textur.svg')!important;background-size:96px 96px!important;background-position:0 0!important;background-attachment:fixed!important}
+main,.footer{width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important}
+main{padding-top:0!important}
+.paper,.paper:not(.hero),.hero.paper,.pageTeasers.unifiedPaper,.pageCta.compactCta,.templatesSection,.templateCta,.designExplanation{background:none!important;background-color:transparent!important}
+.paper::before,.paper::after{background:none!important;background-image:none!important}
+main>section,.footer{padding-left:max(24px,calc((100vw - 1280px)/2))!important;padding-right:max(24px,calc((100vw - 1280px)/2))!important}
+.topbar{width:100%!important;max-width:none!important;left:0!important;top:0!important;transform:none!important;border:0!important;box-shadow:0 3px 15px rgba(0,0,0,.18)!important;padding-left:max(24px,calc((100vw - 1280px)/2))!important;padding-right:max(24px,calc((100vw - 1280px)/2))!important}
+/* Die vorhandenen Schriften, Schriftgrößen und Farben der Preis-/Ablaufseite. */
+.templatesSection .templateCard{border:1px solid rgba(66,48,39,.42)!important;background:rgba(255,246,228,.25)!important;box-shadow:12px 12px 0 rgba(198,95,62,.14),0 22px 44px rgba(40,25,18,.08)!important}
+.templatesSection .templateCard:hover{box-shadow:12px 12px 0 rgba(198,95,62,.14),0 22px 44px rgba(40,25,18,.08)!important}
+.templatesSection .templateCardHead{background:#101112!important}
+.templatesSection .templateCardHead>span{font:400 18px/1.2 'Bebas Neue',sans-serif!important;letter-spacing:1.5px!important;color:var(--rust)!important}
+.templatesSection .templateCard h3{font:700 34px/1 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;color:var(--cream)!important}
+.templatesSection .templateCardHead p{font:400 14px/1.55 Inter,system-ui,sans-serif!important;color:var(--cream)!important;margin-top:8px!important}
+.templatesSection .templatePreview{border:1px solid rgba(66,48,39,.42)!important;background:rgba(255,246,228,.25)!important}
+.templatesSection .templatePreview span{font:400 17px/1.15 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;color:#151515!important}
+.templatesSection .templateChoose{font:400 18px/1.2 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;color:var(--rust)!important}
+.designExplanation>.sectionHead{background:#101112!important;padding:18px 22px!important}
+.designExplanation>.sectionHead h2{font:700 42px/.95 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;color:var(--cream)!important}
+.explanationGrid article{background:rgba(255,246,228,.25)!important;border:1px solid rgba(66,48,39,.42)!important;box-shadow:12px 12px 0 rgba(198,95,62,.14),0 22px 44px rgba(40,25,18,.08)!important}
+.explanationGrid article h3{font:700 24px/1.1 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;background:#101112!important;color:var(--cream)!important}
+.designExplanation p{font:400 14px/1.6 Inter,system-ui,sans-serif!important;color:#151515!important}
+.designExplanation>p{background:rgba(255,246,228,.25)!important;border:1px solid rgba(66,48,39,.42)!important;box-shadow:12px 12px 0 rgba(198,95,62,.14),0 22px 44px rgba(40,25,18,.08)!important}
+.functionGrid>div{border:1px solid rgba(66,48,39,.42)!important;background:rgba(255,246,228,.24)!important;box-shadow:12px 12px 0 rgba(198,95,62,.14),0 22px 44px rgba(40,25,18,.08)!important}
+.functionGrid>div>.script{font:400 34px/1.4 Pacifico,cursive!important;color:var(--rust)!important}
+.functionSection h2{font:700 42px/.95 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;background:#101112!important;color:var(--cream)!important}
+.functionSection h3{font:700 24px/1.1 'Bebas Neue',sans-serif!important;letter-spacing:1px!important;color:#151515!important}
+.functionSection p,.functionSection li{font:400 14px/1.6 Inter,system-ui,sans-serif!important;color:#151515!important}
+.functionSection .functionVisual>p{font-size:12px!important;color:var(--muted)!important}
+.dark.functionSection{background:linear-gradient(90deg,#111214,#0e0f10 45%,#121315)!important}
+.dark.functionSection .functionGrid>div{background:rgba(255,255,255,.035)!important;border-color:#3b3028!important;box-shadow:none!important}
+.dark.functionSection h3,.dark.functionSection p,.dark.functionSection li{color:var(--cream)!important}
+.functionPlaceholder{font:400 14px/1.6 Inter,system-ui,sans-serif!important;background:rgba(255,246,228,.25)!important;border-color:rgba(66,48,39,.42)!important;color:var(--muted)!important}
+.dark.functionSection .functionPlaceholder{background:rgba(255,255,255,.035)!important;color:var(--cream)!important}
+@media(max-width:700px){main>section,.footer{padding-left:20px!important;padding-right:20px!important}.topbar{padding-left:16px!important;padding-right:16px!important}.templatesSection .templateCard h3{font-size:30px!important}.designExplanation>.sectionHead h2,.functionSection h2{font-size:34px!important}.functionGrid>div>.script{font-size:28px!important}.functionSection h3,.explanationGrid article h3{font-size:22px!important}}
+body{background-attachment:scroll!important}
+.dark.functionSection .functionGrid>div>.script{color:var(--rust)!important}
+/* Feinschliff: schwebende Navigation, ruhigere Vorlagen, gleiche Inhaltsränder. */
+:root{--content-inset:max(24px,calc((100vw - 1280px)/2))}
+.topbar{top:14px!important;left:50%!important;transform:translateX(-50%)!important;width:calc(100% - 80px)!important;max-width:1440px!important;padding-left:30px!important;padding-right:30px!important;box-shadow:0 18px 45px rgba(0,0,0,.28)!important}
+main>section,.footer{padding-left:var(--content-inset)!important;padding-right:var(--content-inset)!important}
+/* Die Karten zeichnen keine eigene Papierfläche über das durchgehende Karo. */
+.heroCard,.heroText.heroCard,.priceCard,.teaserCard,.processPanel,.servicePanel,.inquiryPanel,.timeline article,.quickServiceList li,.templatesSection .templateCard,.templatesSection .templateCardHead,.templatesSection .templatePreview,.explanationGrid article,.designExplanation>p,.functionSection.paper .functionGrid>div,.functionSection.paper .functionPlaceholder{background-color:transparent!important;background-image:none!important}
+/* Erste Erklärung: gleich hohe Nachbarboxen und weniger optisches Gewicht. */
+.photoInstructions .functionGrid{align-items:stretch!important}
+.photoInstructions .functionGrid>div{height:100%;max-width:none!important}
+.photoInstructions .functionGrid>div>h2{font-size:32px!important;line-height:1.1!important;padding-top:13px!important;padding-bottom:13px!important}
+.photoInstructions .functionSteps h3{font:600 15px/1.4 Inter,system-ui,sans-serif!important;letter-spacing:0!important;text-transform:none!important;margin:0 0 5px!important}
+.photoInstructions .functionSteps p{font-size:14px!important;line-height:1.65!important}
+.photoInstructions .functionSteps li{padding-bottom:20px!important}
+.photoInstructions .functionSteps li:last-child{padding-bottom:0!important}
+.photoInstructions .functionVisual{display:flex;flex-direction:column}
+.photoInstructions .functionVisual .functionPlaceholder{flex:1;min-height:160px}
+/* Vorlagen: Schreibschrift wie bei den anderen Inhaltsabschnitten. */
+.templatesSection .templateCardHead{border-bottom:1px solid rgba(66,48,39,.42)!important;grid-template-columns:100px minmax(0,1fr)!important}
+.templatesSection .templateCard h3{font:400 30px/1.45 Pacifico,cursive!important;letter-spacing:0!important;text-transform:none!important;color:var(--rust)!important}
+.templatesSection .templateCardHead>span{color:#151515!important;padding-top:12px!important}
+.templatesSection .templateCardHead p{color:#151515!important;max-width:850px!important;margin-top:8px!important}
+.designExplanation>.sectionHead{background:transparent!important;padding:0 0 16px!important;border-bottom:1px solid rgba(66,48,39,.42)!important}
+.designExplanation>.sectionHead h2{font:400 32px/1.45 Pacifico,cursive!important;letter-spacing:0!important;text-transform:none!important;color:var(--rust)!important}
+.explanationGrid article h3{background:transparent!important;color:#151515!important;border-bottom:1px solid rgba(66,48,39,.24)!important;font-size:24px!important}
+.templatesSection .templateCard{overflow:visible!important}
+/* Ruhiger Abschluss statt einer weiteren schwarzen Überschriftenleiste. */
+.functionLinks{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;border-top:1px solid rgba(66,48,39,.24)}
+.functionLinks .nextStepIntro>.script{font:400 30px/1.5 Pacifico,cursive!important;color:var(--rust)!important;margin:0 0 14px!important}
+.functionLinks .nextStepIntro>h2{background:none!important;color:#151515!important;padding:0!important;margin:0 0 16px!important;font-size:34px!important;line-height:1.1!important}
+.functionLinks .nextStepIntro>p:last-child{margin-bottom:0;max-width:700px}
+.nextStepActions{display:flex;flex-direction:column;align-items:stretch;gap:14px;min-width:0}
+.nextStepActions .btn{text-align:center;margin:0!important;box-shadow:5px 5px 0 rgba(0,0,0,.14)!important}
+@media(max-width:1100px){.topbar{width:calc(100% - 40px)!important;padding-left:22px!important;padding-right:22px!important}.functionLinks{grid-template-columns:1fr}.nextStepActions{flex-direction:row;flex-wrap:wrap}.nextStepActions .btn{flex:1 1 180px}.photoInstructions .functionGrid>div{height:auto!important}.photoInstructions .functionVisual .functionPlaceholder{flex:none}}
+@media(max-width:700px){:root{--content-inset:20px}.topbar{top:10px!important;width:calc(100% - 24px)!important;padding-left:12px!important;padding-right:12px!important}.templatesSection .templateCardHead{grid-template-columns:1fr!important}.templatesSection .templateCardHead>span{padding-top:0!important}.templatesSection .templateCard h3{font-size:25px!important}.designExplanation>.sectionHead h2{font-size:27px!important}.photoInstructions .functionGrid>div>h2{font-size:28px!important}.functionLinks .nextStepIntro>.script{font-size:25px!important}.functionLinks .nextStepIntro>h2{font-size:29px!important}.nextStepActions{flex-direction:column}.nextStepActions .btn{flex:0 0 auto}}
+/* Verbindliche Seitenregeln: übersteuern die historischen ID- und Kombinationsregeln. */
+#knipskiste{--content-inset:max(24px,calc((100vw - 1280px)/2));background-color:var(--paper)!important;background-image:url('assets/karo-textur.svg')!important;background-size:96px 96px!important}
+#knipskiste #start>section{padding-left:var(--content-inset)!important;padding-right:var(--content-inset)!important;box-sizing:border-box!important;width:100%!important;max-width:none!important}
+#knipskiste .footer{padding-left:var(--content-inset)!important;padding-right:var(--content-inset)!important}
+#knipskiste #start>section.paper,#knipskiste #start>section.unifiedPaper,#knipskiste #start>#ablauf,#knipskiste #start>#faq{background:none!important;background-color:transparent!important;box-shadow:none!important;color:#151515!important}
+#knipskiste #start>section.paper::before,#knipskiste #start>section.paper::after,#knipskiste #start>section.unifiedPaper::before,#knipskiste #start>section.unifiedPaper::after{background:none!important;box-shadow:none!important}
+/* Deckende Textflächen: Das Karo liegt hinter den Boxen, nicht unter den Buchstaben. */
+#knipskiste .heroCard,#knipskiste .priceCard,#knipskiste .teaserCard,#knipskiste .processPanel,#knipskiste .servicePanel,#knipskiste .inquiryPanel,#knipskiste .templatesSection .templateCard,#knipskiste .explanationGrid article,#knipskiste .designExplanation>p,#knipskiste .functionSection.paper .functionGrid>div{background:#f3e5cc!important;color:#151515!important}
+#knipskiste .timeline article,#knipskiste .quickServiceList li,#knipskiste .templatePreview,#knipskiste .functionSection.paper .functionPlaceholder{background:#f8ecd8!important;color:#151515!important}
+#knipskiste #faq .faqGrid details{background:#f3e5cc!important;border:1px solid rgba(66,48,39,.42)!important;box-shadow:6px 6px 0 rgba(198,95,62,.12)!important;padding:18px 20px!important}
+#knipskiste #faq .faqGrid details p{color:#25201b!important;font:400 14px/1.7 Inter,system-ui,sans-serif!important}
+#knipskiste #faq .faqGrid summary{color:#151515!important;font:700 24px/1.15 'Bebas Neue',sans-serif!important}
+#knipskiste #faq h2{color:#151515!important}
+#knipskiste #ablauf .timeline p{font-size:14px!important;line-height:1.65!important;color:#25201b!important}
+#knipskiste #ablauf .timeline h3{font-size:23px!important;line-height:1.2!important}
+#knipskiste #ablauf .quickServiceList li{font-size:14px!important;line-height:1.45!important}
+#knipskiste .templatesSection .templateCardHead{background:#f3e5cc!important}
+#knipskiste .templatesSection .templateCardHead p{color:#25201b!important;font-size:15px!important;line-height:1.6!important}
+/* Schwarzer Einstieg der Designerklärung, helle und lesbare Karten darin. */
+#knipskiste #start>.designExplanation{background:#101112!important;color:var(--cream)!important;border-top:1px solid #423027;border-bottom:1px solid #423027}
+#knipskiste .designExplanation>.sectionHead{border-color:#4c3c30!important;padding-bottom:20px!important}
+#knipskiste .designExplanation>.sectionHead h2{color:var(--rust)!important;font-size:34px!important}
+#knipskiste .designExplanation .explanationGrid{gap:22px!important}
+#knipskiste .designExplanation .explanationGrid article{box-shadow:none!important}
+#knipskiste .designExplanation .explanationGrid article h3{background:#f3e5cc!important;color:#151515!important;padding-top:20px!important}
+#knipskiste .designExplanation .explanationGrid p,#knipskiste .designExplanation>p{color:#25201b!important;font-size:15px!important;line-height:1.7!important}
+#knipskiste .designExplanation>p{box-shadow:none!important}
+/* Gleiche Ausgangsbreite für alle inneren Layouts. */
+#knipskiste #start .priceGrid,#knipskiste #start .galleryGrid,#knipskiste #start .serviceProcessGrid,#knipskiste #start .customDesignGrid,#knipskiste #start .aboutGrid,#knipskiste #start .faqGrid,#knipskiste #start .templateList,#knipskiste #start .teaserGrid{width:100%!important;max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;min-width:0!important}
+@media(max-width:700px){#knipskiste{--content-inset:20px}#knipskiste .designExplanation>.sectionHead h2{font-size:28px!important}#knipskiste #faq .faqGrid details{padding:16px!important}}
+#knipskiste #start>section.designExplanation{background:#101112!important;color:var(--cream)!important}
+#knipskiste #start>section.reveal{animation:none!important;opacity:1!important;transform:none!important}
+#knipskiste #faq details[open] p{animation:none!important;opacity:1!important;transform:none!important}
+#knipskiste #faq .faqGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start!important;gap:18px!important}
+#knipskiste #faq .faqGrid details{min-height:0!important;height:auto!important}
+@media(max-width:800px){#knipskiste #faq .faqGrid{grid-template-columns:1fr!important}}
+/* Leichte Transparenz bei gutem Kontrast. */
+#knipskiste .heroCard,#knipskiste .priceCard,#knipskiste .teaserCard,#knipskiste .processPanel,#knipskiste .servicePanel,#knipskiste .inquiryPanel,#knipskiste .explanationGrid article,#knipskiste .designExplanation>p,#knipskiste .functionSection.paper .functionGrid>div,#knipskiste #faq .faqGrid details{background:rgba(243,229,204,.90)!important}
+#knipskiste .timeline article,#knipskiste .quickServiceList li,#knipskiste .functionSection.paper .functionPlaceholder{background:rgba(248,236,216,.88)!important}
+/* Helle Vorlagenkarten mit Schreibschrift wie vor der letzten Änderung. */
+#knipskiste .templatesSection .templateCard{background:rgba(243,229,204,.90)!important;color:#151515!important;border-color:rgba(66,48,39,.42)!important}
+#knipskiste .templatesSection .templateCardHead{background:transparent!important;color:#151515!important;border-bottom-color:rgba(66,48,39,.24)!important;padding-top:17px!important;padding-bottom:17px!important}
+#knipskiste .templatesSection .templateCardHead p{color:#25201b!important}
+#knipskiste .templatesSection .templateCardHead>span{color:var(--rust)!important}
+#knipskiste .templatesSection .templateCard h3{color:var(--rust)!important}
+#knipskiste .templatesSection .templatePreview{background:rgba(248,236,216,.88)!important;border-color:rgba(66,48,39,.42)!important}
+#knipskiste .templatesSection .templatePreview span{color:#151515!important}
+#knipskiste .templatesSection .templateChoose{color:var(--rust)!important}
+/* Ursprüngliches FAQ-Raster mit stabiler Scrollposition. */
+#knipskiste #faq .faqGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;align-items:stretch!important;overflow-anchor:none!important}
+#knipskiste #faq .faqGrid details{min-height:135px!important;height:auto!important;padding:16px!important;transform:none!important;transition:none!important}
+#knipskiste #faq .faqGrid details:hover{transform:none!important;background:rgba(243,229,204,.94)!important}
+#knipskiste #faq .faqGrid summary{font-size:23px!important;line-height:1.05!important}
+/* Kürzere Wege zwischen Einstieg, Überschrift und Inhalt. */
+#knipskiste #start>section.subpageHero{padding-bottom:18px!important;min-height:0!important}
+#knipskiste #start>section:not(.hero):not(.subpageHero){padding-top:26px!important;padding-bottom:28px!important}
+#knipskiste #start>section.pageTeasers{padding-top:36px!important}
+#knipskiste .sectionHead,#knipskiste .faqIntro{margin-bottom:18px!important}
+#knipskiste .pageTeasers .teaserGrid{margin-top:22px!important}
+#knipskiste .templatesSection .templateList{gap:22px!important}
+#knipskiste .explanationGrid{margin-top:18px!important;margin-bottom:18px!important}
+#knipskiste .functionSection h2{margin-bottom:18px!important}
+#knipskiste .templateCardHead{margin-bottom:18px!important}
+@media(max-width:1100px){#knipskiste #faq .faqGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:700px){#knipskiste #faq .faqGrid{grid-template-columns:1fr!important}#knipskiste #faq .faqGrid details{min-height:0!important}#knipskiste #start>section:not(.hero):not(.subpageHero){padding-top:22px!important;padding-bottom:24px!important}}
+
+/* Leicht durchscheinende Flächen ohne Transparenz auf dem Text. */
+#knipskiste .designExplanation .explanationGrid article h3{background:transparent!important}
+#knipskiste .dark.functionSection .functionGrid>div,#knipskiste .dark.functionSection .functionPlaceholder{background:rgba(32,33,34,.94)!important}
+#knipskiste .functionSection h2,#knipskiste .designExplanation>.sectionHead{background:rgba(22,23,24,.95)!important}
+#knipskiste .dark.functionSection h2{background:rgba(13,15,16,.95)!important}
+#knipskiste .notBookable{background:rgba(228,212,184,.90)!important}
+#knipskiste .functionVisual img{background:rgba(234,217,189,.88)!important}
+/* Kein künstliches Fett für die nur im normalen Schnitt vorhandene Bebas-Schrift. */
+#knipskiste #faq .faqGrid summary{font:400 23px/1.2 'Bebas Neue',sans-serif!important;font-synthesis:none!important;filter:none!important;transform:none!important;text-shadow:none!important;opacity:1!important}
+/* Kontakt und Design: klare Inhalte im bestehenden Karo-/Papierstil. */
+#knipskiste main a:not(.btn):not(.teaserCard):not(.templateChoose){text-decoration-thickness:1.5px;text-underline-offset:4px}
+#knipskiste main p a,#knipskiste .textLink{color:#94432b!important;text-decoration:underline;font-weight:600}
+#knipskiste main a:focus-visible,#knipskiste button:focus-visible{outline:3px solid var(--rust);outline-offset:5px}
+#knipskiste .contactGrid,#knipskiste .designIntroGrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:stretch}
+#knipskiste .contactInfo,#knipskiste .designPackage,#knipskiste .customWorkflow article{padding:26px;background:rgba(243,229,204,.92)!important;border:1px solid rgba(66,48,39,.35);box-shadow:8px 8px 0 rgba(198,95,62,.12);min-width:0}
+#knipskiste .contactInfo h2,#knipskiste .designPackages h2,#knipskiste .designExamples h2,#knipskiste .screenDesignSection h2,#knipskiste .bookingCta h2{font:400 38px/1.1 'Bebas Neue',sans-serif;letter-spacing:1px;margin:0 0 16px}
+#knipskiste .contactInfo h3,#knipskiste .designPackage h3,#knipskiste .customWorkflow h3{font:400 26px/1.2 'Bebas Neue',sans-serif;margin:18px 0 12px}
+#knipskiste .contactInfo p,#knipskiste .designPackages p,#knipskiste .designPackages li,#knipskiste .designExamples p,#knipskiste .screenDesignSection p,#knipskiste .bookingCta p{font:400 16px/1.65 Inter,system-ui,sans-serif}
+#knipskiste .contactInfo>.script{font:400 30px/1.5 Pacifico,cursive;color:var(--rust);margin:0 0 12px}
+#knipskiste .contactChannels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+#knipskiste .contactChannels a{display:block;border:1px solid rgba(66,48,39,.3);padding:14px;background:rgba(248,236,216,.9);color:#151515;font-weight:600;text-decoration:none!important;overflow-wrap:anywhere}
+#knipskiste .contactChannels span{display:block;font-size:14px;font-weight:400;line-height:1.6;margin-top:5px}
+#knipskiste .contactChannels a:hover{border-color:var(--rust);background:rgba(255,246,228,.95)}
+#knipskiste .contactGrid .inquiryPanel{padding:26px;min-width:0;margin:0;width:100%;max-width:none}
+#knipskiste .contactGrid form{width:100%;max-width:none}
+#knipskiste .contactGrid input,#knipskiste .contactGrid select,#knipskiste .contactGrid textarea{width:100%;min-width:0;max-width:100%;font-size:16px}
+#knipskiste .contactGrid .formStatus{font-size:14px;line-height:1.6}
+#knipskiste .bookingCta .btn{display:block;margin:18px 0;text-align:center}
+#knipskiste .designIntroText p,#knipskiste .designIntroText .textLink{color:var(--cream)!important;font:400 16px/1.7 Inter,system-ui,sans-serif!important}
+#knipskiste .designIntroText h3{font:400 26px/1.2 'Bebas Neue',sans-serif;color:var(--cream);margin:20px 0 8px}
+#knipskiste .designIntroText h3:first-child{margin-top:0}
+#knipskiste .designPhotoPlaceholder{min-height:330px;border:2px dashed rgba(243,229,204,.5);padding:35px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(243,229,204,.07);color:var(--cream);gap:15px}
+#knipskiste .designPhotoPlaceholder strong{font:400 30px/1.3 'Bebas Neue',sans-serif}
+#knipskiste .designPhotoPlaceholder span{max-width:340px;font:400 16px/1.7 Inter,sans-serif}
+#knipskiste .designPackageGrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+#knipskiste .designPackage{display:flex;flex-direction:column;align-items:flex-start}
+#knipskiste .designPackage h3{font:400 30px/1.5 Pacifico,cursive;color:var(--rust);margin:0}
+#knipskiste .packagePrice{font:400 42px/1.2 'Bebas Neue',sans-serif;margin-top:10px}
+#knipskiste .designPackage ul{padding-left:22px;flex:1;margin-bottom:24px}
+#knipskiste .designPackage li{padding-bottom:8px}
+#knipskiste .designPackage .btn{margin:0 0 16px}
+#knipskiste .designNote{background:rgba(243,229,204,.9);border-left:4px solid var(--rust);padding:16px 20px;margin:22px 0!important;font:400 16px/1.7 Inter,sans-serif!important;color:#151515!important}
+#knipskiste .templatesSection>.sectionHead>p:not(.script){max-width:900px;font:400 16px/1.7 Inter,sans-serif}
+#knipskiste .designExamples .designCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+#knipskiste .designExamples .designCard{height:auto;aspect-ratio:16/10;max-width:none;overflow:hidden;border:1px solid rgba(66,48,39,.3);background:rgba(243,229,204,.9);cursor:zoom-in}
+#knipskiste .designExamples .designCard img{width:100%;height:100%;object-fit:contain}
+#knipskiste .customWorkflow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:24px}
+#knipskiste .customWorkflow h3{margin-top:0}
+#knipskiste .screenDesignSection>.sectionHead h2{background:rgba(22,23,24,.95)!important;padding:18px;color:var(--cream)!important}
+#knipskiste .screenDesignSection .functionGrid>div{padding:24px}
+#knipskiste .screenDesignSection .functionGrid h3{margin-top:0}
+#knipskiste .screenDesignSection .functionGrid p{min-height:108px}
+#knipskiste .screenDesignSection .functionPlaceholder{min-height:220px}
+#knipskiste .contactSection,#knipskiste .designPackages,#knipskiste .designExamples,#knipskiste .screenDesignSection{scroll-margin-top:130px}
+#knipskiste #anfrage{scroll-margin-top:130px}
+@media(max-width:800px){#knipskiste .contactGrid,#knipskiste .designIntroGrid,#knipskiste .designPackageGrid,#knipskiste .customWorkflow{grid-template-columns:1fr}#knipskiste .contactInfo,#knipskiste .contactGrid .inquiryPanel,#knipskiste .designPackage{padding:20px}#knipskiste .designPhotoPlaceholder{min-height:240px}#knipskiste .screenDesignSection .functionGrid p{min-height:0}}
+@media(max-width:500px){#knipskiste .contactChannels,#knipskiste .designExamples .designCards{grid-template-columns:1fr}}
+#knipskiste .designPackages>.sectionHead,#knipskiste .designExamples>.sectionHead,#knipskiste .templatesSection>.sectionHead,#knipskiste .screenDesignSection>.sectionHead{display:block!important}
+#knipskiste .designPackages .sectionHead>.script,#knipskiste .designExamples .sectionHead>.script,#knipskiste .templatesSection .sectionHead>.script{margin:0 0 12px;font:400 30px/1.5 Pacifico,cursive;color:var(--rust)}
+#knipskiste .designExamples .sectionHead p:not(.script){max-width:900px}
+#knipskiste .designExamples .designCard:hover{transform:none!important}
+/* Kompakter Feinschliff der Designseite und gut auffindbare Hilfe. */
+#knipskiste .designHelp{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;margin-left:8px;border:1px solid currentColor;border-radius:50%;font:600 13px/1 Inter,sans-serif;color:var(--rust)!important;text-decoration:none!important;vertical-align:middle}
+#knipskiste .designHelp:hover{background:var(--rust);color:var(--cream)!important}
+#knipskiste .faqJump{display:inline-block;margin-top:12px}
+#knipskiste .photoFeature .script,#knipskiste .aboutText>.script{font:400 clamp(30px,2.8vw,38px)/1.5 Pacifico,cursive!important;margin-bottom:18px!important}
+#knipskiste .functionLinks .nextStepIntro>h2{background:none!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;text-shadow:none!important;color:#151515!important;padding:0!important;font:400 30px/1.15 'Bebas Neue',sans-serif!important}
+#knipskiste .functionLinks .nextStepIntro>h2::before,#knipskiste .functionLinks .nextStepIntro>h2::after{display:none!important;content:none!important}
+#knipskiste .designPackages p,#knipskiste .designPackages li,#knipskiste .designExamples p,#knipskiste .designIntroText p,#knipskiste .designIntroText .textLink,#knipskiste .templatesSection>.sectionHead>p:not(.script){font:400 14px/1.65 Inter,system-ui,sans-serif!important}
+#knipskiste .designPackages h2,#knipskiste .designExamples h2,#knipskiste .templatesSection>.sectionHead h2{font:400 32px/1.1 'Bebas Neue',sans-serif!important;letter-spacing:1px!important}
+#knipskiste .designPackages>.sectionHead,#knipskiste .designExamples>.sectionHead{padding:14px 18px!important;background:rgba(22,23,24,.95)!important;color:var(--cream)!important;border-left:4px solid var(--rust)}
+#knipskiste .designPackages>.sectionHead h2,#knipskiste .designExamples>.sectionHead h2,#knipskiste .designExamples>.sectionHead p:not(.script){color:var(--cream)!important}
+#knipskiste .designPackages .sectionHead>.script,#knipskiste .designExamples .sectionHead>.script,#knipskiste .templatesSection .sectionHead>.script{font-size:24px!important;margin-bottom:8px!important}
+#knipskiste .designIntroText h3{font-size:25px!important;margin-bottom:10px!important}
+#knipskiste .designPhotoPlaceholder{min-height:230px!important;padding:20px!important}
+#knipskiste .designPhotoPlaceholder strong{font-size:26px!important}
+#knipskiste .designPhotoPlaceholder span{font-size:14px!important}
+#knipskiste .designIntroGrid{gap:24px!important;align-items:center!important}
+#knipskiste .designPackage{padding:20px!important}
+#knipskiste .designPackage h3{font-size:25px!important}
+#knipskiste .packagePrice{font-size:34px!important;margin-top:6px!important}
+#knipskiste .designPackage p{margin:10px 0!important}
+#knipskiste .designPackage ul{margin:8px 0 16px!important}
+#knipskiste .designPackage li{padding-bottom:4px!important}
+#knipskiste .designPackage .btn{padding:10px 16px!important;font-size:17px!important;margin-bottom:10px!important}
+#knipskiste .inlineInfo{border:1px solid rgba(66,48,39,.35);background:rgba(243,229,204,.9);padding:12px 16px;margin:14px 0;color:#151515}
+#knipskiste .inlineInfo summary{cursor:pointer;font:600 14px/1.5 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+#knipskiste .inlineInfo p{font:400 14px/1.65 Inter,sans-serif!important;color:#151515!important;margin:12px 0 0!important}
+#knipskiste .designIntroText .inlineInfo{border-color:rgba(243,229,204,.3);background:rgba(243,229,204,.07);color:var(--cream)}
+#knipskiste .designIntroText .inlineInfo p{color:var(--cream)!important}
+#knipskiste .packageInfo .designNote{border:0!important;background:none!important;padding:0!important;margin:12px 0!important;font-size:14px!important}
+#knipskiste .templatesSection .templateList{gap:16px!important}
+#knipskiste .templatesSection .templateCard{padding:16px 20px!important}
+#knipskiste .templatesSection .templateCardHead{padding-top:0!important;padding-bottom:10px!important;margin-bottom:12px!important;gap:12px!important}
+#knipskiste .templatesSection .templateCard h3{font-size:25px!important}
+#knipskiste .templatesSection .templateCardHead p{font-size:13px!important;margin-top:4px!important}
+#knipskiste .templatesSection .templatePreviewGrid{gap:12px!important}
+#knipskiste .templatesSection .templatePreview img{max-height:170px!important;aspect-ratio:16/9!important}
+#knipskiste .templatesSection .templatePreview span{font-size:15px!important;padding:8px 10px!important}
+#knipskiste .templatesSection .templateChoose{font-size:16px!important;margin-top:12px!important}
+#knipskiste .designExamples .designCards{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important}
+#knipskiste .designExamples .designCard{max-height:180px!important;aspect-ratio:16/10!important}
+#knipskiste .contactInfo p{font-size:14px!important}
+@media(max-width:900px){#knipskiste .designExamples .designCards{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){#knipskiste .templatesSection .templateCard{padding:14px!important}#knipskiste .templatesSection .templatePreviewGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}#knipskiste .templatesSection .templatePreview span{font:400 12px/1.25 Inter,sans-serif!important;padding:6px 4px!important;letter-spacing:0!important}#knipskiste .templatesSection .templatePreview img{aspect-ratio:16/10!important}#knipskiste .designPackages h2,#knipskiste .designExamples h2{font-size:28px!important}#knipskiste .photoFeature .script,#knipskiste .aboutText>.script{font-size:30px!important}}
+/* Verbindliche Typografie, ohne die alten Sonderregeln auf Schreibschrift. */
+#knipskiste #start .script{font-family:Pacifico,cursive!important;font-style:normal!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;line-height:1.6!important;overflow:visible!important;max-width:100%!important;white-space:normal!important}
+#knipskiste #start .photoFeature .script,#knipskiste #start .aboutText>.script{font-size:28px!important}
+#knipskiste #start .contactInfo>.script{font-size:32px!important}
+#knipskiste #start .designPackages .script,#knipskiste #start .designExamples .script,#knipskiste #start .templatesSection .script{font-size:24px!important;margin:0 0 10px!important;padding:2px 0!important}
+#knipskiste #start .heroText .actions{position:static!important;inset:auto!important;transform:none!important;display:flex!important;flex-wrap:wrap!important;gap:14px!important;margin:24px 0 0!important;padding:0!important;height:auto!important;min-height:0!important}
+#knipskiste #start .heroText .actions .btn{position:static!important;inset:auto!important;transform:none!important;margin:0!important;max-width:100%;white-space:normal}
+#knipskiste #start .heroText{height:auto!important;min-height:0!important;overflow:visible!important;display:flex!important;flex-direction:column!important}
+#knipskiste #start .heroText .lead{position:static!important;height:auto!important;margin-bottom:0!important}
+#knipskiste #fotobox-ueberblick{scroll-margin-top:125px}
+#knipskiste #start .screenDesignSection>.designNote{font:400 14px/1.65 Inter,system-ui,sans-serif!important}
+#knipskiste .priceCard .designHelp{width:auto!important;height:auto!important;display:inline!important;border:0!important;border-radius:0!important;padding:0 3px!important;margin:0 0 0 6px!important;box-shadow:none!important;background:none!important;font:600 12px/1 Inter,sans-serif!important;letter-spacing:0!important;text-transform:none!important;vertical-align:super!important;text-decoration:none!important;color:var(--rust)!important}
+#knipskiste .footer a:not(.logo){font:400 14px/1.8 Inter,sans-serif!important;letter-spacing:0!important;text-transform:none!important}
+#knipskiste .contactInfo .textLink{font:600 14px/1.6 Inter,sans-serif!important}
+#knipskiste .infoTrigger{display:block;margin:14px 0;padding:8px 12px;background:rgba(243,229,204,.9);color:#151515;border:1px solid rgba(66,48,39,.35);box-shadow:none;font:600 14px/1.5 Inter,sans-serif;text-transform:none;letter-spacing:0;text-align:left;cursor:pointer}
+#knipskiste .designIntroText .infoTrigger{background:rgba(243,229,204,.08);border-color:rgba(243,229,204,.35);color:var(--cream)}
+#knipskiste .infoDialog{width:min(560px,calc(100vw - 40px));max-height:80vh;overflow:auto;padding:28px;border:1px solid var(--rust);background:#f3e5cc;color:#151515;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+#knipskiste .infoDialog::backdrop{background:rgba(0,0,0,.55)}
+#knipskiste .infoDialog h2{font:400 28px/1.2 'Bebas Neue',sans-serif;margin:0 35px 18px 0}
+#knipskiste .infoDialog p,#knipskiste .infoDialog .designNote{font:400 14px/1.7 Inter,sans-serif!important;background:none!important;border:0!important;padding:0!important}
+#knipskiste .infoClose{position:absolute;right:10px;top:10px;background:none;color:#151515;border:0;box-shadow:none;padding:4px 10px;font:28px/1 Inter,sans-serif;cursor:pointer}
+#knipskiste .simpleDesignPhotos{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+#knipskiste .simpleDesignPhoto{flex:1 1 200px;min-width:0;max-width:calc(25% - 12px);padding:0;background:none;border:0;box-shadow:none;cursor:zoom-in}
+#knipskiste .simpleDesignPhoto img{width:100%;height:auto;display:block;object-fit:contain}
+#knipskiste .simpleDesignPhoto>span{display:block;font:400 12px/1.5 Inter,sans-serif;padding-top:8px;color:#151515}
+#knipskiste .templateControls{display:flex;justify-content:center;align-items:center;gap:22px;margin:14px 0}
+#knipskiste .templateControls button{padding:4px 16px;font:30px/1 Inter,sans-serif;background:rgba(22,23,24,.95);color:var(--cream);border:1px solid var(--rust);box-shadow:none;cursor:pointer}
+#knipskiste .templateCounter{font:600 14px/1.5 Inter,sans-serif}
+#knipskiste .templateCard[hidden],#knipskiste .templateControls[hidden]{display:none!important}
+#knipskiste .templatesSection .templateCardHead{overflow:visible!important;height:auto!important;min-height:0!important;align-items:center!important;padding:8px 0 14px!important}
+#knipskiste .templatesSection .templateCard h3{font:400 25px/1.7 Pacifico,cursive!important;margin:0!important;padding:3px 0!important;overflow:visible!important}
+#knipskiste .templatesSection .templateCardHead>span{padding-top:0!important}
+@media(max-width:700px){#knipskiste .simpleDesignPhoto{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}#knipskiste #start .photoFeature .script,#knipskiste #start .aboutText>.script{font-size:25px!important}#knipskiste #start .heroText .actions{flex-direction:column!important}#knipskiste .templatesSection .templateCardHead{gap:2px!important}}
+/* Eigenständiger Vorlagenbereich: keine historischen Kartenregeln mehr. */
+#knipskiste .boothTemplates>.sectionHead{display:block;margin-bottom:18px!important}
+#knipskiste .boothTemplates .sectionHead h2{font:400 32px/1.2 'Bebas Neue',sans-serif;margin:8px 0}
+#knipskiste .boothTemplates .sectionHead p:not(.script){font:400 14px/1.65 Inter,sans-serif;margin:8px 0;max-width:850px}
+#knipskiste .boothSlides{display:block;width:100%;min-width:0}
+#knipskiste .boothSlide{border:1px solid rgba(66,48,39,.35);background:rgba(243,229,204,.92);padding:24px;box-shadow:7px 7px 0 rgba(198,95,62,.12);min-width:0}
+#knipskiste .boothSlide[hidden],#knipskiste .boothControls[hidden]{display:none!important}
+#knipskiste .boothSlideHeading{display:block;margin:0 0 20px;padding:0 0 16px;border-bottom:1px solid rgba(66,48,39,.25);overflow:visible}
+#knipskiste .boothSlideHeading>span{font:400 16px/1.4 'Bebas Neue',sans-serif;color:#94432b;letter-spacing:1px;display:block}
+#knipskiste .boothSlideHeading h3{font:400 28px/1.65 Pacifico,cursive;color:#94432b;margin:4px 0 8px;padding:3px 0;letter-spacing:0;text-transform:none;white-space:normal;overflow-wrap:anywhere}
+#knipskiste .boothSlideHeading p{font:400 14px/1.65 Inter,sans-serif;margin:0;max-width:850px}
+#knipskiste .boothShots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#knipskiste .boothShot{display:block;width:100%;min-width:0;padding:0;border:1px solid rgba(66,48,39,.22);background:rgba(248,236,216,.88);box-shadow:none;cursor:zoom-in;text-transform:none}
+#knipskiste .boothShot img{width:100%;height:180px;object-fit:contain;display:block}
+#knipskiste .boothShot span{display:block;padding:10px;font:400 14px/1.5 Inter,sans-serif;letter-spacing:0;color:#151515}
+#knipskiste .boothChoose{display:inline-block;margin-top:18px;color:#94432b;font:600 14px/1.6 Inter,sans-serif;text-underline-offset:4px}
+#knipskiste .boothControls{display:flex;align-items:center;justify-content:flex-end;gap:7px;margin:12px 0 16px;flex-wrap:wrap}
+#knipskiste .boothControls button{width:32px;height:32px;padding:0;border:1px solid rgba(66,48,39,.3);background:rgba(243,229,204,.9);color:#151515;font:500 14px/1 Inter,sans-serif;box-shadow:none;cursor:pointer;letter-spacing:0}
+#knipskiste .boothControls button[aria-pressed="true"]{background:rgba(22,23,24,.95);color:var(--cream);border-color:#151515}
+#knipskiste .boothCounter{margin-right:auto;font:400 14px/1.5 Inter,sans-serif}
+#knipskiste .priceCard .designHelp,#knipskiste .screenDesignSection .designHelp,#knipskiste .infoHintButton{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:16px!important;height:16px!important;border:1px solid currentColor!important;border-radius:50%!important;padding:0!important;margin:0 0 0 6px!important;box-shadow:none!important;background:none!important;color:#94432b!important;font:600 10px/1 Inter,sans-serif!important;vertical-align:middle!important;text-decoration:none!important;cursor:help!important;letter-spacing:0!important;text-transform:none!important}
+#knipskiste .designIntroText .infoHintButton{color:var(--cream)!important;margin:10px 8px 0 0!important}
+#knipskiste .hoverHint{position:fixed;z-index:9999;max-width:min(300px,calc(100vw - 24px));padding:12px 14px;border:1px solid #c65f3e;background:#f3e5cc;color:#151515;box-shadow:0 6px 25px rgba(0,0,0,.25);font:400 13px/1.6 Inter,sans-serif;pointer-events:none}
+#knipskiste .hoverHint[hidden]{display:none!important}
+#knipskiste .pageTeasers .teaserCard{height:auto!important;min-height:0!important;overflow:visible!important;gap:0!important;padding-bottom:22px!important}
+#knipskiste .pageTeasers .teaserCard p{position:static!important;inset:auto!important;transform:none!important;flex:1 0 auto!important;height:auto!important;margin:0 0 20px!important}
+#knipskiste .pageTeasers .teaserCard::after{display:none!important;content:none!important}
+#knipskiste .pageTeasers .teaserReadMore{position:static!important;display:block!important;width:auto!important;height:auto!important;clip:auto!important;clip-path:none!important;overflow:visible!important;margin-top:auto!important;padding:0!important;font:400 17px/1.4 'Bebas Neue',sans-serif!important;color:#94432b!important;white-space:normal!important;transform:none!important}
+#knipskiste #start .bookingCta>.script{font:400 25px/1.6 Pacifico,cursive!important;margin:0 0 12px!important}
+#knipskiste .simpleDesignPhoto{box-sizing:border-box;background:rgba(243,229,204,.92);border:1px solid rgba(66,48,39,.3);padding:10px;box-shadow:4px 4px 0 rgba(198,95,62,.1)}
+#knipskiste .contactChannels{gap:14px!important}
+#knipskiste .contactChannels a{padding:18px!important;border:1px solid rgba(66,48,39,.25)!important;border-top:3px solid var(--rust)!important;background:rgba(248,236,216,.92)!important;box-shadow:4px 4px 0 rgba(198,95,62,.12);font:400 22px/1.25 'Bebas Neue',sans-serif!important;letter-spacing:.6px;transition:background .15s,border-color .15s}
+#knipskiste .contactChannels span{font:400 13px/1.65 Inter,sans-serif!important;letter-spacing:0;margin-top:9px!important}
+#knipskiste .contactChannels a:hover,#knipskiste .contactChannels a:focus-visible{background:rgba(255,246,228,.97)!important;border-color:var(--rust)!important}
+@media(max-width:700px){#knipskiste .boothSlide{padding:16px}#knipskiste .boothShots{gap:8px}#knipskiste .boothShot img{height:110px}#knipskiste .boothShot span{font-size:12px;padding:8px 5px}#knipskiste .boothSlideHeading h3{font-size:24px}#knipskiste .boothCounter{width:100%}#knipskiste .boothControls{justify-content:center}}
+#knipskiste .priceCard .designHelp{transition:none!important;animation:none!important;transform:none!important;box-shadow:none!important}
+#knipskiste .priceCard .designHelp:hover{background:none!important;color:#94432b!important;transform:none!important}
+#knipskiste .placeholderList a{display:inline-block;padding:10px 14px;border:1px solid rgba(247,234,210,.28);background:rgba(255,255,255,.04);color:var(--cream)!important;font:400 14px/1.5 Inter,sans-serif;text-decoration:none}
+#knipskiste .sketchIntro{margin-bottom:24px}
+#knipskiste .sketchIntro h2{font:400 38px/1.15 'Bebas Neue',sans-serif;letter-spacing:1px;margin:8px 0 14px}
+#knipskiste .sketchIntro>p:not(.script){font:400 15px/1.6 Inter,sans-serif}
+#knipskiste .sketchGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#knipskiste .sketchStep{position:relative;min-width:0;padding:22px;background:rgba(248,236,216,.9);border:1px solid rgba(66,48,39,.27);box-shadow:6px 6px 0 rgba(198,95,62,.1);display:flex;flex-direction:column;align-items:flex-start}
+#knipskiste .sketchStep img{display:block;align-self:center;width:100%;height:190px;object-fit:contain;margin:5px 0 14px}
+#knipskiste .sketchNumber{position:absolute;top:15px;left:17px;font:400 26px/1.2 'Bebas Neue',sans-serif;color:#94432b}
+#knipskiste .sketchStep h3{font:400 27px/1.2 'Bebas Neue',sans-serif;letter-spacing:.5px;margin:0 0 10px}
+#knipskiste .sketchStep p{font:400 14px/1.7 Inter,sans-serif;margin:0 0 15px;flex:1}
+#knipskiste .sketchStep .textLink{font:600 14px/1.5 Inter,sans-serif}
+@media(max-width:1000px){#knipskiste .sketchGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#knipskiste .sketchGrid{grid-template-columns:1fr;gap:18px}#knipskiste .sketchStep img{height:160px}#knipskiste .sketchIntro h2{font-size:30px}}
+/* Ruhiger Feinschliff: Tiefe und Transparenz ohne Bewegung beim Lesen. */
+#knipskiste .topbar{background:rgba(16,17,18,.92)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,246,228,.12)!important}
+#knipskiste .heroCard,#knipskiste .priceCard,#knipskiste .teaserCard,#knipskiste .contactInfo,#knipskiste .inquiryPanel,#knipskiste .designPackage,#knipskiste .boothSlide,#knipskiste .sketchStep{background:rgba(243,229,204,.86)!important;box-shadow:0 12px 30px rgba(49,31,22,.08),inset 0 1px 0 rgba(255,255,255,.4)!important;border-color:rgba(66,48,39,.24)!important}
+#knipskiste .btn,#knipskiste .contactChannels a,#knipskiste .galleryItem,#knipskiste .simpleDesignPhoto{transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease!important}
+#knipskiste .galleryItem:hover,#knipskiste .simpleDesignPhoto:hover{transform:translateY(-3px)!important;box-shadow:0 12px 24px rgba(49,31,22,.15)!important}
+#knipskiste .sketchGrid{gap:18px}
+#knipskiste .sketchStep{padding:18px}
+#knipskiste .sketchStep img{height:155px;margin:3px 0 10px}
+#knipskiste .sketchStep h3{font-size:25px;margin-bottom:8px}
+#knipskiste .sketchStep p{font-size:14px;line-height:1.6;margin-bottom:10px}
+#knipskiste #start>.designExplanation,#knipskiste #start>.designPackages,#knipskiste #start>.boothTemplates,#knipskiste #start>.designExamples{padding-top:18px!important;padding-bottom:18px!important}
+#knipskiste .designIntroGrid{gap:20px!important}
+#knipskiste .designPhotoPlaceholder{min-height:190px!important}
+#knipskiste .designPackageGrid{gap:18px!important}
+#knipskiste .designPackage{padding:16px!important}
+#knipskiste .boothTemplates>.sectionHead{margin-bottom:10px!important}
+#knipskiste .boothControls{justify-content:center;gap:11px;margin:8px 0 12px}
+#knipskiste .boothControls .slideDot{width:10px;height:10px;min-width:10px;padding:0;border-radius:50%;border:0;background:rgba(66,48,39,.23);transition:background-color .2s ease,box-shadow .2s ease}
+#knipskiste .boothControls .slideDot[aria-pressed="true"]{background:#94432b;box-shadow:0 0 0 4px rgba(148,67,43,.12)}
+#knipskiste .boothControls button[data-slide]{width:30px;height:30px;border-radius:50%;border:1px solid rgba(66,48,39,.25);background:rgba(243,229,204,.7);font-size:21px}
+#knipskiste .boothSlide{padding:18px;border-radius:8px;animation:slideAppear .25s ease both}
+#knipskiste .boothSlideHeading{padding-bottom:10px;margin-bottom:14px}
+#knipskiste .boothSlideHeading h3{font-size:25px;line-height:1.55;padding:3px 0;margin:3px 0 5px}
+#knipskiste .boothShots{gap:12px}
+#knipskiste .boothShot{border-radius:5px;overflow:hidden}
+#knipskiste .boothShot img{height:150px}
+#knipskiste .boothShot span{padding:8px;font-size:13px}
+#knipskiste .boothChoose{margin-top:12px}
+#knipskiste .photoInstructions .photoPrinciple{font:400 14px/1.7 Inter,sans-serif!important;margin:0 0 16px!important}
+#knipskiste .photoInstructions .photoPrinciple:last-child{margin-bottom:0!important}
+#knipskiste .aboutText>p:not(.script){font:400 15px/1.75 Inter,sans-serif!important;margin:0 0 17px!important}
+#knipskiste #hintergrundsystem{scroll-margin-top:140px}
+@keyframes slideAppear{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#knipskiste *,#knipskiste *::before,#knipskiste *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:600px){#knipskiste .boothShots{gap:8px}#knipskiste .boothShot img{height:100px}#knipskiste .sketchStep img{height:150px}}
+
+/* Orange Akzente, Glasflächen und formatgetreue Vorlagen. */
+#knipskiste .heroCard,#knipskiste .priceCard,#knipskiste .teaserCard,#knipskiste .contactInfo,#knipskiste .inquiryPanel,#knipskiste .designPackage,#knipskiste .boothSlide,#knipskiste .sketchStep,#knipskiste .simpleDesignPhoto {
+ background:rgba(248,236,216,.66)!important;
+ backdrop-filter:blur(9px) saturate(110%);
+ -webkit-backdrop-filter:blur(9px) saturate(110%);
+ border-color:rgba(66,48,39,.24)!important;
+}
+#knipskiste .heroCard,#knipskiste .teaserCard,#knipskiste .sketchStep {
+ box-shadow:8px 8px 0 rgba(198,95,62,.30),0 10px 24px rgba(49,31,22,.07),inset 0 1px 0 rgba(255,255,255,.45)!important;
+}
+#knipskiste .boothTemplates>.sectionHead{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin-bottom:8px!important}
+#knipskiste .boothTemplates>.sectionHead .script{font:400 21px/1.6 Pacifico,cursive!important;margin:0!important}
+#knipskiste .boothTemplates>.sectionHead h2{font-size:27px!important;margin:0!important}
+#knipskiste .boothSlide{padding:14px!important}
+#knipskiste .boothSlideHeading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:0 0 8px;margin:0 0 10px}
+#knipskiste .boothSlideHeading>span{display:inline;font-size:14px}
+#knipskiste .boothSlideHeading h3{font-size:22px;line-height:1.65;margin:0;padding:2px 0}
+#knipskiste .boothShots{grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));align-items:start}
+#knipskiste .boothImageStage{width:100%;aspect-ratio:3/2;display:grid;place-items:center;background:rgba(255,255,255,.20);overflow:hidden}
+#knipskiste .boothShot:first-child .boothImageStage{aspect-ratio:16/9}
+#knipskiste .boothShot .boothImageStage img{width:100%!important;height:100%!important;min-height:0!important;max-height:100%!important;object-fit:contain!important;aspect-ratio:auto!important}
+#knipskiste .boothShot>span{padding:7px;font-size:12px;line-height:1.4}
+#knipskiste .boothControls{margin:14px 0 0!important;gap:12px}
+#knipskiste .boothControls button,#knipskiste .boothControls button:hover,#knipskiste .boothControls button:focus-visible{box-shadow:none!important;text-shadow:none!important;transform:none!important}
+#knipskiste .boothControls .slideDot{transition:background-color .18s ease!important}
+#knipskiste .boothControls .slideDot[aria-pressed="true"]{background:#94432b;box-shadow:none!important}
+@supports not ((backdrop-filter:blur(9px)) or (-webkit-backdrop-filter:blur(9px))){
+ #knipskiste .heroCard,#knipskiste .priceCard,#knipskiste .teaserCard,#knipskiste .contactInfo,#knipskiste .inquiryPanel,#knipskiste .designPackage,#knipskiste .boothSlide,#knipskiste .sketchStep,#knipskiste .simpleDesignPhoto{background:rgba(248,236,216,.90)!important}
+}
+@media(max-width:600px){
+ #knipskiste .boothTemplates>.sectionHead{gap:2px 12px}
+ #knipskiste .boothTemplates>.sectionHead h2{font-size:24px!important}
+ #knipskiste .boothShots{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #knipskiste .boothShot:first-child{grid-column:1/-1;width:76%;justify-self:center}
+ #knipskiste .boothSlideHeading h3{font-size:20px}
+}
+
+/* Stabile Bildansicht und Glas direkt auf den Inhaltsflächen. */
+html{scrollbar-gutter:stable}
+#knipskiste{isolation:isolate}
+#knipskiste::before{content:"";display:block!important;position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--paper);background-image:url('assets/karo-textur.svg');background-size:96px 96px;filter:blur(5px);mask-image:linear-gradient(to right,#000 0,rgba(0,0,0,.9) 1%,transparent 12%,transparent 88%,rgba(0,0,0,.9) 99%,#000 100%);-webkit-mask-image:linear-gradient(to right,#000 0,rgba(0,0,0,.9) 1%,transparent 12%,transparent 88%,rgba(0,0,0,.9) 99%,#000 100%)}
+#knipskiste::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(to right,var(--paper) 0%,transparent 10%,transparent 90%,var(--paper) 100%)}
+#knipskiste #start .frostedSurface.frostedSurface.frostedSurface{position:relative!important;isolation:isolate;background-color:rgba(248,236,216,.18)!important;background-image:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.02))!important;backdrop-filter:blur(8px) saturate(115%)!important;-webkit-backdrop-filter:blur(8px) saturate(115%)!important;overflow:visible!important;border-color:rgba(255,246,228,.55)!important}
+#knipskiste .lightbox{width:100%!important;box-sizing:border-box}
+@media(max-width:600px){#knipskiste::before{mask-image:linear-gradient(to right,#000,transparent 6%,transparent 94%,#000);-webkit-mask-image:linear-gradient(to right,#000,transparent 6%,transparent 94%,#000)}#knipskiste::after{background:linear-gradient(to right,var(--paper),transparent 5%,transparent 95%,var(--paper))}}
+
+#knipskiste::before{opacity:1!important;background-attachment:fixed!important}
+
+/* Nach dem Einblenden keine Opazitäts-Ebene behalten: sie begrenzt Backdrop-Blur auf den Abschnitt. */
+#knipskiste .reveal,#knipskiste .boothSlide{animation-fill-mode:backwards!important}
+
+/* Runder Gesamtentwurf: weiche Karten, Glasflächen und pillenförmige Bedienelemente. */
+#knipskiste{--radius-card:26px;--radius-small:16px;--radius-pill:999px}
+#knipskiste #start .frostedSurface.frostedSurface.frostedSurface{
+ border-radius:var(--radius-card)!important;
+ background-color:rgba(255,245,225,.28)!important;
+ background-image:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.02) 55%,rgba(198,95,62,.05))!important;
+ backdrop-filter:blur(10px) saturate(125%)!important;
+ -webkit-backdrop-filter:blur(10px) saturate(125%)!important;
+ border:1px solid rgba(255,250,239,.8)!important;
+ box-shadow:0 12px 28px rgba(85,52,34,.10),inset 0 1px 0 rgba(255,255,255,.7)!important;
+}
+#knipskiste #start .heroCard,#knipskiste #start .teaserCard,#knipskiste #start .sketchStep{
+ box-shadow:6px 8px 18px rgba(198,95,62,.22),inset 0 1px 0 rgba(255,255,255,.75)!important;
+}
+#knipskiste .topbar{border-radius:var(--radius-pill)!important;box-shadow:0 10px 30px rgba(28,21,17,.20)!important}
+#knipskiste .topbar nav a{border-radius:var(--radius-pill);padding:7px 6px!important;transition:background .2s ease,color .2s ease}
+#knipskiste .topbar nav a.active,#knipskiste .topbar nav a:hover{background:rgba(255,246,228,.12)}
+#knipskiste .btn,#knipskiste .navbtn,#knipskiste button[type="submit"],#knipskiste .placeholderList a,#knipskiste .boothChoose{border-radius:var(--radius-pill)!important}
+#knipskiste .btn,#knipskiste .navbtn,#knipskiste button[type="submit"]{box-shadow:0 5px 14px rgba(85,52,34,.16)!important;border:1px solid rgba(255,246,228,.25)!important}
+#knipskiste .boothChoose{padding:8px 15px;background:rgba(198,95,62,.10);text-decoration:none;border:1px solid rgba(198,95,62,.2)}
+#knipskiste .galleryItem,#knipskiste .designCard,#knipskiste .designPlaceholder,#knipskiste .contactChannels a,#knipskiste .functionPlaceholder,#knipskiste .designPhotoPlaceholder,#knipskiste .designNote,#knipskiste .notBookable,#knipskiste .servicePanel,#knipskiste .processPanel{border-radius:var(--radius-card)!important}
+#knipskiste .galleryItem,#knipskiste .designCard,#knipskiste .designPlaceholder{overflow:hidden!important;box-shadow:0 12px 25px rgba(28,21,17,.15)!important}
+#knipskiste .galleryItem img,#knipskiste .functionVisual img,#knipskiste .featureImage img,#knipskiste .aboutVisual img,#knipskiste .realImageCard img,#knipskiste .simpleDesignPhoto img{border-radius:var(--radius-small)!important}
+#knipskiste .boothShot{border-radius:18px!important;border-color:rgba(255,250,239,.8)!important;background:rgba(255,248,232,.30)!important}
+#knipskiste .boothImageStage{border-radius:17px 17px 0 0}
+#knipskiste .boothSlideHeading{border-bottom-color:rgba(85,52,34,.13)}
+#knipskiste .contactChannels a{border-top-width:1px!important;border-color:rgba(255,250,239,.65)!important;background:rgba(255,245,225,.28)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(85,52,34,.10)!important}
+#knipskiste .inquiryPanel input,#knipskiste .inquiryPanel select,#knipskiste .inquiryPanel textarea{border-radius:14px!important;background:rgba(255,250,240,.62)!important;border:1px solid rgba(85,52,34,.22)!important;box-shadow:inset 0 1px 2px rgba(85,52,34,.04)!important}
+#knipskiste .inquiryPanel input:focus,#knipskiste .inquiryPanel select:focus,#knipskiste .inquiryPanel textarea:focus{outline:2px solid rgba(198,95,62,.6);outline-offset:2px}
+#knipskiste .sectionHead h2,#knipskiste .functionSection h2,#knipskiste .designExplanation>.sectionHead,#knipskiste .designPackages>.sectionHead,#knipskiste .designExamples>.sectionHead{border-radius:18px!important}
+#knipskiste .dark.functionSection .functionGrid>div,#knipskiste .dark.functionSection .functionPlaceholder{border-radius:26px!important;background:rgba(255,246,228,.07)!important;border:1px solid rgba(255,246,228,.18)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#knipskiste #start>section.dark,#knipskiste #start>section.designExplanation{border-radius:32px!important}
+#knipskiste .hoverHint,#knipskiste .infoDialog{border-radius:16px!important}
+#knipskiste .lightboxFigure img{border-radius:24px!important;border-width:8px!important}
+#knipskiste .lightboxClose,#knipskiste .mobileMenuButton{border-radius:50%!important}
+#knipskiste .sketchNumber{border-radius:50%;width:34px;height:34px;display:grid;place-items:center;background:rgba(198,95,62,.10);font-size:22px}
+@media(max-width:1150px){#knipskiste .topbar{border-radius:24px!important}#knipskiste .topbar nav.is-open{border-radius:0 0 24px 24px!important;box-shadow:0 12px 20px rgba(28,21,17,.16)}}
+@media(max-width:600px){#knipskiste{--radius-card:21px;--radius-small:13px}#knipskiste #start>section.dark,#knipskiste #start>section.designExplanation{border-radius:24px!important}}
+
+/* Runde Details vervollständigen; randfüllende Balken bleiben gerade. */
+#knipskiste .topbar{height:auto!important;min-height:78px!important;padding:12px 26px!important;gap:16px!important;align-items:center!important}
+#knipskiste .topbar nav{gap:6px!important}
+#knipskiste .topbar nav a{padding:8px 11px!important;min-height:36px!important;border-radius:8px!important;line-height:1!important}
+#knipskiste .topbar nav a.active,#knipskiste .topbar nav a[aria-current="page"]{background:var(--rust)!important;border-color:var(--rust)!important;color:#111!important;transform:none!important;box-shadow:0 2px 5px rgba(0,0,0,.16)!important}
+#knipskiste .topbar .navbtn{border-radius:10px!important;padding:10px 16px!important;margin:0!important;flex-shrink:0}
+#knipskiste #start>section.dark,#knipskiste #start>section.designExplanation,#knipskiste .footer{border-radius:0!important}
+#knipskiste .priceCard>a[data-paket]{border-radius:999px!important;box-shadow:0 5px 14px rgba(85,52,34,.16)!important;border:1px solid rgba(255,250,239,.3)!important}
+#knipskiste .boothControls button[data-slide]{display:grid!important;place-items:center!important;width:36px!important;height:36px!important;min-width:36px!important;padding:0!important;margin:0!important;border-radius:50%!important;border:1px solid rgba(85,52,34,.22)!important;background:rgba(255,245,225,.46)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:400 25px/1 Inter,sans-serif!important;box-shadow:none!important}
+#knipskiste .boothControls .slideDot{width:9px!important;height:9px!important;min-width:9px!important;border-radius:50%!important;padding:0!important;margin:0!important;border:0!important;background:rgba(85,52,34,.24)!important;box-shadow:none!important}
+#knipskiste .boothControls .slideDot[aria-pressed="true"]{background:var(--rust)!important}
+#knipskiste .boothControls button:focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+#knipskiste .legalPageCard{border-radius:var(--radius-card)!important}
+#knipskiste .legalPageCard h2{border-radius:16px!important}
+@media(max-width:1150px){#knipskiste .topbar{min-height:74px!important;padding:12px 20px!important}}
+@media(max-width:700px){#knipskiste .topbar{min-height:70px!important;padding:12px 16px!important;gap:10px!important}}
+
+/* Gleich aufgebauter schwarzer Infobereich und schlanke Navigation. */
+#knipskiste .topbar{height:72px!important;min-height:72px!important;padding:0 26px!important}
+#knipskiste #start>section.sharedBlackInfo{background:#101112!important;color:var(--cream)!important;padding-top:28px!important;padding-bottom:28px!important;border-radius:0!important}
+#knipskiste #start .sharedBlackInfo .functionGrid{grid-template-columns:1.2fr 1fr!important;gap:22px!important;align-items:stretch!important;margin:0!important}
+#knipskiste #start .sharedBlackInfo .functionGrid>div{padding:24px!important;border:1px solid rgba(255,246,228,.18)!important;border-radius:26px!important;background:rgba(255,246,228,.07)!important;color:var(--cream)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+#knipskiste #start .sharedBlackInfo .script{font:400 27px/1.6 Pacifico,cursive!important;color:var(--cream)!important;margin:0 0 12px!important}
+#knipskiste #start .sharedBlackInfo h2{font:400 32px/1.15 'Bebas Neue',sans-serif!important;color:var(--cream)!important;background:none!important;border:0!important;padding:0!important;margin:0 0 16px!important;box-shadow:none!important}
+#knipskiste #start .sharedBlackInfo p:not(.script){font:400 14px/1.7 Inter,sans-serif!important;margin:0 0 16px!important;color:var(--cream)!important}
+#knipskiste #start .sharedBlackInfo h3{font:400 23px/1.25 'Bebas Neue',sans-serif!important;color:var(--cream)!important;margin:20px 0 8px!important}
+#knipskiste #start .sharedBlackInfo .textLink{font:600 14px/1.5 Inter,sans-serif!important;color:#e1a184!important}
+#knipskiste #start .sharedBlackInfo .functionPlaceholder{min-height:260px!important;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;text-align:center;font:400 14px/1.6 Inter,sans-serif!important}
+#knipskiste #start .functionLinks .nextStepActions .btn{background-color:rgba(255,245,225,.22)!important;background-image:linear-gradient(140deg,rgba(255,255,255,.25),rgba(255,255,255,.02))!important;backdrop-filter:blur(10px)!important;-webkit-backdrop-filter:blur(10px)!important;border:1px solid rgba(85,52,34,.25)!important;box-shadow:0 5px 14px rgba(85,52,34,.10),inset 0 1px 0 rgba(255,255,255,.65)!important;color:#151515!important}
+#knipskiste #start .functionLinks .nextStepActions .btn.primary{background-color:rgba(198,95,62,.20)!important;border-color:rgba(198,95,62,.4)!important}
+#knipskiste #start .functionLinks .nextStepActions .btn:hover{background-color:rgba(255,245,225,.40)!important}
+@media(max-width:800px){#knipskiste #start .sharedBlackInfo .functionGrid{grid-template-columns:1fr!important}}
+@media(max-width:700px){#knipskiste .topbar{height:70px!important;min-height:70px!important;padding:0 16px!important}#knipskiste #start .sharedBlackInfo .functionGrid>div{padding:20px!important}}
+
+/* Orange Anfragefläche erhalten. */
+#knipskiste #start .functionLinks .nextStepActions .btn.primary,#knipskiste #start .functionLinks .nextStepActions .btn.primary:hover{background-color:var(--rust)!important;background-image:linear-gradient(135deg,rgba(255,255,255,.12),transparent)!important;color:#151515!important;border-color:var(--rust)!important}
+
+/* Dunkler Vergleichsentwurf: warmes Anthrazit, helles Karo, kupferorange Akzente. */
+#knipskiste.darkPreview{--paper:#24211f;--paper2:#302b27;--cream:#f7ead2;--muted:#c5b7a7;--line:rgba(247,234,210,.2);--rust:#d77d52;--rust-dark:#bd613a;background-color:#24211f!important;background-image:url('assets/karo-dunkel.svg')!important;color:var(--cream)!important}
+#knipskiste.darkPreview::before{background-image:url('assets/karo-dunkel.svg')!important}
+#knipskiste.darkPreview.darkPreview.darkPreview #start,#knipskiste.darkPreview.darkPreview.darkPreview #start>section.paper,#knipskiste.darkPreview.darkPreview.darkPreview #start>section.unifiedPaper{color:var(--cream)!important}
+#knipskiste.darkPreview.darkPreview.darkPreview #start :is(p,li,h1,h2,h3,h4,label,small,strong,span,b,summary){color:var(--cream)!important}
+#knipskiste.darkPreview #start .frostedSurface.frostedSurface.frostedSurface{background-color:rgba(255,246,228,.055)!important;background-image:linear-gradient(140deg,rgba(255,255,255,.08),rgba(255,255,255,.015) 60%,rgba(215,125,82,.04))!important;border-color:rgba(247,234,210,.19)!important;color:var(--cream)!important;box-shadow:0 14px 30px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.10)!important}
+#knipskiste.darkPreview #start .heroCard,#knipskiste.darkPreview #start .teaserCard,#knipskiste.darkPreview #start .sketchStep{box-shadow:6px 8px 20px rgba(215,125,82,.13),0 10px 20px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.12)!important}
+#knipskiste.darkPreview .topbar{background:rgba(17,16,15,.88)!important;border-color:rgba(247,234,210,.14)!important}
+#knipskiste.darkPreview #start>section.dark,#knipskiste.darkPreview #start>section.sharedBlackInfo,#knipskiste.darkPreview #start>section.designExplanation,#knipskiste.darkPreview .footer{background:#151413!important}
+#knipskiste.darkPreview #start a.textLink,#knipskiste.darkPreview .boothChoose,#knipskiste.darkPreview .legalPageCard a{color:#efa780!important}
+#knipskiste.darkPreview .boothShot,#knipskiste.darkPreview .contactChannels a,#knipskiste.darkPreview .functionPlaceholder,#knipskiste.darkPreview .designNote{background:rgba(247,234,210,.055)!important;border-color:rgba(247,234,210,.2)!important;color:var(--cream)!important}
+#knipskiste.darkPreview .boothImageStage{background:rgba(0,0,0,.12)!important}
+#knipskiste.darkPreview .boothControls button[data-slide]{background:rgba(247,234,210,.08)!important;border-color:rgba(247,234,210,.25)!important;color:var(--cream)!important}
+#knipskiste.darkPreview .boothControls .slideDot{background:rgba(247,234,210,.35)!important}
+#knipskiste.darkPreview .boothControls .slideDot[aria-pressed="true"]{background:var(--rust)!important}
+#knipskiste.darkPreview .boothSlideHeading{border-bottom-color:rgba(247,234,210,.16)!important}
+#knipskiste.darkPreview .btn.ghost,#knipskiste.darkPreview #start .functionLinks .nextStepActions .btn.ghost{background-color:rgba(247,234,210,.07)!important;color:var(--cream)!important;border-color:rgba(247,234,210,.24)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 18px rgba(0,0,0,.14)!important}
+#knipskiste.darkPreview #start .functionLinks .nextStepActions .btn.primary,#knipskiste.darkPreview #start .functionLinks .nextStepActions .btn.primary:hover{background-color:var(--rust)!important;color:#151515!important;border-color:var(--rust)!important}
+#knipskiste.darkPreview .inquiryPanel :is(input,select,textarea){background:rgba(21,20,19,.65)!important;color:var(--cream)!important;border-color:rgba(247,234,210,.25)!important;color-scheme:dark}
+#knipskiste.darkPreview .inquiryPanel :is(input,textarea)::placeholder{color:#b4a99b}
+#knipskiste.darkPreview .priceCard .designHelp{color:#efa780!important}
+#knipskiste.darkPreview .sketchStep img{background:rgba(247,234,210,.88);border-radius:18px;padding:10px}
+#knipskiste.darkPreview .sketchNumber{background:rgba(215,125,82,.24)!important}
+#knipskiste.darkPreview .designPackages>.sectionHead,#knipskiste.darkPreview .designExamples>.sectionHead{background:rgba(14,13,12,.78)!important}
