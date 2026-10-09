@@ -1,0 +1,165 @@
+/* Vier klare Ziele. Kompakte Übersicht, gezielte Erklärungen und eigenständige Anfrage. */
+#knipskiste [data-info-panel][hidden],#knipskiste #standardDesignPicker[hidden],#knipskiste #customDesignNote[hidden],#knipskiste .homeGalleryControls[hidden]{display:none!important}
+#knipskiste #start>section{scroll-margin-top:108px}
+#knipskiste .heroPriceLine{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;margin:18px 0 0!important;font:400 14px/1.5 Inter,sans-serif}
+#knipskiste .heroPriceLine a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(247,234,210,.28);padding:4px 0}
+#knipskiste .heroPriceLine strong{font:400 26px/1 'Bebas Neue',sans-serif!important}
+#knipskiste .heroPriceLine small{flex-basis:100%;font-size:12px}
+#knipskiste #start .homePackages{padding-top:26px!important;padding-bottom:28px!important}
+#knipskiste .homePackages>.sectionHead{display:block!important;margin-bottom:16px!important;text-align:left!important}
+#knipskiste .homePackages .sectionHead .script{margin:0 0 6px!important;font-size:26px!important}
+#knipskiste .homePackages .sectionHead h2{font:400 36px/1.15 'Bebas Neue',sans-serif!important;margin:0 0 10px!important;text-align:left!important}
+#knipskiste .homePackages .sectionHead>p:not(.script){font:400 14px/1.6 Inter,sans-serif!important;margin:0!important}
+#knipskiste .includedStrip{padding:18px 22px;margin-bottom:18px}
+#knipskiste .includedStrip h3,#knipskiste .bookingIncluded h3{font:400 24px/1.2 'Bebas Neue',sans-serif;margin:0 0 12px}
+#knipskiste .includedList{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 24px;margin:0!important;padding:0!important}
+#knipskiste .includedList li{font:400 13px/1.5 Inter,sans-serif!important;padding-left:19px;position:relative;margin:0!important}
+#knipskiste .includedList li::before{content:'✓';position:absolute;left:0;color:var(--rust)}
+#knipskiste .compactPriceGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+#knipskiste .compactPriceGrid .priceCard{display:flex;flex-direction:column;padding:22px!important;min-width:0;height:auto!important;overflow:visible!important}
+#knipskiste .compactPriceGrid h3{text-align:left!important;font:400 29px/1.2 'Bebas Neue',sans-serif!important;margin:0!important}
+#knipskiste .compactPriceGrid .priceCard>strong{text-align:left!important;font:400 48px/1.1 'Bebas Neue',sans-serif!important;margin:8px 0 10px!important}
+#knipskiste .compactPriceGrid .priceCard p{font:400 14px/1.6 Inter,sans-serif!important;margin:0 0 12px!important}
+#knipskiste .compactPriceGrid .priceCard ul{font:400 13px/1.5 Inter,sans-serif!important;margin:0 0 12px!important}
+#knipskiste .compactPriceGrid .priceCard li{margin:5px 0!important}
+#knipskiste .compactPriceGrid .priceCard a.packageDetail{width:auto!important;display:inline-flex!important;align-self:flex-start!important;margin:0 0 18px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;color:#efa780!important;font:600 13px/1.6 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important;text-align:left!important;transform:none!important;text-decoration:underline!important;text-underline-offset:4px}
+#knipskiste .compactPriceGrid .priceCard a.packageBook{margin-top:auto!important;padding:12px 16px!important;font:400 18px/1.3 'Bebas Neue',sans-serif!important;white-space:normal!important}
+#knipskiste .homePackages .bookingNote{margin:16px 0 0!important;max-width:none;font:400 13px/1.6 Inter,sans-serif!important;text-align:left!important}
+#knipskiste .futurePackageNote{font:400 12px/1.5 Inter,sans-serif!important;margin:8px 0 0!important;opacity:.8}
+#knipskiste #fotobox-ueberblick .featureCopy{max-width:650px}
+#knipskiste #start .homeGallery{padding-top:26px!important;padding-bottom:26px!important}
+#knipskiste .homeGallery>.sectionHead{display:block;margin-bottom:18px}
+#knipskiste .homeGallery .sectionHead h2{font:400 34px/1.2 'Bebas Neue',sans-serif;margin:6px 0 0}
+#knipskiste .homeGallery .sectionHead .script{font-size:26px;margin:0}
+#knipskiste .homeGalleryTrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 1px 8px;overscroll-behavior-x:contain}
+#knipskiste .homeGalleryTrack::-webkit-scrollbar{display:none}
+#knipskiste .homeGalleryCard{flex:0 0 calc((100% - 36px)/3);min-width:0;margin:0!important;padding:0!important;border:1px solid rgba(247,234,210,.18)!important;border-radius:24px!important;overflow:hidden;background:rgba(247,234,210,.06)!important;box-shadow:none!important;scroll-snap-align:start;cursor:zoom-in;transform:none!important}
+#knipskiste .homeGalleryCard img{width:100%;aspect-ratio:4/3;height:auto!important;object-fit:cover}
+#knipskiste .homeGalleryCard span{display:block;padding:12px 14px;font:400 13px/1.5 Inter,sans-serif!important;text-transform:none;letter-spacing:0;text-align:left}
+#knipskiste .homeGalleryControls{display:flex;justify-content:center;align-items:center;gap:18px;margin:10px 0 0}
+#knipskiste .homeGalleryControls>button{width:34px;height:34px;min-width:34px;margin:0;padding:0!important;border-radius:50%;background:rgba(247,234,210,.07);border:1px solid rgba(247,234,210,.25);color:var(--cream);box-shadow:none!important;font:400 25px/1 Inter,sans-serif}
+#knipskiste .homeGalleryControls>button:disabled{opacity:.3;cursor:default}
+#knipskiste .homeGalleryDots{display:flex;gap:10px;align-items:center}
+#knipskiste .galleryDot{width:9px;height:9px;min-width:9px;margin:0;padding:0;border:0;border-radius:50%;background:rgba(247,234,210,.3);box-shadow:none!important}
+#knipskiste .galleryDot[aria-pressed='true']{background:var(--rust)}
+#knipskiste .galleryActions{text-align:center;margin-top:16px}
+#knipskiste .homeGalleryCard:focus-visible,#knipskiste .galleryDot:focus-visible,#knipskiste .bookingTemplate:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+#knipskiste #start .infoNavigation{padding-top:6px!important;padding-bottom:16px!important}
+#knipskiste .infoTabs{display:flex!important;justify-content:flex-start!important;flex-wrap:wrap;gap:10px!important;margin:0!important}
+#knipskiste .infoTabs a{display:inline-flex;justify-content:center;align-items:center;padding:10px 17px;border:1px solid rgba(247,234,210,.22);border-radius:999px;background:rgba(247,234,210,.06);color:var(--cream);font:400 17px/1.3 'Bebas Neue',sans-serif!important;text-decoration:none;letter-spacing:.4px;text-transform:uppercase}
+#knipskiste .infoTabs a[aria-current='location']{background:var(--rust);border-color:var(--rust);color:#151515}
+#knipskiste .infoBottomCta{text-align:center}
+#knipskiste .infoBottomCta>p{font:400 14px/1.6 Inter,sans-serif;max-width:750px;margin:0 auto}
+#knipskiste .infoBottomCta .actions{justify-content:center;margin-top:18px}
+#knipskiste .contactGrid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr)!important;gap:24px!important;align-items:start}
+#knipskiste .inquiryPanel{padding:24px!important}
+#knipskiste #bookingForm{display:flex!important;flex-direction:column!important;gap:14px!important}
+#knipskiste #bookingForm fieldset{min-width:0;display:flex;flex-direction:column;gap:10px;border:0;margin:0;padding:0}
+#knipskiste #bookingForm legend{display:block;width:100%;padding:0;margin:0 0 12px;font:400 24px/1.3 'Bebas Neue',sans-serif;color:var(--cream)}
+#knipskiste #bookingForm :is(input,select,textarea){width:100%;margin:0!important;box-sizing:border-box}
+#knipskiste .bookingChoice{padding-bottom:18px!important;border-bottom:1px solid rgba(247,234,210,.18)!important;margin-bottom:8px!important}
+#knipskiste .bookingPackageSummary{padding:14px 16px;border-radius:16px;background:rgba(215,125,82,.12);border:1px solid rgba(215,125,82,.28);font:400 14px/1.6 Inter,sans-serif;color:var(--cream)}
+#knipskiste .bookingIncluded{padding:14px 0}
+#knipskiste .bookingIncluded .includedList{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+#knipskiste .bookingIncluded p,#knipskiste #standardDesignPicker p,#knipskiste #customDesignNote p{font:400 12px/1.6 Inter,sans-serif!important;margin:12px 0 0!important}
+#knipskiste .bookingTemplates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+#knipskiste .bookingTemplate{display:block;width:100%;min-width:0;padding:5px!important;margin:0!important;border:1px solid rgba(247,234,210,.22)!important;border-radius:12px!important;background:rgba(247,234,210,.05)!important;box-shadow:none!important;color:var(--cream);text-align:left;transform:none!important}
+#knipskiste .bookingTemplate img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;border-radius:7px}
+#knipskiste .bookingTemplate span{display:block;font:400 11px/1.4 Inter,sans-serif!important;padding:7px 3px 3px;letter-spacing:0;text-transform:none}
+#knipskiste .bookingTemplate[aria-pressed='true']{border-color:var(--rust)!important;background:rgba(215,125,82,.15)!important;box-shadow:inset 0 0 0 1px var(--rust)!important}
+#knipskiste #bookingForm .textLink{font:600 12px/1.6 Inter,sans-serif!important}
+#knipskiste .bookingPersonal{padding-top:8px!important}
+#knipskiste .inquiryPanel .formStatus{font:400 12px/1.6 Inter,sans-serif!important}
+#knipskiste .topbar nav{gap:10px!important}
+@media(max-width:900px){#knipskiste .contactGrid{grid-template-columns:1fr!important}#knipskiste .contactInfo{order:2}#knipskiste .inquiryPanel{order:1}#knipskiste .homeGalleryCard{flex-basis:calc((100% - 18px)/2)}#knipskiste .includedList{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#knipskiste .compactPriceGrid{grid-template-columns:1fr!important}#knipskiste .homeGalleryCard{flex-basis:100%}#knipskiste .includedList,#knipskiste .bookingIncluded .includedList{grid-template-columns:1fr}#knipskiste .inquiryPanel{padding:18px!important}#knipskiste .infoTabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}#knipskiste .infoTabs a{padding:10px 8px;font-size:16px!important}#knipskiste .homePackages .sectionHead h2{font-size:30px!important}#knipskiste .compactPriceGrid .priceCard{padding:18px!important}}
+
+#knipskiste #bookingForm fieldset.bookingPersonal{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px!important}
+#knipskiste .bookingPersonal legend{grid-column:1/-1}
+#knipskiste .bookingField{display:flex;flex-direction:column;gap:6px;min-width:0}
+#knipskiste .bookingField.fullWidth{grid-column:1/-1}
+@media(max-width:600px){#knipskiste #bookingForm fieldset.bookingPersonal{grid-template-columns:1fr}}
+
+/* Endlose Galerie-Vorschau mit runden Bedienelementen außerhalb der Bilder. */
+#knipskiste .homeGalleryShell{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;gap:14px;align-items:center}
+#knipskiste .homeGalleryShell>button{display:grid;place-items:center;width:38px;height:38px;min-width:38px;margin:0;padding:0!important;border-radius:50%!important;border:1px solid rgba(247,234,210,.28)!important;background:rgba(247,234,210,.08)!important;color:var(--cream);font:400 28px/1 Inter,sans-serif!important;box-shadow:none!important}
+#knipskiste .homeGalleryTrack{min-width:0;scroll-behavior:auto}
+#knipskiste .homeGalleryDots .galleryDot{display:block!important;width:9px!important;height:9px!important;min-width:9px!important;border-radius:50%!important;border:0!important;padding:0!important;margin:0!important;box-shadow:none!important}
+#knipskiste .heroPriceLine a{font:500 14px/1.5 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+#knipskiste .heroPriceLine strong{font:600 20px/1.2 Inter,sans-serif!important}
+#knipskiste .infoTabs a{background:rgba(247,234,210,.06)!important;color:var(--cream)!important}
+#knipskiste .infoTabs a:hover{border-color:var(--rust);background:rgba(215,125,82,.12)!important}
+#knipskiste .anchorMark{display:block;height:0;scroll-margin-top:110px}
+#knipskiste #start .sharedBlackInfo>.designNote{background:rgba(247,234,210,.06)!important;color:var(--cream)!important;border-color:var(--rust)!important;border-radius:18px;padding:16px 20px!important}
+#knipskiste .bookingChosen{padding:8px 0;font:500 12px/1.5 Inter,sans-serif!important}
+/* Gerade, geordnete Galerie mit großen Touch-Flächen. */
+#knipskiste #start>.galleryCollection{background:transparent!important;padding-top:10px!important}
+#knipskiste .galleryGroup{margin-bottom:30px}
+#knipskiste .galleryGroup>h2{font:400 30px/1.2 'Bebas Neue',sans-serif!important;margin:0 0 16px!important}
+#knipskiste .galleryTiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#knipskiste .galleryTile{display:flex;flex-direction:column;width:100%;min-width:0;margin:0!important;padding:0!important;overflow:hidden;border:1px solid rgba(247,234,210,.18)!important;border-radius:22px!important;background:rgba(247,234,210,.06)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 20px rgba(0,0,0,.14)!important;transform:none!important;cursor:zoom-in;text-transform:none;letter-spacing:0;scroll-margin-top:110px}
+#knipskiste .galleryTile:hover{transform:none!important;border-color:rgba(215,125,82,.6)!important}
+#knipskiste .galleryTile img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;transform:none!important;border:0!important}
+#knipskiste .galleryCaption{display:block;padding:12px 14px;font:400 13px/1.5 Inter,sans-serif!important;text-align:left}
+#knipskiste .galleryPlaceholder{aspect-ratio:4/3;display:flex;justify-content:center;align-items:center;gap:8px;border-style:dashed!important;cursor:zoom-in;padding:20px!important}
+#knipskiste .galleryPlaceholder span,#knipskiste .galleryPlaceholder small{font:400 13px/1.5 Inter,sans-serif!important}
+#knipskiste .galleryTile:target{outline:2px solid var(--rust);outline-offset:4px}
+#knipskiste .galleryTile:focus-visible,#knipskiste .homeGalleryShell>button:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+@media(max-width:900px){#knipskiste .galleryTiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#knipskiste .homeGalleryShell{grid-template-columns:30px minmax(0,1fr) 30px;gap:7px}#knipskiste .homeGalleryShell>button{width:30px;height:30px;min-width:30px;font-size:23px!important}#knipskiste .galleryTiles{gap:12px}#knipskiste .galleryTile{border-radius:16px!important}#knipskiste .galleryCaption{font-size:12px!important;padding:10px}#knipskiste .galleryGroup>h2{font-size:27px!important}}
+
+/* Ein Mietpreis, optionaler Design-Aufpreis und kompakte direkte Auswahl. */
+#knipskiste .singleOfferGrid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important}
+#knipskiste .singleOfferGrid .includedList{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:18px!important}
+#knipskiste .compactPriceGrid .priceCard a.packageBook,#knipskiste .heroText .actions .btn{font:600 14px/1.4 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+#knipskiste .bookingTemplates{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 0}
+#knipskiste .designUndecided{align-self:flex-start;width:auto!important;padding:8px 13px!important;margin:0!important;background:rgba(247,234,210,.05)!important;border:1px solid rgba(247,234,210,.22)!important;border-radius:999px!important;box-shadow:none!important;color:var(--cream);font:500 12px/1.4 Inter,sans-serif!important;text-transform:none;letter-spacing:0}
+#knipskiste .designUndecided[aria-pressed='true'],#knipskiste .customTemplate[aria-pressed='true']{border-color:var(--rust)!important;background:rgba(215,125,82,.16)!important;box-shadow:inset 0 0 0 1px var(--rust)!important}
+#knipskiste .customDesignVisual{display:grid!important;place-items:center;aspect-ratio:16/9;border-radius:7px;background:linear-gradient(135deg,rgba(215,125,82,.22),rgba(247,234,210,.08));font:400 20px/1.3 Pacifico,cursive!important;padding:0!important;text-align:center}
+#knipskiste .customTemplate b{display:block;font-weight:600}
+#knipskiste .designPriceNote{font:400 12px/1.5 Inter,sans-serif!important;margin:4px 0!important}
+#knipskiste #bookingForm .printerOption{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(247,234,210,.12);border-radius:13px;opacity:.45;cursor:not-allowed;font:400 13px/1.4 Inter,sans-serif}
+#knipskiste #bookingForm .printerOption input{width:16px!important;height:16px!important;flex:0 0 16px;margin:0!important}
+#knipskiste .printerOption small{display:block;font-size:11px}
+#knipskiste .bookingIncluded{padding:8px 0 0}
+#knipskiste .infoTabs a[aria-current='location']{background:var(--rust)!important;color:#151515!important;border-color:var(--rust)!important}
+#knipskiste .galleryGroup{margin-bottom:20px}
+#knipskiste .galleryGroup>h2{font-size:27px!important;margin-bottom:12px!important}
+#knipskiste .galleryTiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#knipskiste .galleryCaption{padding:9px 11px;font-size:12px!important}
+@media(max-width:1000px){#knipskiste .galleryTiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){#knipskiste .galleryTiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){#knipskiste .singleOfferGrid{grid-template-columns:1fr!important}#knipskiste .singleOfferGrid .includedList{grid-template-columns:1fr}#knipskiste .customDesignVisual{font-size:17px!important}}
+
+#knipskiste .bookingTemplate .customDesignVisual{font:400 20px/1.3 Pacifico,cursive!important}
+#knipskiste .singleOfferGrid .includedList li::marker{content:none!important}
+
+/* Straffere Kopfbereiche und eine gemeinsame Design-Erklärung. */
+#knipskiste #start .heroText .heroPriceLine a{display:inline-flex!important;align-items:baseline;gap:7px;font:400 21px/1.3 'Bebas Neue',sans-serif!important;letter-spacing:.5px!important;text-transform:none!important}
+#knipskiste #start .heroText .heroPriceLine strong{font:400 25px/1.2 'Bebas Neue',sans-serif!important;letter-spacing:.5px!important}
+#knipskiste.compactSubpage #start>.subpageHero{min-height:0!important;padding-top:112px!important;padding-bottom:16px!important}
+#knipskiste.compactSubpage .subpageHero .eyebrow{margin:0 0 7px!important}
+#knipskiste.compactSubpage .subpageHero h1{font-size:clamp(40px,5vw,64px)!important;margin:0!important}
+#knipskiste #start .infoNavigation{padding-top:0!important;padding-bottom:8px!important}
+#knipskiste .infoTabs{justify-content:center!important;max-width:800px;width:100%;margin:0 auto!important}
+#knipskiste #start>section[data-info-panel]{padding-top:14px!important;padding-bottom:18px!important}
+#knipskiste #bookingForm .bookingChoice legend{display:flex!important;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px!important}
+#knipskiste #bookingForm .bookingChoice legend .designUndecided{align-self:center;font:500 11px/1.3 Inter,sans-serif!important;padding:6px 10px!important;flex:0 0 auto}
+#knipskiste #start #design-erklaerung .designPackageGrid{margin-top:14px!important;gap:14px!important}
+#knipskiste #start #design-erklaerung .designPackage{padding:16px!important;display:flex;flex-direction:column}
+#knipskiste #start #design-erklaerung .designPackage h3{font:400 25px/1.2 'Bebas Neue',sans-serif!important;margin:0 0 10px!important}
+#knipskiste #start #design-erklaerung .designPackage ul{font:400 13px/1.6 Inter,sans-serif;margin:0 0 14px;padding-left:18px;flex:1}
+#knipskiste #start #design-erklaerung .designPackage .btn{font:600 12px/1.4 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important;padding:10px 14px!important;margin-top:auto!important}
+#knipskiste #start #design-erklaerung .designNote{margin-top:14px!important;margin-bottom:0!important;font-size:13px!important;padding:12px 16px!important}
+#knipskiste #start #design-erklaerung .functionPlaceholder{min-height:180px!important}
+@media(max-width:600px){#knipskiste.compactSubpage #start>.subpageHero{padding-top:102px!important;padding-bottom:12px!important}#knipskiste .infoTabs{max-width:420px}#knipskiste #bookingForm .bookingChoice legend{gap:8px;font-size:21px!important}}
+
+/* Helle Preiszeile mit konsistenter Schrift */
+#knipskiste #start .heroText .heroPriceLine{gap:10px 12px!important}
+#knipskiste #start .heroText .heroPriceLine a{font:500 14px/1.4 Inter,sans-serif!important;letter-spacing:0!important;color:#fff6eb!important;padding:9px 13px!important;border:1px solid rgba(255,239,220,.28)!important;border-radius:14px;background:rgba(255,245,231,.09);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);gap:8px!important}
+#knipskiste #start .heroText .heroPriceLine strong{font:700 22px/1.2 Inter,sans-serif!important;letter-spacing:-.4px!important;color:#ffbd91!important}
+#knipskiste #start .heroText .heroPriceLine a:hover{background:rgba(255,190,145,.16);border-color:#ffbd91!important}
+#knipskiste #start .heroText .heroPriceLine small{color:#f3e7d9!important}
+#knipskiste .boothImageStage{background-color:#dedad3!important;background-image:conic-gradient(#e9e5df 25%,#d4d0ca 0 50%,#e9e5df 0 75%,#d4d0ca 0)!important;background-size:16px 16px!important}
+#knipskiste .boothShot:first-child .boothImageStage{background:#202326!important}
+#knipskiste .bookingTemplate img{aspect-ratio:16/9!important;object-fit:contain!important;background:#202326}
