@@ -321,7 +321,7 @@ main>section,.footer{padding-left:var(--content-inset)!important;padding-right:v
 #knipskiste .infoDialog p,#knipskiste .infoDialog .designNote{font:400 14px/1.7 Inter,sans-serif!important;background:none!important;border:0!important;padding:0!important}
 #knipskiste .infoClose{position:absolute;right:10px;top:10px;background:none;color:#151515;border:0;box-shadow:none;padding:4px 10px;font:28px/1 Inter,sans-serif;cursor:pointer}
 #knipskiste .simpleDesignPhotos{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
-#knipskiste .simpleDesignPhoto{flex:1 1 200px;min-width:0;max-width:calc(25% - 12px);padding:0;background:none;border:0;box-shadow:none;cursor:zoom-in}
+#knipskiste .simpleDesignPhoto{flex:1 1 200px;min-width:0;max-width:none;padding:0;background:none;border:0;box-shadow:none;cursor:zoom-in}
 #knipskiste .simpleDesignPhoto img{width:100%;height:auto;display:block;object-fit:contain}
 #knipskiste .simpleDesignPhoto>span{display:block;font:400 12px/1.5 Inter,sans-serif;padding-top:8px;color:#151515}
 #knipskiste .templateControls{display:flex;justify-content:center;align-items:center;gap:22px;margin:14px 0}
@@ -331,7 +331,7 @@ main>section,.footer{padding-left:var(--content-inset)!important;padding-right:v
 #knipskiste .templatesSection .templateCardHead{overflow:visible!important;height:auto!important;min-height:0!important;align-items:center!important;padding:8px 0 14px!important}
 #knipskiste .templatesSection .templateCard h3{font:400 25px/1.7 Pacifico,cursive!important;margin:0!important;padding:3px 0!important;overflow:visible!important}
 #knipskiste .templatesSection .templateCardHead>span{padding-top:0!important}
-@media(max-width:700px){#knipskiste .simpleDesignPhoto{flex-basis:calc(50% - 8px);max-width:calc(50% - 8px)}#knipskiste #start .photoFeature .script,#knipskiste #start .aboutText>.script{font-size:25px!important}#knipskiste #start .heroText .actions{flex-direction:column!important}#knipskiste .templatesSection .templateCardHead{gap:2px!important}}
+@media(max-width:700px){#knipskiste .simpleDesignPhoto{flex-basis:calc(50% - 8px);max-width:none}#knipskiste #start .photoFeature .script,#knipskiste #start .aboutText>.script{font-size:25px!important}#knipskiste #start .heroText .actions{flex-direction:column!important}#knipskiste .templatesSection .templateCardHead{gap:2px!important}}
 /* Eigenständiger Vorlagenbereich: keine historischen Kartenregeln mehr. */
 #knipskiste .boothTemplates>.sectionHead{display:block;margin-bottom:18px!important}
 #knipskiste .boothTemplates .sectionHead h2{font:400 32px/1.2 'Bebas Neue',sans-serif;margin:8px 0}

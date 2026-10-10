@@ -163,3 +163,29 @@
 #knipskiste .boothImageStage{background-color:#dedad3!important;background-image:conic-gradient(#e9e5df 25%,#d4d0ca 0 50%,#e9e5df 0 75%,#d4d0ca 0)!important;background-size:16px 16px!important}
 #knipskiste .boothShot:first-child .boothImageStage{background:#202326!important}
 #knipskiste .bookingTemplate img{aspect-ratio:16/9!important;object-fit:contain!important;background:#202326}
+
+/* Offene orange Preiszeile und hervorgehobenes Wunschdesign */
+#knipskiste #start .heroText .heroPriceLine a,#knipskiste #start .heroText .heroPriceLine a:hover{font:400 17px/1.7 Pacifico,cursive!important;color:#eda376!important;background:none!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;backdrop-filter:none!important;letter-spacing:0!important;align-items:baseline!important}
+#knipskiste #start .heroText .heroPriceLine strong{font:400 23px/1.7 Pacifico,cursive!important;color:#ffba8c!important;letter-spacing:0!important}
+#knipskiste #start .heroText .heroPriceLine{gap:6px 25px!important}
+#knipskiste #start .heroText .heroPriceLine a:hover{color:#ffcaab!important}
+#knipskiste #start .singleOfferGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#knipskiste #start .customOffer{position:relative;border:1px solid rgba(237,163,118,.7)!important;background:linear-gradient(145deg,rgba(216,124,76,.23),rgba(255,240,220,.07))!important;box-shadow:0 12px 38px rgba(215,125,82,.13),inset 0 1px 0 rgba(255,255,255,.13)!important}
+#knipskiste .offerBadge{display:inline-block;margin:0 0 14px;padding:5px 12px;border-radius:20px;color:#241a14;background:#f1ac7d;font:600 11px/1.4 Inter,sans-serif!important;letter-spacing:.2px}
+#knipskiste .customHighlights{padding-left:18px;margin:12px 0 16px;font:400 14px/1.7 Inter,sans-serif!important}
+#knipskiste .customHighlights li{margin:5px 0}
+#knipskiste .customHighlights li::marker{color:#f1ac7d}
+#knipskiste .offerTotal{font-size:12px!important;opacity:.85}
+#knipskiste .customTemplate{border:1px solid rgba(237,163,118,.6)!important;background:rgba(215,125,82,.12)!important}
+#knipskiste #start .homeGallery{padding-left:0!important;padding-right:0!important;overflow:visible!important}
+#knipskiste .homeGalleryCarousel{width:100%!important;max-width:none!important;margin:0!important}
+#knipskiste .homeGalleryShell{display:block!important;position:relative;max-width:none!important;width:100%!important}
+#knipskiste .homeGalleryShell>button{position:absolute;top:calc(50% - 20px);z-index:2;width:38px!important;height:38px!important}
+#knipskiste .homeGalleryShell>button:first-child{left:-50px}
+#knipskiste .homeGalleryShell>button:last-child{right:-50px}
+#knipskiste .galleryNext{text-align:center;padding-top:24px!important;padding-bottom:28px!important}
+#knipskiste .galleryNext .script{font-size:25px!important;margin:0 0 8px}
+#knipskiste .galleryNext p:not(.script){font:400 14px/1.6 Inter,sans-serif!important}
+#knipskiste .galleryNext .actions{justify-content:center;flex-wrap:wrap}
+@media(max-width:1600px){#knipskiste .homeGalleryShell>button:first-child{left:-37px}#knipskiste .homeGalleryShell>button:last-child{right:-37px}}
+@media(max-width:700px){#knipskiste .homeGalleryShell>button:first-child{left:5px}#knipskiste .homeGalleryShell>button:last-child{right:5px}#knipskiste .homeGalleryShell>button{background:rgba(28,26,25,.85)!important;backdrop-filter:blur(8px)}#knipskiste #start .singleOfferGrid{grid-template-columns:1fr!important}#knipskiste #start .heroText .heroPriceLine a{font-size:15px!important}#knipskiste #start .heroText .heroPriceLine strong{font-size:20px!important}}

@@ -1,0 +1,185 @@
+/* Ruhiger Entwurf: dezentes Karo, klare Flächen, freie Textbereiche.
+   Die höhere Spezifität löst die bisherigen experimentellen Glasregeln ab. */
+#knipskiste#knipskiste#knipskiste {
+ --paper:#252729;--paper2:#2e3032;--cream:#f1f0ec;--muted:#bdbfbe;
+ --rust:#e79765;--rust-dark:#d68554;--line:rgba(255,255,255,.12);
+ --content-inset:max(28px,calc((100vw - 1240px)/2));
+ color:var(--cream)!important;background-color:var(--paper)!important;
+ background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px)!important;
+ background-size:48px 48px,48px 48px,192px 192px,192px 192px!important;
+ background-attachment:fixed!important;font:400 15px/1.65 Inter,system-ui,sans-serif;
+}
+#knipskiste#knipskiste#knipskiste::before,#knipskiste#knipskiste#knipskiste::after{display:none!important;content:none!important}
+#knipskiste#knipskiste#knipskiste #start{padding-top:0!important}
+#knipskiste#knipskiste#knipskiste #start *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#knipskiste#knipskiste#knipskiste #start>section{background:transparent!important;color:var(--cream)!important;border:0!important;border-radius:0!important;padding-left:var(--content-inset)!important;padding-right:var(--content-inset)!important}
+#knipskiste#knipskiste#knipskiste #start>section::before,#knipskiste#knipskiste#knipskiste #start>section::after{content:none!important}
+#knipskiste#knipskiste#knipskiste #start :is(p,li,h1,h2,h3,h4,label,small,strong,span,b,summary){color:var(--cream)!important}
+#knipskiste#knipskiste#knipskiste #start p,#knipskiste#knipskiste#knipskiste #start li{line-height:1.65!important}
+#knipskiste#knipskiste#knipskiste #start .script,#knipskiste#knipskiste#knipskiste #start .eyebrow{color:var(--rust)!important}
+#knipskiste#knipskiste#knipskiste #start .script{font:400 26px/1.5 Pacifico,cursive!important;margin:0 0 8px!important;text-shadow:none!important}
+#knipskiste#knipskiste#knipskiste #start h2{background:none!important;border:0!important;box-shadow:none!important;text-shadow:none!important;padding:0!important;margin:0 0 14px!important;line-height:1.15!important}
+/* Nur die schwebende Navigation bleibt leicht transparent. */
+#knipskiste#knipskiste#knipskiste .topbar{height:74px!important;min-height:74px!important;top:14px!important;width:calc(100% - 48px)!important;max-width:1296px!important;padding:0 24px!important;gap:24px!important;background:rgba(31,33,35,.94)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:20px!important;box-shadow:0 6px 18px rgba(0,0,0,.16)!important}
+#knipskiste#knipskiste#knipskiste .topbar nav a{font:500 14px/1.4 Inter,sans-serif!important;letter-spacing:0!important;text-transform:none!important;padding:9px 12px!important;border-radius:10px!important}
+#knipskiste#knipskiste#knipskiste .topbar nav a.active{background:rgba(231,151,101,.16)!important;color:#f3ad80!important}
+#knipskiste#knipskiste#knipskiste :is(.btn,.navbtn,button[type='submit']){font:600 13px/1.4 Inter,sans-serif!important;letter-spacing:0!important;text-transform:none!important;padding:11px 18px!important;border-radius:10px!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important;transition:background-color .18s ease,border-color .18s ease,color .18s ease!important;transform:none!important}
+#knipskiste#knipskiste#knipskiste :is(.btn.primary,.navbtn,button[type='submit']){background:var(--rust)!important;border:1px solid var(--rust)!important;color:#1d2022!important}
+#knipskiste#knipskiste#knipskiste :is(.btn.primary,.navbtn,button[type='submit']):hover{background:#f0a775!important;border-color:#f0a775!important;color:#1d2022!important}
+#knipskiste#knipskiste#knipskiste .btn.ghost{background:transparent!important;border:1px solid rgba(255,255,255,.22)!important;color:var(--cream)!important}
+#knipskiste#knipskiste#knipskiste .btn.ghost:hover{background:#343638!important;border-color:rgba(255,255,255,.4)!important}
+#knipskiste#knipskiste#knipskiste :is(.textLink,.packageDetail,.footer a:not(.logo)){color:#f0ac80!important;text-underline-offset:4px}
+#knipskiste#knipskiste#knipskiste a:focus-visible,#knipskiste#knipskiste#knipskiste button:focus-visible{outline:2px solid var(--rust)!important;outline-offset:4px!important}
+/* Leseflächen: keine pauschalen Glas- oder Lichtrahmen. */
+#knipskiste#knipskiste#knipskiste :is(.frostedSurface,.heroCard,.priceCard,.contactInfo,.inquiryPanel,.designPackage,.boothSlide,.sketchStep,.simpleDesignPhoto,.galleryTile,.homeGalleryCard,.functionGrid>div,.contactChannels a,.legalPageCard){backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background-image:none!important;box-shadow:none!important;filter:none!important;border-radius:14px!important;transform:none!important}
+#knipskiste#knipskiste#knipskiste :is(.frostedSurface,.heroCard,.priceCard,.contactInfo,.inquiryPanel,.designPackage,.boothSlide,.sketchStep)::before,#knipskiste#knipskiste#knipskiste :is(.frostedSurface,.heroCard,.priceCard,.contactInfo,.inquiryPanel,.designPackage,.boothSlide,.sketchStep)::after{content:none!important;display:none!important}
+/* Freier Einstieg, die Fotobox steht im Vordergrund. */
+#knipskiste#knipskiste#knipskiste #start>.hero{padding-top:132px!important;padding-bottom:28px!important;min-height:580px!important;gap:44px!important;align-items:center!important;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;overflow:visible!important}
+#knipskiste#knipskiste#knipskiste .heroText.heroCard{background:none!important;border:0!important;padding:0!important;margin-left:0!important;max-width:660px!important;border-radius:0!important}
+#knipskiste#knipskiste#knipskiste .hero h1 span{font-size:clamp(64px,7.5vw,104px)!important;line-height:.95!important;transform:none!important;letter-spacing:1px!important;text-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .hero h1 em{font:400 clamp(36px,4.5vw,58px)/1.25 Pacifico,cursive!important;margin:0!important;color:var(--rust)!important;transform:none!important;text-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .hero .lead{font-size:16px!important;line-height:1.7!important;margin-top:20px!important;color:#d4d5d1!important;max-width:580px}
+#knipskiste#knipskiste#knipskiste .heroPriceLine{margin-top:18px!important}
+#knipskiste#knipskiste#knipskiste .heroPriceLine a{background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;padding:0!important;color:var(--rust)!important;font:400 17px/1.7 Pacifico,cursive!important}
+#knipskiste#knipskiste#knipskiste .heroPriceLine strong{color:var(--rust)!important;font:400 23px/1.5 Pacifico,cursive!important}
+#knipskiste#knipskiste#knipskiste .heroPriceLine small{color:#bdbfbe!important;font:400 12px/1.6 Inter,sans-serif!important}
+#knipskiste#knipskiste#knipskiste .hero .actions{gap:12px!important;margin-top:22px!important}
+#knipskiste#knipskiste#knipskiste .heroShowcase{min-height:420px!important;max-height:480px!important;display:grid;place-items:center;transform:none!important}
+#knipskiste#knipskiste#knipskiste :is(.showcaseArch,.showcaseGlow){display:none!important}
+#knipskiste#knipskiste#knipskiste .showcaseCard{background:none!important;border:0!important;box-shadow:none!important;transform:none!important;padding:0!important;position:relative!important;inset:auto!important;width:100%!important;height:440px!important}
+#knipskiste#knipskiste#knipskiste .heroBoothClean{width:100%!important;height:100%!important;object-fit:contain!important;filter:none!important;animation:none!important;transform:none!important}
+/* Zwei klar lesbare Angebote, der eigene Entwurf bekommt nur einen Akzent. */
+#knipskiste#knipskiste#knipskiste .priceCard{background:#2e3032!important;border:1px solid rgba(255,255,255,.13)!important;padding:24px!important}
+#knipskiste#knipskiste#knipskiste .compactPriceGrid{gap:18px!important}
+#knipskiste#knipskiste#knipskiste .priceCard.customOffer{background:#303133!important;border-color:rgba(231,151,101,.5)!important}
+#knipskiste#knipskiste#knipskiste .offerBadge{background:rgba(231,151,101,.12)!important;color:#f0ac80!important;border:0!important;border-radius:6px!important;font:600 11px/1.5 Inter,sans-serif!important;padding:5px 9px!important;box-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .priceCard>strong{color:var(--rust)!important}
+#knipskiste#knipskiste#knipskiste .bookingNote{color:#bdbfbe!important;font-size:12px!important}
+/* Bild + Text, ohne zusätzliche Rahmen um den Text. */
+#knipskiste#knipskiste#knipskiste .photoFeature{gap:32px!important;align-items:center!important}
+#knipskiste#knipskiste#knipskiste .featureImageWrap{background:none!important;border:0!important;padding:0!important;border-radius:14px!important;overflow:hidden}
+#knipskiste#knipskiste#knipskiste .featureImage{border:0!important;box-shadow:none!important;border-radius:14px!important;min-height:0!important;max-height:360px!important;object-fit:cover}
+#knipskiste#knipskiste#knipskiste .featureCopy p:not(.script){font-size:14px!important;color:#d4d5d1!important}
+#knipskiste#knipskiste#knipskiste .placeholderList{gap:15px!important;margin:14px 0 18px!important}
+#knipskiste#knipskiste#knipskiste .placeholderList a{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;color:#f0ac80!important;text-decoration:underline;text-underline-offset:4px;font:500 12px/1.5 Inter,sans-serif!important}
+/* Galerie: Fotos und Beschriftung, keine gläsernen Bildkarten. */
+#knipskiste#knipskiste#knipskiste :is(.galleryTile,.homeGalleryCard){background:transparent!important;border:0!important;border-radius:0!important;overflow:visible!important}
+#knipskiste#knipskiste#knipskiste :is(.galleryTile img,.homeGalleryCard img){border-radius:12px!important}
+#knipskiste#knipskiste#knipskiste :is(.galleryCaption,.homeGalleryCard span){background:none!important;padding:8px 0!important;color:#c7c9c7!important;font:400 12px/1.5 Inter,sans-serif!important}
+#knipskiste#knipskiste#knipskiste .galleryNext{background:none!important;border:0!important;border-top:1px solid var(--line)!important;box-shadow:none!important;backdrop-filter:none!important;border-radius:0!important;padding:24px 0!important}
+#knipskiste#knipskiste#knipskiste .homeGalleryShell>button,#knipskiste#knipskiste#knipskiste .boothControls button[data-slide]{background:#303234!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:50%!important}
+@media(min-width:701px) and (max-width:1360px){#knipskiste#knipskiste#knipskiste .homeGalleryShell>button:first-child{left:-25px!important}#knipskiste#knipskiste#knipskiste .homeGalleryShell>button:last-child{right:-25px!important}}
+/* Kompakte Unterseiten, weiterhin vier direkt anwählbare Bereiche. */
+#knipskiste#knipskiste#knipskiste #start>.subpageHero{padding-top:124px!important;padding-bottom:18px!important}
+#knipskiste#knipskiste#knipskiste .subpageHero .eyebrow{font-size:16px!important;margin-bottom:6px!important}
+#knipskiste#knipskiste#knipskiste .subpageHero h1{font-size:clamp(36px,4.5vw,56px)!important;line-height:1.1!important;text-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .subpageHero .btn{margin-top:15px!important}
+#knipskiste#knipskiste#knipskiste .infoTabs{gap:6px!important;max-width:740px!important;padding:4px 0!important}
+#knipskiste#knipskiste#knipskiste .infoTabs a{font:500 13px/1.4 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important;padding:10px 16px!important;border:1px solid transparent!important;background:none!important;border-radius:8px!important;box-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .infoTabs a[aria-current='location']{background:#37312d!important;color:#f3ad80!important;border-color:rgba(231,151,101,.22)!important}
+#knipskiste#knipskiste#knipskiste .functionGrid{gap:32px!important;align-items:start!important}
+#knipskiste#knipskiste#knipskiste .functionGrid>div{background:none!important;border:0!important;padding:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;height:auto!important}
+#knipskiste#knipskiste#knipskiste .functionGrid>div>h2{margin-left:0!important;margin-right:0!important}
+#knipskiste#knipskiste#knipskiste .functionGrid p{font-size:14px!important;color:#d4d5d1!important}
+#knipskiste#knipskiste#knipskiste .functionVisual img{border:0!important;border-radius:12px!important;box-shadow:none!important;max-height:340px!important;object-fit:cover}
+#knipskiste#knipskiste#knipskiste .functionPlaceholder{background:#2b2d2f!important;border:1px dashed rgba(255,255,255,.2)!important;border-radius:12px!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding:20px!important;color:#bdbfbe!important;min-height:190px!important}
+#knipskiste#knipskiste#knipskiste .sharedBlackInfo .functionGrid>div.functionPlaceholder{background:#2b2d2f!important;border:1px dashed rgba(255,255,255,.2)!important;padding:20px!important;border-radius:12px!important}
+#knipskiste#knipskiste#knipskiste .designPackage{background:none!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;padding:16px 0!important}
+#knipskiste#knipskiste#knipskiste .designNote{background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;padding:0!important;font-size:13px!important}
+#knipskiste#knipskiste#knipskiste .boothSlide{background:#2e3032!important;border:1px solid var(--line)!important;padding:18px!important}
+#knipskiste#knipskiste#knipskiste .boothShot{background:#26282a!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:10px!important;backdrop-filter:none!important}
+#knipskiste#knipskiste#knipskiste .boothSlideHeading{padding:0 0 12px!important;margin-bottom:12px!important}
+#knipskiste#knipskiste#knipskiste .designExamples>.sectionHead{background:none!important;border:0!important;padding:0!important}
+#knipskiste#knipskiste#knipskiste .simpleDesignPhoto{background:#2e3032!important;border:1px solid var(--line)!important;padding:10px!important}
+#knipskiste#knipskiste#knipskiste .sketchStep{background:none!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;padding:0 0 18px!important}
+#knipskiste#knipskiste#knipskiste .sketchStep img{background:#e9e7e1!important;border-radius:10px!important;padding:10px!important;height:170px!important;object-fit:contain}
+#knipskiste#knipskiste#knipskiste .sketchStep h3{font-size:25px!important;margin:12px 0 8px!important}
+#knipskiste#knipskiste#knipskiste .sketchNumber{border-radius:6px!important;box-shadow:none!important;background:#3b322c!important;color:#f3ad80!important}
+#knipskiste#knipskiste#knipskiste #faq .faqGrid details{background:#2e3032!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:10px!important;backdrop-filter:none!important;padding:16px!important}
+#knipskiste#knipskiste#knipskiste #faq .faqGrid summary{font:600 14px/1.5 Inter,sans-serif!important;text-transform:none!important;letter-spacing:0!important;filter:none!important;text-shadow:none!important}
+/* Kontakt frei, das Formular als eine einzige Arbeitsfläche. */
+#knipskiste#knipskiste#knipskiste .contactGrid{gap:36px!important}
+#knipskiste#knipskiste#knipskiste .contactInfo{background:none!important;border:0!important;border-radius:0!important;padding:0!important}
+#knipskiste#knipskiste#knipskiste .contactChannels{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+#knipskiste#knipskiste#knipskiste .contactChannels{background:none!important;border:0!important;padding:0!important}
+#knipskiste#knipskiste#knipskiste .contactChannels a{background:none!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;padding:12px 0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#knipskiste#knipskiste#knipskiste .inquiryPanel{background:#2e3032!important;border:1px solid var(--line)!important;padding:24px!important}
+#knipskiste#knipskiste#knipskiste .inquiryPanel :is(input,select,textarea){background:#252729!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:8px!important;color:var(--cream)!important;box-shadow:none!important;backdrop-filter:none!important;padding:11px 12px!important}
+#knipskiste#knipskiste#knipskiste .inquiryPanel :is(input,textarea)::placeholder{color:#aeb0ad!important}
+#knipskiste#knipskiste#knipskiste .bookingTemplate{background:#252729!important;border-color:rgba(255,255,255,.14)!important;border-radius:10px!important;box-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .bookingTemplate[aria-pressed='true']{background:#3b312b!important;border-color:var(--rust)!important;box-shadow:inset 0 0 0 1px var(--rust)!important}
+#knipskiste#knipskiste#knipskiste .customDesignVisual{background:#37312d!important;color:#f3ad80!important}
+#knipskiste#knipskiste#knipskiste .designUndecided{background:transparent!important;border-color:rgba(255,255,255,.25)!important;border-radius:8px!important}
+#knipskiste#knipskiste#knipskiste .aboutImages .aboutPhoto{box-shadow:none!important;border:0!important;transform:none!important;border-radius:12px!important;overflow:hidden}
+#knipskiste#knipskiste#knipskiste .aboutPhoto.placeholder{background:#2e3032!important;border:1px dashed var(--line)!important}
+#knipskiste#knipskiste#knipskiste .legalPageCard{background:none!important;border:0!important;padding:0!important}
+#knipskiste#knipskiste#knipskiste .footer{background:#202224!important;border-top:1px solid var(--line)!important;border-radius:0!important;padding:30px var(--content-inset)!important;color:#c7c9c7!important;font-size:13px!important}
+#knipskiste#knipskiste#knipskiste .footer b{font:600 13px/1.5 Inter,sans-serif!important;letter-spacing:0!important}
+#knipskiste#knipskiste#knipskiste .lightboxFigure img{border:0!important;border-radius:10px!important}
+@media(max-width:1000px){
+ #knipskiste#knipskiste#knipskiste #start>.hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;gap:24px!important}
+ #knipskiste#knipskiste#knipskiste .hero h1 span{font-size:72px!important}
+ #knipskiste#knipskiste#knipskiste .hero h1 em{font-size:42px!important}
+ #knipskiste#knipskiste#knipskiste .heroShowcase,#knipskiste#knipskiste#knipskiste .showcaseCard{height:380px!important;min-height:0!important}
+}
+@media(max-width:700px){
+ #knipskiste#knipskiste#knipskiste{--content-inset:20px}
+ #knipskiste#knipskiste#knipskiste .topbar{top:10px!important;height:68px!important;min-height:68px!important;width:calc(100% - 24px)!important;padding:0 14px!important;gap:10px!important;border-radius:16px!important}
+ #knipskiste#knipskiste#knipskiste .topbar .navbtn{padding:9px 10px!important;font-size:11px!important}
+ #knipskiste#knipskiste#knipskiste .topbar .brand{gap:6px!important;min-width:0!important}
+ #knipskiste#knipskiste#knipskiste .brandMark{width:30px!important;height:30px!important;flex-basis:30px!important}
+ #knipskiste#knipskiste#knipskiste .brand .logo{min-width:112px!important;width:112px!important}
+ #knipskiste#knipskiste#knipskiste .brand .logo strong{font-size:26px!important}
+ #knipskiste#knipskiste#knipskiste .brand .logo span{font-size:12px!important;letter-spacing:2px!important;margin-left:12px!important}
+ #knipskiste#knipskiste#knipskiste .mobileMenuButton{width:30px!important;min-width:30px!important;padding:3px!important;font-size:19px!important;border-radius:8px!important}
+ #knipskiste#knipskiste#knipskiste #start>.hero{grid-template-columns:1fr!important;padding-top:108px!important;gap:18px!important;padding-bottom:16px!important;min-height:0!important}
+ #knipskiste#knipskiste#knipskiste .hero h1 span{font-size:70px!important}
+ #knipskiste#knipskiste#knipskiste .hero h1 em{font-size:40px!important}
+ #knipskiste#knipskiste#knipskiste .hero .lead{font-size:14px!important;margin-top:14px!important}
+ #knipskiste#knipskiste#knipskiste .heroShowcase,#knipskiste#knipskiste#knipskiste .showcaseCard{height:300px!important;min-height:0!important}
+ #knipskiste#knipskiste#knipskiste #start>.subpageHero{padding-top:108px!important}
+ #knipskiste#knipskiste#knipskiste .infoTabs a{padding:10px 8px!important;font-size:12px!important}
+ #knipskiste#knipskiste#knipskiste .functionGrid{gap:20px!important}
+ #knipskiste#knipskiste#knipskiste .inquiryPanel,#knipskiste#knipskiste#knipskiste .priceCard{padding:18px!important}
+ #knipskiste#knipskiste#knipskiste .heroPriceLine{gap:4px 16px!important}
+ #knipskiste#knipskiste#knipskiste .heroPriceLine a{font-size:15px!important}
+ #knipskiste#knipskiste#knipskiste .heroPriceLine strong{font-size:20px!important}
+}
+@media(max-width:370px){#knipskiste#knipskiste#knipskiste .brandMark{display:none!important}#knipskiste#knipskiste#knipskiste .hero h1 span{font-size:60px!important}}
+@media(prefers-reduced-motion:reduce){#knipskiste#knipskiste#knipskiste *,#knipskiste#knipskiste#knipskiste *::before,#knipskiste#knipskiste#knipskiste *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Gezielte Akzente: große Karos, weiche Außenkanten und die orange Bühne. */
+#knipskiste#knipskiste#knipskiste::after{
+ content:""!important;display:block!important;position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(90deg,#252729 0%,rgba(37,39,41,.65) 3%,rgba(37,39,41,0) 13%,rgba(37,39,41,0) 87%,rgba(37,39,41,.65) 97%,#252729 100%)!important;
+}
+#knipskiste#knipskiste#knipskiste .heroShowcase{width:100%!important;isolation:isolate}
+#knipskiste#knipskiste#knipskiste .showcaseCard{min-height:0!important}
+#knipskiste#knipskiste#knipskiste .showcaseArch{
+ display:block!important;position:absolute!important;left:50%!important;top:auto!important;bottom:12px!important;
+ transform:translateX(-50%)!important;width:76%!important;max-width:360px!important;height:84%!important;
+ border-radius:220px 220px 12px 12px!important;background:linear-gradient(180deg,#e79765,#ca754a)!important;
+ box-shadow:18px 0 0 rgba(231,151,101,.08)!important;z-index:1!important;
+}
+#knipskiste#knipskiste#knipskiste #start .homePackages .singleOfferGrid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)!important}
+#knipskiste#knipskiste#knipskiste #start .homePackages .priceCard{
+ background-color:rgba(46,48,50,.74)!important;
+ background-image:linear-gradient(140deg,rgba(255,255,255,.045),rgba(255,255,255,0) 65%)!important;
+ backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;
+ border-color:rgba(255,255,255,.18)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 8px 24px rgba(0,0,0,.08)!important;
+}
+#knipskiste#knipskiste#knipskiste #start .homePackages .priceCard.customOffer{
+ background-color:rgba(55,48,43,.7)!important;
+ border-color:rgba(231,151,101,.48)!important;
+ background-image:linear-gradient(145deg,rgba(231,151,101,.07),transparent 65%)!important;
+}
+@supports not ((backdrop-filter:blur(12px)) or (-webkit-backdrop-filter:blur(12px))){
+ #knipskiste#knipskiste#knipskiste #start .homePackages .priceCard{background:#2e3032!important}
+ #knipskiste#knipskiste#knipskiste #start .homePackages .priceCard.customOffer{background:#37302b!important}
+}
+@media(max-width:900px){#knipskiste#knipskiste#knipskiste #start .homePackages .singleOfferGrid{grid-template-columns:1fr!important}}
+@media(max-width:700px){
+ #knipskiste#knipskiste#knipskiste::after{background:linear-gradient(90deg,rgba(37,39,41,.7),transparent 9%,transparent 91%,rgba(37,39,41,.7))!important}
+ #knipskiste#knipskiste#knipskiste .showcaseArch{width:68%!important;max-width:280px!important;bottom:8px!important;box-shadow:12px 0 0 rgba(231,151,101,.08)!important}
+}

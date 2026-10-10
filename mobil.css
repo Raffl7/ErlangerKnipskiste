@@ -1,0 +1,58 @@
+/* Schwarze Abteilungen und klar getrennte Designwege. */
+#knipskiste#knipskiste#knipskiste #start>section:is(.photoFeature,.sharedBlackInfo,.aboutSection,.faqWide){background:#17191b!important;border-top:1px solid rgba(255,255,255,.07)!important;border-bottom:1px solid rgba(255,255,255,.07)!important;padding-top:30px!important;padding-bottom:30px!important}
+#knipskiste#knipskiste#knipskiste .hero h1 span{transform:rotate(-2.5deg)!important;transform-origin:left center!important}
+#knipskiste#knipskiste#knipskiste .hero h1 em{transform:rotate(-4deg)!important;transform-origin:left center!important;margin-top:4px!important}
+#knipskiste#knipskiste#knipskiste .heroShowcase{min-height:500px!important;height:500px!important;max-height:none!important}
+#knipskiste#knipskiste#knipskiste .showcaseCard{height:500px!important;max-width:none!important;overflow:visible!important}
+#knipskiste#knipskiste#knipskiste .heroBoothClean{max-height:none!important;object-position:center bottom!important}
+#knipskiste#knipskiste#knipskiste .featureImage{height:auto!important;width:100%!important;max-height:none!important;min-height:0!important;aspect-ratio:auto!important;object-fit:contain!important}
+#knipskiste#knipskiste#knipskiste .siteRequirements{display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:8px 36px!important;align-items:start!important}
+#knipskiste#knipskiste#knipskiste .requirementsIntro h2{font:400 34px/1.15 'Bebas Neue',sans-serif!important}
+#knipskiste#knipskiste#knipskiste .requirementsIntro p:not(.script){font-size:14px!important;color:#c7c9c7!important}
+#knipskiste#knipskiste#knipskiste .requirementsList{margin:0!important;padding:0!important;list-style:none;display:grid;gap:12px}
+#knipskiste#knipskiste#knipskiste .requirementsList li{padding-left:18px;position:relative;font:400 13px/1.6 Inter,sans-serif!important}
+#knipskiste#knipskiste#knipskiste .requirementsList li::before{content:'✓';position:absolute;left:0;color:var(--rust)}
+#knipskiste#knipskiste#knipskiste .requirementsList strong{display:block;font-weight:600}
+#knipskiste#knipskiste#knipskiste .requirementsList span{color:#c7c9c7!important}
+#knipskiste#knipskiste#knipskiste .siteRequirements>.textLink{grid-column:2;font:500 13px/1.6 Inter,sans-serif!important}
+#knipskiste#knipskiste#knipskiste .designColumns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+#knipskiste#knipskiste#knipskiste .designColumns>div{min-width:0}
+#knipskiste#knipskiste#knipskiste .customDesignColumn{border-left:1px solid rgba(231,151,101,.3);padding-left:36px}
+#knipskiste#knipskiste#knipskiste .designColumns .designPackage{border:0!important;padding:0!important;margin:0 0 18px!important}
+#knipskiste#knipskiste#knipskiste .designPackage h3{font:400 29px/1.2 'Bebas Neue',sans-serif!important;margin:0 0 10px!important}
+#knipskiste#knipskiste#knipskiste .designChoiceText{font:400 14px/1.7 Inter,sans-serif!important;color:#d4d5d1!important;margin:0 0 12px!important}
+#knipskiste#knipskiste#knipskiste .designPackage ul{font:400 13px/1.65 Inter,sans-serif!important;margin:0 0 14px!important;padding-left:18px!important}
+#knipskiste#knipskiste#knipskiste .designExampleTitle{font:600 14px/1.5 Inter,sans-serif!important;margin:16px 0 8px!important;text-transform:none!important;letter-spacing:0!important}
+#knipskiste#knipskiste#knipskiste :is(.imageHelp,.swipeHint){font:400 12px/1.6 Inter,sans-serif!important;color:#c7c9c7!important;margin:0 0 12px!important}
+#knipskiste#knipskiste#knipskiste .swipeHint{color:#f0ac80!important}
+#knipskiste#knipskiste#knipskiste .designColumns section{padding:0!important;background:transparent!important;border:0!important}
+#knipskiste#knipskiste#knipskiste .boothShots{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#knipskiste#knipskiste#knipskiste .boothShot:first-child{grid-column:1/-1!important;width:100%!important}
+#knipskiste#knipskiste#knipskiste .boothSlides{touch-action:pan-y pinch-zoom}
+#knipskiste#knipskiste#knipskiste .boothSlide[hidden]{display:none!important}
+#knipskiste#knipskiste#knipskiste .boothControls{display:flex;justify-content:center;align-items:center;gap:12px;margin:14px 0 0!important}
+#knipskiste#knipskiste#knipskiste .simpleDesignPhotos{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+#knipskiste#knipskiste#knipskiste .simpleDesignPhoto{height:auto!important;min-height:0!important;max-height:none!important;width:100%!important;padding:10px!important;overflow:hidden!important;cursor:zoom-in}
+#knipskiste#knipskiste#knipskiste .simpleDesignPhoto img{width:100%!important;height:auto!important;max-height:none!important;min-height:0!important;aspect-ratio:auto!important;object-fit:contain!important;border:0!important;border-radius:6px!important}
+#knipskiste#knipskiste#knipskiste .simpleDesignPhoto span{font:400 12px/1.5 Inter,sans-serif!important;display:block;padding:8px 0 0!important}
+/* Bildansicht: Zurück schließt sie; horizontales Wischen wechselt das Bild. */
+#knipskiste#knipskiste#knipskiste .lightbox{padding:64px 60px 76px!important;touch-action:pan-y pinch-zoom}
+#knipskiste#knipskiste#knipskiste .lightboxFigure{max-width:min(1400px,100%)!important}
+#knipskiste#knipskiste#knipskiste .lightboxFigure img{width:100%!important;height:auto!important;max-height:calc(100dvh - 175px)!important;object-fit:contain!important;background:#252729!important}
+#knipskiste#knipskiste#knipskiste .lightboxFigure figcaption{font:400 13px/1.5 Inter,sans-serif!important;margin:12px 0 0!important;color:#f1f0ec}
+#knipskiste#knipskiste#knipskiste :is(.lightboxPrev,.lightboxNext){position:absolute;top:50%;transform:translateY(-50%)!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;border-radius:50%!important;background:#333638!important;border:1px solid rgba(255,255,255,.25)!important;color:#f1f0ec!important;font:400 30px/1 Inter,sans-serif!important;box-shadow:none!important}
+#knipskiste#knipskiste#knipskiste .lightboxPrev{left:10px}
+#knipskiste#knipskiste#knipskiste .lightboxNext{right:10px}
+#knipskiste#knipskiste#knipskiste :is(.lightboxPrev,.lightboxNext)[hidden]{display:none!important}
+#knipskiste#knipskiste#knipskiste .lightboxHelp{position:absolute;bottom:22px;left:16px;right:16px;text-align:center;color:#d4d5d1!important;font:400 12px/1.6 Inter,sans-serif!important;margin:0!important;pointer-events:none}
+@media(max-width:1000px){#knipskiste#knipskiste#knipskiste .heroShowcase,#knipskiste#knipskiste#knipskiste .showcaseCard{height:430px!important;min-height:0!important}#knipskiste#knipskiste#knipskiste .designColumns{gap:24px}#knipskiste#knipskiste#knipskiste .customDesignColumn{padding-left:24px}}
+@media(max-width:800px){#knipskiste#knipskiste#knipskiste .designColumns{grid-template-columns:1fr;gap:28px}#knipskiste#knipskiste#knipskiste .customDesignColumn{border-left:0;border-top:1px solid rgba(231,151,101,.3);padding-left:0;padding-top:24px}}
+@media(max-width:700px){
+ #knipskiste#knipskiste#knipskiste .heroShowcase,#knipskiste#knipskiste#knipskiste .showcaseCard{height:360px!important;min-height:0!important}
+ #knipskiste#knipskiste#knipskiste .hero h1 em{font-size:36px!important}
+ #knipskiste#knipskiste#knipskiste .siteRequirements{grid-template-columns:1fr;gap:12px!important}
+ #knipskiste#knipskiste#knipskiste .siteRequirements>.textLink{grid-column:1}
+ #knipskiste#knipskiste#knipskiste .lightbox{padding:64px 12px 76px!important}
+ #knipskiste#knipskiste#knipskiste :is(.lightboxPrev,.lightboxNext){top:auto;bottom:14px;transform:none!important;width:36px!important;height:36px!important}
+ #knipskiste#knipskiste#knipskiste .lightboxHelp{left:56px;right:56px;bottom:18px}
+}
